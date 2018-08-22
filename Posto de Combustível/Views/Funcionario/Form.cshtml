@@ -1,0 +1,70 @@
+﻿<form action="/Funcionario/AdicionaUsuario" method="post">
+
+    <link href="~/Content/TelasCadastro/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <form class="form-horizontal">
+        <fieldset>
+            <!-- Form Name -->
+            <title>Cadastro do Usuário</title>
+            <!-- Adicionando Nome Completo-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idNome">Nome Completo:</label>
+                <div class="col-md-5">
+                    <input id="nome" name="usuario.Nome" type="text" placeholder="Nome do usuário" value="@ViewBag.Funcionario.Pessoa.Nome" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Adicionando Nome de usuário-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idDepto">Nome de Usuário:</label>
+                <div class="col-md-5">
+                    <input id="nomeusuario" name="funcionario.NomeUsuario" type="text" placeholder="Nome de Usuário" value="@ViewBag.Funcionario.NomeUsuario" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Adicionando Senha-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idSenha">Senha:</label>
+                <div class="col-md-5">
+                    <input id="senha" name="funcionario.Senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Adicionando Repita a Senha-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idrepita">Repita a senha:</label>
+                <div class="col-md-5">
+                    <input id="repitasenha" name="repitasenha" type="password" placeholder="Digite a senha Novamente" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Adicionando Email-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idEmail">Email:</label>
+                <div class="col-md-5">
+                    <input id="email" name="usuario.Email" type="text" placeholder="Digite o seu email" value="@ViewBag.Funcionario.Pessoa.Email" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <!-- Selecionando Nível de Acesso ao Sistema -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idAdmin">Nível de Acesso:</label>
+                <div class="col-md-5">
+                    <select id="nivelacesso" name="funcionario.NivelAcesso" class="form-control">
+                        <option value="0">Administrador</option>
+                        <option value="1">Usuário</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Botão Confirmar e Cancelar -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="idConfirmar"></label>
+                <div class="col-md-8">
+                    <button id="idConfirmar" name="idConfirmar" class="btn btn-primary">confirmar</button>
+                    <button id="idCancelar" name="idCancelar" class="btn btn-danger">Cancelar</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
