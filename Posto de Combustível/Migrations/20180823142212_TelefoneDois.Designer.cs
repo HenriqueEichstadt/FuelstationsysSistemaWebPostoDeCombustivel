@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Posto_de_Combustível.DAO;
 
 namespace Posto_de_Combustivel.Migrations
 {
     [DbContext(typeof(PostoContext))]
-    partial class PostoContextModelSnapshot : ModelSnapshot
+    [Migration("20180823142212_TelefoneDois")]
+    partial class TelefoneDois
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +100,7 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<string>("CpfeCnpj");
 
-                    b.Property<DateTime>("Data");
+                    b.Property<DateTime>("DataDeNascimento");
 
                     b.Property<string>("Email")
                         .HasMaxLength(50);

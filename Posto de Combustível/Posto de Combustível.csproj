@@ -241,6 +241,14 @@
     <Compile Include="Migrations\20180822145125_Clientes.designer.cs">
       <DependentUpon>20180822145125_Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180823142212_TelefoneDois.cs" />
+    <Compile Include="Migrations\20180823142212_TelefoneDois.designer.cs">
+      <DependentUpon>20180823142212_TelefoneDois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180823190349_MudandoColunaData.cs" />
+    <Compile Include="Migrations\20180823190349_MudandoColunaData.designer.cs">
+      <DependentUpon>20180823190349_MudandoColunaData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />

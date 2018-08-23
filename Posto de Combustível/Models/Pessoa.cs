@@ -14,7 +14,7 @@ namespace Posto_De_Combustivel.Models
 
         public string Nome { get; set; }
 
-        public DateTime DataDeNascimento { get; set; }
+        public DateTime Data { get; set; }
 
         public char Genero { get; set; } 
         
@@ -26,7 +26,9 @@ namespace Posto_De_Combustivel.Models
         [MaxLength(50)]
         public string Email { get; set; }
 
-        public string Telefone { get; set; }
+        public string TelefoneUm { get; set; }
+
+        public string TelefoneDois { get; set; }
 
         public string CpfeCnpj { get; set; }
 

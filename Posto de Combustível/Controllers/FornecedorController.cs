@@ -11,20 +11,35 @@ namespace Posto_de_Combustivel.Controllers
 {
     public class FornecedorController : Controller
     {
-        
+
         // Tela que Exibe o cadastro de fornecedor
+        [AutorizacaoFilter]
         public ActionResult Index()
         {
+            ViewBag.Pessoa = new Pessoa();
+            ViewBag.Pessoa.Endereco = new Endereco();
+            
             return View();
         }
 
         // Action para Cadastrar Fornecedor
-        [AutorizacaoFilter]
+        [HttpPost]
         public ActionResult AdicionaFornecedor(Pessoa pessoa, Endereco endereco)
         {
 
             PessoaDAO dao = new PessoaDAO();
-            return View();
+            pessoa.TipoPessoa = 'J';
+            pessoa.Data = DateTime.Now;
+            if (pessoa != null && endereco != null)
+            {
+                dao.Adiciona(pessoa, endereco);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Pessoa = pessoa;
+                return View("Index");
+            }
         }
     }
 }

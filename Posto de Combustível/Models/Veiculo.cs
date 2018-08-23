@@ -15,8 +15,5 @@ namespace Posto_De_Combustivel.Models
         public int? Ano { get; set; }
         public string Placa { get; set; }
         public string Cor { get; set; }
-
-
-
     }
 }

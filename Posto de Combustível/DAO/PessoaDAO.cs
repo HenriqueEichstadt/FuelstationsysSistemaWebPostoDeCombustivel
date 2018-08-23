@@ -10,7 +10,7 @@ namespace Posto_de_Combustivel.DAO
 {
     public class PessoaDAO
     {
-        public void Adiciona(Pessoa pessoa)
+        public void Adiciona(Pessoa pessoa, Endereco endereco)
         {
             using (var context = new PostoContext())
             {
