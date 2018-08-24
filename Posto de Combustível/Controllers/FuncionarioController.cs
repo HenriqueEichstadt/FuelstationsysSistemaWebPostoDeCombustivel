@@ -21,10 +21,11 @@ namespace Posto_de_Combustivel.Controllers
         [AutorizacaoFilter]
         public ActionResult Form()
         {
-            ViewBag.Funcionario = new Funcionario() { Pessoa = new Pessoa() };
+            ViewBag.Funcionario = new Funcionario() { Pessoa = new Pessoa() { Endereco = new Endereco() } };
+
             return View();
         }
-                     
+
         [HttpPost]
         public ActionResult Autentica(String nomeusuario, String senha)
         {
@@ -45,6 +46,7 @@ namespace Posto_de_Combustivel.Controllers
         public ActionResult AdicionaUsuario(Funcionario funcionario, string repitasenha)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
+            funcionario.Pessoa.TipoPessoa = 'F';
             if (funcionario.Senha == repitasenha)
             {
                 dao.Adiciona(funcionario);

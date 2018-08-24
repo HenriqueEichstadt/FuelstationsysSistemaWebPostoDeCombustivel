@@ -25,7 +25,5 @@ namespace Posto_De_Combustivel.Models
 
         public int NivelAcesso { get; set; }
 
-
-
-    }
+      }
 }
