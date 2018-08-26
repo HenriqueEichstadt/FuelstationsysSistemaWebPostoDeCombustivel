@@ -32,8 +32,29 @@
                 </div>
                 <!-- Text input-->
                 <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Cargo <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="Nome" name="funcionario.Cargo" value="@ViewBag.Funcionario.Cargo" placeholder="Função do novo funcionário" class="form-control input-md" required="" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="radios">Nivel de acesso <h11>*</h11></label>
+                    <div class="col-md-4">
+                        <label required="" class="radio-inline" for="radios-0">
+                            <input name="funcionario.NivelAcesso" id="sexo" value="0" type="radio" required>
+                            Administrador
+                        </label>
+                        <label class="radio-inline" for="radios-1">
+                            <input name="funcionario.NivelAcesso" id="sexo" value="1" type="radio">
+                            Funcionário
+                        </label>
+                    </div>
+                </div>
+                    
+
+                <div class="form-group">
                     <label class="col-md-2 control-label" for="Nome">Nome Completo <h11>*</h11></label>
-                    <div class="col-md-8">
+                    <div class="col-md-5">
                         <input id="Nome" name="funcionario.pessoa.Nome" value="@ViewBag.Funcionario.Pessoa.Nome" placeholder="Nome do Cliente" class="form-control input-md" required="" type="text">
                     </div>
                 </div>
@@ -48,12 +69,12 @@
                     <label class="col-md-1 control-label" for="radios">Gênero <h11>*</h11></label>
                     <div class="col-md-4">
                         <label required="" class="radio-inline" for="radios-0">
-                            <input name="funcionario.pessoa.Genero" id="sexo" value="F" type="radio" required>
-                            Feminino
+                            <input name="funcionario.pessoa.Genero" id="sexo" value="M" type="radio" required>
+                            Masculino
                         </label>
                         <label class="radio-inline" for="radios-1">
-                            <input name="funcionario.pessoa.Genero" id="sexo" value="M" type="radio">
-                            Masculino
+                            <input name="funcionario.pessoa.Genero" id="sexo" value="F" type="radio">
+                            Feminino
                         </label>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ namespace Posto_de_Combustivel.Controllers
         public ActionResult AdicionaFornecedor(Pessoa pessoa, Endereco endereco)
         {
 
-            PessoaDAO dao = new PessoaDAO();
+            FornecedorDAO dao = new FornecedorDAO();
             pessoa.TipoPessoa = 'J';
             pessoa.Data = DateTime.Now;
             if (pessoa != null && endereco != null)

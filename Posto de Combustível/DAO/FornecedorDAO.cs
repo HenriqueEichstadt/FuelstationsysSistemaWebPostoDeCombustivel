@@ -1,14 +1,14 @@
-﻿using Posto_de_Combustível.DAO;
+﻿using Microsoft.EntityFrameworkCore;
+using Posto_de_Combustível.DAO;
 using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Microsoft.EntityFrameworkCore;
 
 namespace Posto_de_Combustivel.DAO
 {
-    public class PessoaDAO
+    public class FornecedorDAO
     {
         public void Adiciona(Pessoa pessoa, Endereco endereco)
         {

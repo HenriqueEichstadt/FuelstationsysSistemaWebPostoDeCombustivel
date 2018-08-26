@@ -201,10 +201,12 @@
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PessoaController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
-    <Compile Include="DAO\PessoaDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\PostoContext.cs" />
+    <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -267,6 +269,7 @@
     <Content Include="Views\Funcionario\Index.cshtml" />
     <Content Include="Views\Funcionario\Form.cshtml" />
     <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -276,7 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Pessoa\" />
+    <Folder Include="Views\Veiculo\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
