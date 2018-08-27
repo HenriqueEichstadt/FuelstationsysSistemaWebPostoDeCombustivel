@@ -34,7 +34,7 @@ namespace Posto_de_Combustivel.Controllers
             if (funcionario != null)
             {
                 Session["FuncionarioLogado"] = funcionario;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MenuPrincipal", "Home");
 
             }
             else
