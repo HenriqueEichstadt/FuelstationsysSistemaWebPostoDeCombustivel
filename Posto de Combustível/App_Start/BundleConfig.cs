@@ -10,7 +10,8 @@ namespace Posto_de_Combustivel.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/Js").Include(
+            bundles.Add(new ScriptBundle("~/bundles/js")
+                .Include(
                       "~/Content/TemplateADMIN/assets/vendor/jquery/jquery.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/bootstrap/js/bootstrap.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/pace/pace.min.js",
@@ -41,8 +42,10 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/justgage-toorshia/justgage.js",
                       "~/Content/TemplateADMIN/assets/scripts/klorofilpro-common.js"));
 
-            bundles.Add(new StyleBundle("~/Css").Include(
+            bundles.Add(new StyleBundle("~/bundles/css")
+                .Include(
                       "~/Content/TemplateADMIN/assets/vendor/bootstrap/css/bootstrap.min.css",
+                      "~/Content/TemplateADMIN/assets/vendor/font-awesome/css/font-awesome.css",
                       "~/Content/TemplateADMIN/assets/vendor/font-awesome/css/font-awesome.min.css",
                       "~/Content/TemplateADMIN/assets/vendor/themify-icons/css/themify-icons.css",
                       "~/Content/TemplateADMIN/assets/vendor/pace/themes/orange/pace-theme-minimal.css",
@@ -57,7 +60,7 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/css/demo.css",
                       "~/Content/TemplateADMIN/demo-panel/style-switcher.css"));
 
-            BundleTable.EnableOptimizations = true;
+            //BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -1012,7 +1012,9 @@
     <Content Include="Content\TelasCadastro\bootstrap.min.js" />
     <Content Include="Content\TelasCadastro\jquery-1.11.1.min.js" />
     <Content Include="Content\TelasCadastro\Style.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1083,7 +1085,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\TemplateADMIN\assets\audio\popup.ogg" />
     <Content Include="Content\TemplateADMIN\assets\css\demo.min.css.map" />
     <Content Include="Content\TemplateADMIN\assets\css\main.min.css.map" />
@@ -1178,6 +1182,7 @@
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Shared\_MainView.cshtml" />
     <Content Include="Views\Home\MenuPrincipal.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -373,6 +373,7 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Xml.XmlSerializer.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Xml.XPath.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Xml.XPath.XDocument.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Antlr3.Runtime.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Http.Abstractions.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Http.Features.dll
@@ -394,6 +395,7 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Extensions.Options.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Extensions.Primitives.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Newtonsoft.Json.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Remotion.Linq.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Buffers.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Collections.Immutable.dll
@@ -402,15 +404,20 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Interactive.Async.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Memory.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Net.Http.Formatting.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Numerics.Vectors.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Text.Encodings.Web.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Helpers.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Http.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Mvc.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Optimization.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Razor.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.WebPages.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.WebPages.Razor.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\WebGrease.dll
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Antlr3.Runtime.pdb
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Http.Abstractions.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.AspNetCore.Http.Features.xml
@@ -431,17 +438,21 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Extensions.Options.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Newtonsoft.Json.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Remotion.Linq.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Buffers.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Collections.Immutable.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Interactive.Async.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Memory.xml
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Net.Http.Formatting.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Numerics.Vectors.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Text.Encodings.Web.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Helpers.xml
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Http.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Mvc.xml
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Optimization.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Razor.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.WebPages.xml
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.WebPages.Deployment.xml
@@ -452,20 +463,8 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\pt-br\System.Web.WebPages.resources.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\pt-br\System.Web.WebPages.Razor.resources.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.csprojAssemblyReference.cache
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.dll.config
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.csproj.CoreCompileInputs.cache
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.csproj.CopyComplete
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.pdb
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.dll.config
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Antlr3.Runtime.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Newtonsoft.Json.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Net.Http.Formatting.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Http.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Optimization.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\WebGrease.dll
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Antlr3.Runtime.pdb
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\Newtonsoft.Json.xml
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Net.Http.Formatting.xml
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Http.xml
-C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\bin\System.Web.Optimization.xml

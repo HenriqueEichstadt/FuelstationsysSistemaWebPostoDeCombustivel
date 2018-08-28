@@ -15,7 +15,7 @@ namespace Posto_de_Combustivel.Models
         public Cliente Cliente { get; set; }
         public int ClienteId { get; set;}
 
-
+        public char TipoVenda { get; set; }
 
 
         /*

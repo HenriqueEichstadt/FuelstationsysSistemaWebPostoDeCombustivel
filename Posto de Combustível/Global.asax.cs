@@ -11,12 +11,13 @@ namespace Posto_de_Combustível
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public object AuthConfig { get; private set; }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
         }
     }
 }

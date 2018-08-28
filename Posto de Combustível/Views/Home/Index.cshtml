@@ -1,35 +1,31 @@
-﻿
-@{
-    Layout = null;
-}
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Bem Vindo!</h1>
+            <p class="page-subtitle">Menu Principal do Sistema</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Menu Principal</a></li>
+        </ul>
+        </div>
 
-<!DOCTYPE html>
+        <div style="text-align: center;">
+            <h1>Menu Principal do Sistema</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/Content/TelasCadastro/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/TelasCadastro/Style.css">
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <h1>Menu Principal do Sistema</h1>
+            <nav>
+                <div style="text-align: center;">
+                    <button class="btn btn-default" onclick="window.location.href='/Home/Index'">Home</button>
+                    <hr />
+                    <button class="btn btn-default" onclick="window.location.href='/Funcionario/Index'">Tela de Login</button>
+                    <hr />
+                    <button class="btn btn-default" onclick="window.location.href='/Funcionario/Form'">Adicionar Funcionário</button>
+                    <hr />
+                    <button class="btn btn-default" onclick="window.location.href='/Fornecedor/Index'">Adicionar Fornecedor</button>
+                    <hr />
+                    <button class="btn btn-default" onclick="window.location.href='/Cliente/Index'">Adicionar Cliente</button>
+                </div>
+            </nav>
 
-        <nav>
-            <div>
-                <button onclick="window.location.href='/Home/Index'">Home</button>
-                <hr />
-                <button onclick="window.location.href='/Funcionario/Index'">Tela de Login</button>
-                <hr />
-                <button onclick="window.location.href='/Funcionario/Form'">Adicionar Funcionário</button>
-                <hr />
-                <button onclick="window.location.href='/Fornecedor/Index'">Adicionar Fornecedor</button>
-                <hr />
-                <button onclick="window.location.href='/Cliente/Index'">Adicionar Cliente</button>
-            </div>
-        </nav>
-
+        </div>
     </div>
-</body>
-</html>
