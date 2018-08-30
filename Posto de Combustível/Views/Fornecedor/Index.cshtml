@@ -1,209 +1,217 @@
-﻿<!DOCTYPE html>
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Bem Vindo!</h1>
+            <p class="page-subtitle">Cadastro</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Cadastro</a></li>
+            <li><a href="#">Cadastro de fornecedor</a></li>
+        </ul>
+    </div>
 
-<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cadastro de Fornecedor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="~/Content/TelasCadastro/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/TelasCadastro/Style.css">
+        <style type="text/css">
+        </style>
+        <script src="~/Content/TelasCadastro/jquery-1.11.1.min.js"></script>
+        <script src="~/Content/TelasCadastro/bootstrap.min.js"></script>
+    </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Cadastro de Fornecedor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/Content/TelasCadastro/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/TelasCadastro/Style.css">
-    <style type="text/css">
-    </style>
-    <script src="~/Content/TelasCadastro/jquery-1.11.1.min.js"></script>
-    <script src="~/Content/TelasCadastro/bootstrap.min.js"></script>
-</head>
+    <body>
+        <form action="/Fornecedor/AdicionaFornecedor" method="post">
+            <main class="form-horizontal">
 
-<body>
-    <form action="/Fornecedor/AdicionaFornecedor" method="post">
-        <main class="form-horizontal">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h1 id="titlePrincipal">Cadastro de Fornecedor</h1></div>
 
-            <div class="panel panel-primary">
-                <div class="panel-heading"><h1 id="titlePrincipal">Cadastro de Fornecedor</h1></div>
+                    <div class="panel-body">
+                        <div class="form-group">
 
-                <div class="panel-body">
-                    <div class="form-group">
-
-                        <div class="col-md-11 control-label">
-                            <p class="help-block">
-                                <h11>*</h11> Campo Obrigatório
-                            </p>
+                            <div class="col-md-11 control-label">
+                                <p class="help-block">
+                                    <h11>*</h11> Campo Obrigatório
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-3 control-label">
-                            <h3>Dados do fornecedor:</h3>
+                        <div class="form-group">
+                            <div class="col-md-3 control-label">
+                                <h3>Dados do fornecedor:</h3>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idNome">Nome do vendedor <h11></h11></label>
-                        <div class="col-md-3">
-                            <input id="nome" name="pessoa.Nome" value="@ViewBag.Pessoa.Nome" placeholder="Opcional" class="form-control input-md" type="text">
-                        </div>
-                    </div>
-
-                    <!-- Pessoa Jurídica-->
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idnomeEmpresa">Empresa <h11>*</h11></label>
-                        <div class="col-md-3">
-                            <input id="nomeEmpresa" name="pessoa.NomeFantasia" value="@ViewBag.Pessoa.NomeFantasia" placeholder="Nome da Empresa" class="form-control input-md" required="" type="text" maxlength="50">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idRazaoSocial">Razão Social <h11>*</h11></label>
-                        <div class="col-md-3">
-                            <input id="razaoSocial" name="pessoa.NomeRazaoSocial" value="@ViewBag.Pessoa.NomeRazaoSocial" placeholder="Razão Social" class="form-control input-md" required="" type="search" maxlength="50" pattern="[A-Za-z0-9._%+-#]+$">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idInscricaoEstadual">Inscrição Estadual <h11>*</h11></label>
-                        <div class="col-md-3">
-                            <input id="inscricaoEstadual" name="pessoa.InscricaoEstadual" value="@ViewBag.Pessoa.InscricaoEstadual" placeholder="Inscrição Estadual" class="form-control input-md" required="" type="search" maxlength="50" pattern="[0-9]+$">
-                        </div>
-                    </div>
-
-
-                    <!-- CPF/CNPJ-->
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idCpfeCnpj">CNPJ <h11>*</h11></label>
-                        <div class="col-md-3">
-                            <input id="CpfeCnpj" name="pessoa.CpfeCnpj" value="@ViewBag.Pessoa.CpfeCnpj" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="20" pattern="[0-9]+$">
-                        </div>
-
-                    </div>
-
-                    <!-- Prepended text-->
-                    <div class="form-group">
-
-                        <label class="col-md-2 control-label" for="idTelefoneUm">Telefone 1 <h11>*</h11></label>
-                        <div class="col-md-2">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="telefoneUm" name="pessoa.TelefoneUm" value="@ViewBag.Pessoa.TelefoneUm" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idNome">Nome do vendedor <h11></h11></label>
+                            <div class="col-md-3">
+                                <input id="nome" name="pessoa.Nome" value="@ViewBag.Pessoa.Nome" placeholder="Opcional" class="form-control input-md" type="text">
                             </div>
                         </div>
 
-                        <label class="col-md-1 control-label" for="idTelefoneDois">Telefone 2 <h11></h11></label>
-                        <div class="col-md-2">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="telefoneDois" name="pessoa.TelefoneDois" value="@ViewBag.Pessoa.TelefoneDois" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                        <!-- Pessoa Jurídica-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idnomeEmpresa">Empresa <h11>*</h11></label>
+                            <div class="col-md-3">
+                                <input id="nomeEmpresa" name="pessoa.NomeFantasia" value="@ViewBag.Pessoa.NomeFantasia" placeholder="Nome da Empresa" class="form-control input-md" required="" type="text" maxlength="50">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idRazaoSocial">Razão Social <h11>*</h11></label>
+                            <div class="col-md-3">
+                                <input id="razaoSocial" name="pessoa.NomeRazaoSocial" value="@ViewBag.Pessoa.NomeRazaoSocial" placeholder="Razão Social" class="form-control input-md" required="" type="search" maxlength="50" pattern="[A-Za-z0-9._%+-#]+$">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idInscricaoEstadual">Inscrição Estadual <h11>*</h11></label>
+                            <div class="col-md-3">
+                                <input id="inscricaoEstadual" name="pessoa.InscricaoEstadual" value="@ViewBag.Pessoa.InscricaoEstadual" placeholder="Inscrição Estadual" class="form-control input-md" required="" type="search" maxlength="50" pattern="[0-9]+$">
                             </div>
                         </div>
 
 
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idEmail">Email <h11>*</h11></label>
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input id="email" name="pessoa.Email" value="@ViewBag.Pessoa.Email" class="form-control" placeholder="email@email.com" required="" type="email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="idObservacoes">Observações <h11>    </h11></label>
-                        <div class="col-md-4">
-                            <input id="observacoes" name="pessoa.Observacoes" value="@ViewBag.Pessoa.Observacoes" placeholder="Opcional" maxlength="200" class="form-control input-md" type="text">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <div class="col-md-3 control-label">
-                            <h3>Dados de endereço:</h3>
-                        </div>
-                    </div>
-                    <!-- Prepended text -->
-                    <!-- CEP -->
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
-                        <div class="col-md-2">
-                            <input id="Cep" name="pessoa.endereco.Cep" value="@ViewBag.Pessoa.Endereco.Cep" placeholder="Apenas números" class="form-control input-md" required="" type="search" maxlength="9" pattern="[0-9]+$">
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
-                        <div class="col-md-4">
-                            <div class="input-group">
-                                <span class="input-group-addon">Rua</span>
-                                <input id="Rua" name="pessoa.endereco.Rua" value="@ViewBag.Pessoa.Endereco.Rua" class="form-control" placeholder="" required="" type="text">
-                            </div>
-
-                        </div>
-                        <div class="col-md-2">
-                            <div class="input-group">
-                                <span class="input-group-addon">Nº <h11>*</h11></span>
-                                <input id="Numero" name="pessoa.endereco.Numero" value="@ViewBag.Pessoa.Endereco.Numero" class="form-control" placeholder="" required="" type="text">
+                        <!-- CPF/CNPJ-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idCpfeCnpj">CNPJ <h11>*</h11></label>
+                            <div class="col-md-3">
+                                <input id="CpfeCnpj" name="pessoa.CpfeCnpj" value="@ViewBag.Pessoa.CpfeCnpj" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="20" pattern="[0-9]+$">
                             </div>
 
                         </div>
 
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">Bairro</span>
-                                <input id="Bairro" name="pessoa.endereco.Bairro" value="@ViewBag.Pessoa.Endereco.Bairro" class="form-control" placeholder="" required="" type="text">
+                        <!-- Prepended text-->
+                        <div class="form-group">
+
+                            <label class="col-md-2 control-label" for="idTelefoneUm">Telefone 1 <h11>*</h11></label>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input id="telefoneUm" name="pessoa.TelefoneUm" value="@ViewBag.Pessoa.TelefoneUm" class="form-control" placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                                </div>
                             </div>
 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="prependedtext"></label>
-                        <div class="col-md-4">
-                            <div class="input-group">
-                                <span class="input-group-addon">Cidade</span>
-                                <input id="cidade" name="pessoa.endereco.Cidade" value="@ViewBag.Pessoa.Endereco.Cidade" class="form-control" placeholder="" required="" type="text">
+                            <label class="col-md-1 control-label" for="idTelefoneDois">Telefone 2 <h11></h11></label>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input id="telefoneDois" name="pessoa.TelefoneDois" value="@ViewBag.Pessoa.TelefoneDois" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                                </div>
                             </div>
 
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idEmail">Email <h11>*</h11></label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input id="email" name="pessoa.Email" value="@ViewBag.Pessoa.Email" class="form-control" placeholder="email@email.com" required="" type="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="idObservacoes">Observações <h11>    </h11></label>
+                            <div class="col-md-4">
+                                <input id="observacoes" name="pessoa.Observacoes" value="@ViewBag.Pessoa.Observacoes" placeholder="Opcional" maxlength="200" class="form-control input-md" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-md-3 control-label">
+                                <h3>Dados de endereço:</h3>
+                            </div>
+                        </div>
+                        <!-- Prepended text -->
+                        <!-- CEP -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+                            <div class="col-md-2">
+                                <input id="Cep" name="pessoa.endereco.Cep" value="@ViewBag.Pessoa.Endereco.Cep" placeholder="Apenas números" class="form-control input-md" required="" type="search" maxlength="9" pattern="[0-9]+$">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                            </div>
                         </div>
 
-                        <div class="col-md-2">
-                            <div class="input-group">
-                                <span class="input-group-addon">Estado</span>
-                                <input id="estado" name="pessoa.endereco.Estado" value="@ViewBag.Pessoa.Endereco.Estado" class="form-control" placeholder="" required="" type="text">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Rua</span>
+                                    <input id="Rua" name="pessoa.endereco.Rua" value="@ViewBag.Pessoa.Endereco.Rua" class="form-control" placeholder="" required="" type="text">
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Nº <h11>*</h11></span>
+                                    <input id="Numero" name="pessoa.endereco.Numero" value="@ViewBag.Pessoa.Endereco.Numero" class="form-control" placeholder="" required="" type="text">
+                                </div>
+
                             </div>
 
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Bairro</span>
+                                    <input id="Bairro" name="pessoa.endereco.Bairro" value="@ViewBag.Pessoa.Endereco.Bairro" class="form-control" placeholder="" required="" type="text">
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">Complemento</span>
-                                <input id="complemento" name="pessoa.endereco.Complemento" value="@ViewBag.Pessoa.Endereco.Complemento" class="form-control" placeholder="" type="text">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="prependedtext"></label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Cidade</span>
+                                    <input id="cidade" name="pessoa.endereco.Cidade" value="@ViewBag.Pessoa.Endereco.Cidade" class="form-control" placeholder="" required="" type="text">
+                                </div>
+
                             </div>
 
+                            <div class="col-md-2">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Estado</span>
+                                    <input id="estado" name="pessoa.endereco.Estado" value="@ViewBag.Pessoa.Endereco.Estado" class="form-control" placeholder="" required="" type="text">
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">Complemento</span>
+                                    <input id="complemento" name="pessoa.endereco.Complemento" value="@ViewBag.Pessoa.Endereco.Complemento" class="form-control" placeholder="" type="text">
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <!-- Dados para Login -->
-                    <!-- Botão Cadastrar e Cancelar -->
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="Cadastrar"></label>
-                        <div class="col-md-8">
-                            <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
-                            <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                        <hr>
+                        <!-- Dados para Login -->
+                        <!-- Botão Cadastrar e Cancelar -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Cadastrar"></label>
+                            <div class="col-md-8">
+                                <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+                                <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
 
-            </div>
 
+            </main>
 
-        </main>
+        </form>
 
-    </form>
-
-</body>
-</html>
-
+    </body>
+</div>
 
 
 <script type="text/javascript">

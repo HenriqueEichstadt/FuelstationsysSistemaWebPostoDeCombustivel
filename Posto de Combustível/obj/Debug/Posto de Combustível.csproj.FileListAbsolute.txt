@@ -468,3 +468,4 @@ C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Com
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.csproj.CopyComplete
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.dll
 C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.pdb
+C:\Users\Henrique Eichst\Desktop\BENNER\Visual Studio\Projeto Banca\Posto de Combustivel\Posto de Combustível\obj\Debug\Posto de Combustível.csprojAssemblyReference.cache
