@@ -1,28 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Formulário</h1>
+            <p class="page-subtitle">Cadastrar novo cliente</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Formulário</a></li>
+            <li><a href="#">Cadastrar novo cliente</a></li>
+        </ul>
+    </div>
 
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Cadastro de Fornecedor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="~/Content/TelasCadastro/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/TelasCadastro/Style.css">
-    <style type="text/css">
-    </style>
-    <script src="~/Content/TelasCadastro/jquery-1.11.1.min.js"></script>
-    <script src="~/Content/TelasCadastro/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <form action="/Cliente/AdicionaCliente" method="post">
-        <div class="form-horizontal">
-
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h1 id="titlePrincipal">Cadastro de Cliente</h1>
-                </div>
-
+    <body>
+        <form action="/Cliente/AdicionaCliente" method="post">
+            <div class="form-horizontal">
                 <div class="panel-body">
                     <div class="form-group">
 
@@ -188,18 +179,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                           foreach (var veiculo in modalCadastroVeiculo)
+                            foreach (var veiculo in modalCadastroVeiculo)
                             {
-                                <tr>
-                                    <td>$veiculo.Marca</td>
-                                    <td>#veiculo.Modelo</td>
-                                    <td>$veiculo.Ano</td>
-                                    <td>$veiculo.Placa</td>
-                                    <td>$veiculo.Cor</td>
-                                    <td>
-                                        <a href="#" onclick="decrementa(produto.Id);">Decrementar</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>$veiculo.Marca</td>
+                                <td>#veiculo.Modelo</td>
+                                <td>$veiculo.Ano</td>
+                                <td>$veiculo.Placa</td>
+                                <td>$veiculo.Cor</td>
+                                <td>
+                                    <a href="#" onclick="decrementa(produto.Id);">Decrementar</a>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -388,146 +379,143 @@
                             <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
                         </div>
                     </div>
-
                 </div>
-    </div>
-    </div>
-    </form>
-
-</body>
-</html>
+            </div>
+        </form>
+    </body>
 
 
 
-<script type="text/javascript">
-    function limpa_formulario_cep() {
-        //Limpa valores do formulário de cep.
-        document.getElementById('rua').value = ("");
-        document.getElementById('bairro').value = ("");
-        document.getElementById('cidade').value = ("");
-        document.getElementById('estado').value = ("");
 
-    }
+    <script type="text/javascript">
+        function limpa_formulario_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('estado').value = ("");
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value = (conteudo.logradouro);
-            document.getElementById('bairro').value = (conteudo.bairro);
-            document.getElementById('cidade').value = (conteudo.localidade);
-            document.getElementById('estado').value = (conteudo.uf);
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulario_cep();
-            alert("CEP não encontrado.");
-            document.getElementById('cep').value = ("");
         }
-    }
 
-    function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep !== "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if (validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value = "...";
-                document.getElementById('bairro').value = "...";
-                document.getElementById('cidade').value = "...";
-                document.getElementById('estado').value = "...";
-
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('estado').value = (conteudo.uf);
             } //end if.
             else {
-                //cep é inválido.
+                //CEP não Encontrado.
                 limpa_formulario_cep();
-                alert("Formato de CEP inválido.");
+                alert("CEP não encontrado.");
+                document.getElementById('cep').value = ("");
             }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulario_cep();
-        }
-    }
-
-    function formatar(mascara, documento) {
-        var i = documento.value.length;
-        var saida = mascara.substring(0, 1);
-        var texto = mascara.substring(i);
-
-        if (texto.substring(0, 1) != saida) {
-            documento.value += texto.substring(0, 1);
         }
 
-    }
+        function pesquisacep(valor) {
 
-    function idade() {
-        var data = document.getElementById("dtnasc").value;
-        var dia = data.substr(0, 2);
-        var mes = data.substr(3, 2);
-        var ano = data.substr(6, 4);
-        var d = new Date();
-        var ano_atual = d.getFullYear(),
-            mes_atual = d.getMonth() + 1,
-            dia_atual = d.getDate();
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
 
-        ano = +ano,
-            mes = +mes,
-            dia = +dia;
+            //Verifica se campo cep possui valor informado.
+            if (cep !== "") {
 
-        var idade = ano_atual - ano;
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
 
-        if (mes_atual < mes || mes_atual == mes_aniversario && dia_atual < dia) {
-            idade--;
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('estado').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulario_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulario_cep();
+            }
         }
-        return idade;
-    }
+
+        function formatar(mascara, documento) {
+            var i = documento.value.length;
+            var saida = mascara.substring(0, 1);
+            var texto = mascara.substring(i);
+
+            if (texto.substring(0, 1) != saida) {
+                documento.value += texto.substring(0, 1);
+            }
+
+        }
+
+        function idade() {
+            var data = document.getElementById("dtnasc").value;
+            var dia = data.substr(0, 2);
+            var mes = data.substr(3, 2);
+            var ano = data.substr(6, 4);
+            var d = new Date();
+            var ano_atual = d.getFullYear(),
+                mes_atual = d.getMonth() + 1,
+                dia_atual = d.getDate();
+
+            ano = +ano,
+                mes = +mes,
+                dia = +dia;
+
+            var idade = ano_atual - ano;
+
+            if (mes_atual < mes || mes_atual == mes_aniversario && dia_atual < dia) {
+                idade--;
+            }
+            return idade;
+        }
 
 
-    function exibe(i) {
+        function exibe(i) {
 
 
 
-        document.getElementById(i).readOnly = true;
+            document.getElementById(i).readOnly = true;
 
 
 
 
-    }
+        }
 
-    function desabilita(i) {
+        function desabilita(i) {
 
-        document.getElementById(i).disabled = true;
-    }
+            document.getElementById(i).disabled = true;
+        }
 
-    function habilita(i) {
-        document.getElementById(i).disabled = false;
-    }
+        function habilita(i) {
+            document.getElementById(i).disabled = false;
+        }
 
 
-    function showhide() {
-        var div = document.getElementById("newpost");
+        function showhide() {
+            var div = document.getElementById("newpost");
 
-        if (idade() >= 18) {
+            if (idade() >= 18) {
 
-            div.style.display = "none";
-        } else if (idade() < 18) {
-            d
-</script>
+                div.style.display = "none";
+            } else if (idade() < 18) {
+                d
+    </script>

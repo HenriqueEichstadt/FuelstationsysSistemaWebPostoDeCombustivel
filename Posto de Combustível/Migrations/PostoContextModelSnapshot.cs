@@ -19,6 +19,24 @@ namespace Posto_de_Combustivel.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Posto_De_Combustivel.Models.Categoria", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CategoriaId");
+
+                    b.Property<string>("Nome")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.ToTable("Categorias");
+                });
+
             modelBuilder.Entity("Posto_De_Combustivel.Models.Cliente", b =>
                 {
                     b.Property<int>("Id")
@@ -64,6 +82,69 @@ namespace Posto_de_Combustivel.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Enderecos");
+                });
+
+            modelBuilder.Entity("Posto_De_Combustivel.Models.Estoque", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CategoriaDaSubcategoriaId");
+
+                    b.Property<int>("CategoriaId");
+
+                    b.Property<string>("Descricao");
+
+                    b.Property<int>("EstoqueAtual");
+
+                    b.Property<int?>("LimiteEstoque");
+
+                    b.Property<string>("Marca");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<int?>("PessoaId");
+
+                    b.Property<double>("PrecoCusto");
+
+                    b.Property<double>("PrecoVenda");
+
+                    b.Property<int?>("SubcategoriaId");
+
+                    b.Property<int?>("TrocaPontosFidelidade");
+
+                    b.Property<DateTime?>("Validade");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriaDaSubcategoriaId");
+
+                    b.HasIndex("CategoriaId");
+
+                    b.HasIndex("PessoaId");
+
+                    b.HasIndex("SubcategoriaId");
+
+                    b.ToTable("Estoques");
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.FabricanteVeiculo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("FabricanteVeiculoId");
+
+                    b.Property<string>("TipoEFabricante")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FabricanteVeiculoId");
+
+                    b.ToTable("FabricanteVeiculos");
                 });
 
             modelBuilder.Entity("Posto_De_Combustivel.Models.Funcionario", b =>
@@ -160,9 +241,57 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PessoaId");
+                    b.HasIndex("PessoaId")
+                        .IsUnique();
 
                     b.ToTable("Veiculos");
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.Venda", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClienteId");
+
+                    b.Property<DateTime>("Data");
+
+                    b.Property<int>("FormaDePagamento");
+
+                    b.Property<double>("PrecoTotal");
+
+                    b.Property<int>("Unidades");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("Vendas");
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.VendaEstoque", b =>
+                {
+                    b.Property<int>("VendaId");
+
+                    b.Property<int>("EstoqueId");
+
+                    b.Property<double>("PrecoTotalItem");
+
+                    b.Property<int>("Unidades");
+
+                    b.HasKey("VendaId", "EstoqueId");
+
+                    b.HasIndex("EstoqueId");
+
+                    b.ToTable("VendaEstoque");
+                });
+
+            modelBuilder.Entity("Posto_De_Combustivel.Models.Categoria", b =>
+                {
+                    b.HasOne("Posto_De_Combustivel.Models.Categoria", "CategoriaDaSubCategoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId");
                 });
 
             modelBuilder.Entity("Posto_De_Combustivel.Models.Cliente", b =>
@@ -171,6 +300,33 @@ namespace Posto_de_Combustivel.Migrations
                         .WithMany()
                         .HasForeignKey("PessoaId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Posto_De_Combustivel.Models.Estoque", b =>
+                {
+                    b.HasOne("Posto_De_Combustivel.Models.Categoria", "CategoriaDaSubcategoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaDaSubcategoriaId");
+
+                    b.HasOne("Posto_De_Combustivel.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Posto_De_Combustivel.Models.Pessoa", "Pessoa")
+                        .WithMany()
+                        .HasForeignKey("PessoaId");
+
+                    b.HasOne("Posto_De_Combustivel.Models.Categoria", "Subcategoria")
+                        .WithMany()
+                        .HasForeignKey("SubcategoriaId");
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.FabricanteVeiculo", b =>
+                {
+                    b.HasOne("Posto_de_Combustivel.Models.FabricanteVeiculo", "CategoriaDaSubCategoria")
+                        .WithMany()
+                        .HasForeignKey("FabricanteVeiculoId");
                 });
 
             modelBuilder.Entity("Posto_De_Combustivel.Models.Funcionario", b =>
@@ -191,8 +347,29 @@ namespace Posto_de_Combustivel.Migrations
             modelBuilder.Entity("Posto_De_Combustivel.Models.Veiculo", b =>
                 {
                     b.HasOne("Posto_De_Combustivel.Models.Pessoa", "pessoa")
+                        .WithOne("Veiculo")
+                        .HasForeignKey("Posto_De_Combustivel.Models.Veiculo", "PessoaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.Venda", b =>
+                {
+                    b.HasOne("Posto_De_Combustivel.Models.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("PessoaId")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Posto_de_Combustivel.Models.VendaEstoque", b =>
+                {
+                    b.HasOne("Posto_De_Combustivel.Models.Estoque", "Estoque")
+                        .WithMany("Vendas")
+                        .HasForeignKey("EstoqueId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Posto_de_Combustivel.Models.Venda", "Venda")
+                        .WithMany("Estoques")
+                        .HasForeignKey("VendaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

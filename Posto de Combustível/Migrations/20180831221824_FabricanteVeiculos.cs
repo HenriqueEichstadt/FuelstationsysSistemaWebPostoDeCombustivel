@@ -3,40 +3,40 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Posto_de_Combustivel.Migrations
 {
-    public partial class Clientes : Migration
+    public partial class FabricanteVeiculos : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "FabricanteVeiculos",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PessoaId = table.Column<int>(nullable: false),
-                    Pontos = table.Column<int>(nullable: true)
+                    TipoEFabricante = table.Column<string>(maxLength: 50, nullable: true),
+                    FabricanteVeiculoId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                    table.PrimaryKey("PK_FabricanteVeiculos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clientes_Pessoas_PessoaId",
-                        column: x => x.PessoaId,
-                        principalTable: "Pessoas",
+                        name: "FK_FabricanteVeiculos_FabricanteVeiculos_FabricanteVeiculoId",
+                        column: x => x.FabricanteVeiculoId,
+                        principalTable: "FabricanteVeiculos",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Clientes_PessoaId",
-                table: "Clientes",
-                column: "PessoaId");
+                name: "IX_FabricanteVeiculos_FabricanteVeiculoId",
+                table: "FabricanteVeiculos",
+                column: "FabricanteVeiculoId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "FabricanteVeiculos");
         }
     }
 }

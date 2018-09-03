@@ -15,7 +15,7 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="brand">
                 <a href="/Home">
-                    <img src="~/Content/TemplateADMIN/assets/img/logo-white.png" alt="Klorofil Pro Logo" class="img-responsive logo">
+                    <img src="~/Content/TemplateADMIN/assets/img/FuelStation.png" alt="Klorofil Pro Logo" class="img-responsive logo">
                 </a>
             </div>
             <div class="container-fluid">
@@ -123,7 +123,7 @@
                         <a href="#dashboards" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="active"><i class="ti-dashboard"></i> <span class="title">Dashboards</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="dashboards" class="collapse in">
                             <ul class="submenu">
-                                <li><a class="active" href="#">Menu Principal</a></li>
+                                <li><a class="active" href="#">Home</a></li>
                                 <li><a href="~/Content/TemplateADMIN/index.html">Dashboard v1</a></li>
                                 <li><a href="~/Content/TemplateADMIN/dashboard2.html">Dashboard v2</a></li>
                                 <li><a href="~/Content/TemplateADMIN/dashboard3.html">Dashboard v3</a></li>
@@ -269,6 +269,7 @@
         <div id="wrapper">
             <div class="main">
                 @RenderBody()
+                @RenderSection("body_scripts", false)
             </div>
         </div>
         <!-- RIGHT SIDEBAR -->

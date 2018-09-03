@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Posto_de_Combustivel.Models;
 using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,28 @@ namespace Posto_de_Combustível.DAO
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Estoque> Estoques { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
+        public DbSet<FabricanteVeiculo> FabricanteVeiculos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<VendaEstoque>()
+                .HasKey(ve => new { ve.VendaId, ve.EstoqueId });
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Categoria>().HasOne(c => c.CategoriaDaSubCategoria)
+                .WithMany()
+                .HasForeignKey(c => c.CategoriaId);
+
+            modelBuilder.Entity<FabricanteVeiculo>().HasOne(c => c.CategoriaDaSubCategoria)
+               .WithMany()
+               .HasForeignKey(c => c.FabricanteVeiculoId);
+        }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

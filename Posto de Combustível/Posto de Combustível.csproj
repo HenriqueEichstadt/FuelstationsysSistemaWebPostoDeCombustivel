@@ -233,6 +233,8 @@
     <Content Include="Content\TemplateADMIN\assets\img\files\file-image.jpg" />
     <Content Include="Content\TemplateADMIN\assets\img\files\file-image2.png" />
     <Content Include="Content\TemplateADMIN\assets\img\files\file-image3.jpg" />
+    <Content Include="Content\TemplateADMIN\assets\img\FuelStation.png" />
+    <Content Include="Content\TemplateADMIN\assets\img\FuelStationPageIcon.png" />
     <Content Include="Content\TemplateADMIN\assets\img\layout-default.png" />
     <Content Include="Content\TemplateADMIN\assets\img\layout-fullwidth.png" />
     <Content Include="Content\TemplateADMIN\assets\img\layout-minified.png" />
@@ -416,6 +418,7 @@
     <Content Include="Content\TemplateADMIN\assets\vendor\datatables\images\sort_desc_disabled.png" />
     <Content Include="Content\TemplateADMIN\assets\vendor\datatables\js-bootstrap\dataTables.bootstrap.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\datatables\js-bootstrap\dataTables.bootstrap.min.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\datatables\js-main\jquery-3.3.1.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\datatables\js-main\jquery.dataTables.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\datatables\js-main\jquery.dataTables.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\dropify\css\demo.css" />
@@ -1020,6 +1023,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContadorController.cs" />
+    <Compile Include="Controllers\EstoqueController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1028,50 +1032,27 @@
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\PostoContext.cs" />
+    <Compile Include="DAO\EstoqueDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180819230454_Inicial.cs" />
-    <Compile Include="Migrations\20180819230454_Inicial.designer.cs">
-      <DependentUpon>20180819230454_Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\20180831175312_Inicial.cs" />
+    <Compile Include="Migrations\20180831175312_Inicial.designer.cs">
+      <DependentUpon>20180831175312_Inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180819232834_Funcionario.cs" />
-    <Compile Include="Migrations\20180819232834_Funcionario.designer.cs">
-      <DependentUpon>20180819232834_Funcionario.cs</DependentUpon>
+    <Compile Include="Migrations\20180831213340_CategoriaEstoque.cs" />
+    <Compile Include="Migrations\20180831213340_CategoriaEstoque.designer.cs">
+      <DependentUpon>20180831213340_CategoriaEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180820135552_EnderecosFuncionariosPessoas.cs" />
-    <Compile Include="Migrations\20180820135552_EnderecosFuncionariosPessoas.designer.cs">
-      <DependentUpon>20180820135552_EnderecosFuncionariosPessoas.cs</DependentUpon>
+    <Compile Include="Migrations\20180831215333_CategoriaDaSubcategoria.cs" />
+    <Compile Include="Migrations\20180831215333_CategoriaDaSubcategoria.designer.cs">
+      <DependentUpon>20180831215333_CategoriaDaSubcategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180820163651_Cliente.cs" />
-    <Compile Include="Migrations\20180820163651_Cliente.designer.cs">
-      <DependentUpon>20180820163651_Cliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180820234022_AdicionadoGenero.cs" />
-    <Compile Include="Migrations\20180820234022_AdicionadoGenero.designer.cs">
-      <DependentUpon>20180820234022_AdicionadoGenero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180821125621_TipoPessoa.cs" />
-    <Compile Include="Migrations\20180821125621_TipoPessoa.designer.cs">
-      <DependentUpon>20180821125621_TipoPessoa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180822142248_Veiculos.cs" />
-    <Compile Include="Migrations\20180822142248_Veiculos.designer.cs">
-      <DependentUpon>20180822142248_Veiculos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180822145125_Clientes.cs" />
-    <Compile Include="Migrations\20180822145125_Clientes.designer.cs">
-      <DependentUpon>20180822145125_Clientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180823142212_TelefoneDois.cs" />
-    <Compile Include="Migrations\20180823142212_TelefoneDois.designer.cs">
-      <DependentUpon>20180823142212_TelefoneDois.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20180823190349_MudandoColunaData.cs" />
-    <Compile Include="Migrations\20180823190349_MudandoColunaData.designer.cs">
-      <DependentUpon>20180823190349_MudandoColunaData.cs</DependentUpon>
+    <Compile Include="Migrations\20180831221824_FabricanteVeiculos.cs" />
+    <Compile Include="Migrations\20180831221824_FabricanteVeiculos.designer.cs">
+      <DependentUpon>20180831221824_FabricanteVeiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -1079,9 +1060,11 @@
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\FabricanteVeiculo.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Models\Venda.cs" />
+    <Compile Include="Models\VendaEstoque.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1183,6 +1166,7 @@
     <Content Include="Views\Shared\_MainView.cshtml" />
     <Content Include="Views\Home\MenuPrincipal.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Estoque\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
