@@ -1,4 +1,5 @@
-﻿using Posto_de_Combustível.DAO;
+﻿using Microsoft.EntityFrameworkCore;
+using Posto_de_Combustível.DAO;
 using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,14 @@ namespace Posto_de_Combustivel.DAO
             {
                 context.Veiculos.Add(veiculo);
                 context.SaveChanges();
+            }
+        }
+        public IList<Veiculo> ListaVeiculos()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.FabricanteVeiculos
+                    .Include(p => p.Subcategoria).ThenInclude(c => c.CategoriaDaSubCategoria);
             }
         }
     }

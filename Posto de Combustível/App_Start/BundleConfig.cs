@@ -42,7 +42,8 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/justgage-toorshia/justgage.js",
                       "~/Content/TemplateADMIN/assets/scripts/klorofilpro-common.js",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
-                      "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery-3.3.1.js"));
+                      "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery-3.3.1.js",
+                      "~/Content/TemplateADMIN/assets/scripts/moment.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")
                 .Include(

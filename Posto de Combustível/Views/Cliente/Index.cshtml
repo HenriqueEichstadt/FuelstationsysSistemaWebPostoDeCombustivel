@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <hr>
-
+                    <label class="col-md-2 control-label" for="prependedtext">Cadastro de veículo:</label>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -179,197 +179,80 @@
                             </tr>
                         </thead>
                         <tbody>
-                            foreach (var veiculo in modalCadastroVeiculo)
-                            {
                             <tr>
-                                <td>$veiculo.Marca</td>
-                                <td>#veiculo.Modelo</td>
-                                <td>$veiculo.Ano</td>
-                                <td>$veiculo.Placa</td>
-                                <td>$veiculo.Cor</td>
+                                <td>veiculo.Marca</td>
+                                <td>veiculo.Modelo</td>
+                                <td>veiculo.Ano</td>
+                                <td>veiculo.Placa</td>
+                                <td>veiculo.Cor</td>
                                 <td>
-                                    <a href="#" onclick="decrementa(produto.Id);">Decrementar</a>
+                                    <button id="removerVeiculo" onclick="decrementa()" class="btn btn-danger">Remover veículo</button>
                                 </td>
                             </tr>
-                            }
                         </tbody>
                     </table>
 
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Cadastrar Veículo"></label>
-                        <div class="col-md-8">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastroVeiculo">Cadastrar Veículo</button>
-                        </div>
-                    </div>
-                    <!-- Iniciando modal de cadastro de Veículo-->
-                    <div class="modal fade" id="modalCadastroVeiculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Veículo</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- <form method="POST" action="/Cliente/AdicionaVeiculo" enctype="multipart/form-data">  -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Cadastrar Veículo"></label>
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Fabricante:</label>
-                                        <div class="col-md-5">
-                                            <select id="nome" name="Marca" class="form-control input-md" required="">
-                                                <option value="AGRALE">AGRALE</option>
-                                                <option value="ALFA ROMEO">ALFA ROMEO</option>
-                                                <option value="AMERICAR">AMERICAR</option>
-                                                <option value="ASIA">ASIA</option>
-                                                <option value="ASTON MARTIN">ASTON MARTIN</option>
-                                                <option value="AUDI">AUDI</option>
-                                                <option value="BEACH">BEACH</option>
-                                                <option value="BENTLEY">BENTLEY</option>
-                                                <option value="BIANCO">BIANCO</option>
-                                                <option value="BMW">BMW</option>
-                                                <option value="BRM">BRM</option>
-                                                <option value="BUGRE">BUGRE</option>
-                                                <option value="BUGWAY">BUGWAY</option>
-                                                <option value="BUICK">BUICK</option>
-                                                <option value="CADILLAC">CADILLAC</option>
-                                                <option value="CBT">CBT</option>
-                                                <option value="CHAMONIX">CHAMONIX</option>
-                                                <option value="CHANA">CHANA</option>
-                                                <option value="CHERY">CHERY</option>
-                                                <option value="CHEVROLET">CHEVROLET</option>
-                                                <option value="CHRYSLER">CHRYSLER</option>
-                                                <option value="CITROËN">CITROËN</option>
-                                                <option value="DACON">DACON</option>
-                                                <option value="DAEWOO">DAEWOO</option>
-                                                <option value="DAIHATSU">DAIHATSU</option>
-                                                <option value="DATSUN">DATSUN</option>
-                                                <option value="DE SOTO">DE SOTO</option>
-                                                <option value="DKW-VEMAG">DKW-VEMAG</option>
-                                                <option value="DODGE">DODGE</option>
-                                                <option value="EFFA">EFFA</option>
-                                                <option value="EMIS">EMIS</option>
-                                                <option value="ENGESA">ENGESA</option>
-                                                <option value="ENVEMO">ENVEMO</option>
-                                                <option value="FERCAR BUGGY">FERCAR BUGGY</option>
-                                                <option value="FERRARI">FERRARI</option>
-                                                <option value="FIAT">FIAT</option>
-                                                <option value="FIBRAVAN">FIBRAVAN</option>
-                                                <option value="FORD">FORD</option>
-                                                <option value="FOTON">FOTON</option>
-                                                <option value="FYBER">FYBER</option>
-                                                <option value="GEELY">GEELY</option>
-                                                <option value="GLASPAC">GLASPAC</option>
-                                                <option value="GMC">GMC</option>
-                                                <option value="GURGEL">GURGEL</option>
-                                                <option value="HAFEI">HAFEI</option>
-                                                <option value="HONDA">HONDA</option>
-                                                <option value="HUMMER">HUMMER</option>
-                                                <option value="HYUNDAI">HYUNDAI</option>
-                                                <option value="INFINITI">INFINITI</option>
-                                                <option value="INTERNATIONAL">INTERNATIONAL</option>
-                                                <option value="IVECO">IVECO</option>
-                                                <option value="JAC">JAC</option>
-                                                <option value="JAGUAR">JAGUAR</option>
-                                                <option value="JEEP">JEEP</option>
-                                                <option value="JINBEI">JINBEI</option>
-                                                <option value="JPX">JPX</option>
-                                                <option value="KIA">KIA</option>
-                                                <option value="L AUTOMOBILE">L AUTOMOBILE</option>
-                                                <option value="LADA">LADA</option>
-                                                <option value="LAMBORGHINI">LAMBORGHINI</option>
-                                                <option value="LAND ROVER">LAND ROVER</option>
-                                                <option value="LANDWIND">LANDWIND</option>
-                                                <option value="LEXUS">LEXUS</option>
-                                                <option value="LIFAN">LIFAN</option>
-                                                <option value="LINCOLN">LINCOLN</option>
-                                                <option value="LOBINI">LOBINI</option>
-                                                <option value="LOTUS">LOTUS</option>
-                                                <option value="MAHINDRA">MAHINDRA</option>
-                                                <option value="MARCOPOLO">MARCOPOLO</option>
-                                                <option value="MASERATI">MASERATI</option>
-                                                <option value="MAZDA">MAZDA</option>
-                                                <option value="MCLAREN">MCLAREN</option>
-                                                <option value="MENON">MENON</option>
-                                                <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
-                                                <option value="MERCURY">MERCURY</option>
-                                                <option value="MG">MG</option>
-                                                <option value="MINI">MINI</option>
-                                                <option value="MITSUBISHI">MITSUBISHI</option>
-                                                <option value="MIURA">MIURA</option>
-                                                <option value="MOBBY">MOBBY</option>
-                                                <option value="MORRIS">MORRIS</option>
-                                                <option value="MP LAFER">MP LAFER</option>
-                                                <option value="NASH">NASH</option>
-                                                <option value="NISSAN">NISSAN</option>
-                                                <option value="OLDSMOBILE">OLDSMOBILE</option>
-                                                <option value="OPEL">OPEL</option>
-                                                <option value="PAG">PAG</option>
-                                                <option value="PEUGEOT">PEUGEOT</option>
-                                                <option value="PLYMOUTH">PLYMOUTH</option>
-                                                <option value="PONTIAC">PONTIAC</option>
-                                                <option value="PORSCHE">PORSCHE</option>
-                                                <option value="PUMA">PUMA</option>
-                                                <option value="RDK">RDK</option>
-                                                <option value="RELY">RELY</option>
-                                                <option value="RENAULT">RENAULT</option>
-                                                <option value="ROLLS-ROYCE">ROLLS-ROYCE</option>
-                                                <option value="SANTA MATILDE">SANTA MATILDE</option>
-                                                <option value="SATURN">SATURN</option>
-                                                <option value="SEAT">SEAT</option>
-                                                <option value="SELVAGEM">SELVAGEM</option>
-                                                <option value="SHELBY">SHINERAY</option>
-                                                <option value="SHUANGHUAN">SHUANGHUAN</option>
-                                                <option value="SIMCA">SIMCA</option>
-                                                <option value="SMART">SMART</option>
-                                                <option value="SSANGYONG">SSANGYONG</option>
-                                                <option value="SUBARU">SUBARU</option>
-                                                <option value="SUZUKI">SUZUKI</option>
-                                                <option value="TAC">TAC</option>
-                                                <option value="TESLA">TESLA</option>
-                                                <option value="TOYOTA">TOYOTA</option>
-                                                <option value="TROLLER">TROLLER</option>
-                                                <option value="VOLKSWAGEN">VOLKSWAGEN</option>
-                                                <option value="VOLVO">VOLVO</option>
-                                                <option value="WAKE">WAKE</option>
-                                                <option value="WAY BRASIL">WAY BRASIL</option>
-                                                <option value="WILLYS">WILLYS</option>
-                                                <option value="WILLYS OVERLAND">WILLYS OVERLAND</option>
-                                            </select>
+                            <div class="col-md-8">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastroVeiculo">Cadastrar Veículo</button>
+                            </div>
+                        </div>
+                        <!-- Iniciando modal de cadastro de Veículo-->
+                        <div class="modal fade" id="modalCadastroVeiculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Veículo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- <form method="POST" action="/Cliente/AdicionaVeiculo" enctype="multipart/form-data">  -->
+
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Fabricante:</label>
+                                            <div class="col-md-5">
+                                                <select id="nome" name="Marca" class="form-control input-md" required="">
+                                                   <option></option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Modelo:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" required="" type="text">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Modelo:</label>
+                                            <div class="col-md-5">
+                                                <input id="nome" name="" class="form-control input-md" required="" type="text">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Ano:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" required="" type="text">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Ano:</label>
+                                            <div class="col-md-5">
+                                                <input id="nome" name="" class="form-control input-md" required="" type="text">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Cor:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" type="text">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Cor:</label>
+                                            <div class="col-md-5">
+                                                <input id="nome" name="" class="form-control input-md" type="text">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Placa:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" placeholder="ABC1234" class="form-control input-md" required="" type="text">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Placa:</label>
+                                            <div class="col-md-5">
+                                                <input id="nome" name="" placeholder="ABC1234" class="form-control input-md" required="" type="text">
+                                            </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success">Cadastrar</button>
+                                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                        </div>
+                                        <!-- </form> -->
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                    <!-- </form> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <hr>
                     <!-- Botão Cadastrar e Cancelar -->
                     <div class="form-group">

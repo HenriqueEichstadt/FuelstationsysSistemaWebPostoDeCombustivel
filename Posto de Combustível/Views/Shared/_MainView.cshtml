@@ -120,17 +120,34 @@
                 <ul class="nav" id="sidebar-nav-menu">
                     <li class="menu-group">Main</li>
                     <li class="panel">
-                        <a href="#dashboards" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="active"><i class="ti-dashboard"></i> <span class="title">Dashboards</span> <i class="icon-submenu ti-angle-left"></i></a>
+                        <a href="#dashboards" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="active"><i class="ti-dashboard"></i> <span class="title">Menu Principal</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="dashboards" class="collapse in">
                             <ul class="submenu">
-                                <li><a class="active" href="#">Home</a></li>
-                                <li><a href="~/Content/TemplateADMIN/index.html">Dashboard v1</a></li>
-                                <li><a href="~/Content/TemplateADMIN/dashboard2.html">Dashboard v2</a></li>
-                                <li><a href="~/Content/TemplateADMIN/dashboard3.html">Dashboard v3</a></li>
-                                <li><a href="~/Content/TemplateADMIN/dashboard4.html">Dashboard v4</a></li>
+                                <li><a class="active" href="/Home/Index">Home</a></li>
                             </ul>
                         </div>
                     </li>
+                    <li class="panel">
+                        <a href="#forms" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-receipt"></i> <span class="title">Formulários</span> <i class="icon-submenu ti-angle-left"></i></a>
+                        <div id="forms" class="collapse ">
+                            <ul class="submenu">
+                                <li><a href="/Cliente/Index">Cadastro de cliente</a></li>
+                                <li><a href="/Fornecedor/Index">Cadastro de fornecedor</a></li>
+                                <li><a href="/Funcionario/Form">Cadastro de funcionário</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="panel">
+                        <a href="#" data-toggle="collapse" data-target="#submenuDemo" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-menu"></i> <span class="title">Estoque produtos</span><i class="icon-submenu ti-angle-left"></i></a>
+                        <div id="submenuDemo" class="collapse">
+                            <ul class="submenu">
+                                <li><a href="/Estoque/Index">Produtos - Loja de conveniência</a></li>
+                                <li><a href="#">Submenu 3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
                     <li class="panel">
                         <a href="#subLayouts" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-layout"></i> <span class="title">Layouts</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="subLayouts" class="collapse ">
@@ -140,23 +157,6 @@
                                 <li><a href="~/Content/TemplateADMIN/layout-fullwidth.html">Fullwidth</a></li>
                                 <li><a href="~/Content/TemplateADMIN/layout-default.html">Default</a></li>
                                 <li><a href="~/Content/TemplateADMIN/layout-grid.html">Grid</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="panel">
-                        <a href="#forms" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-receipt"></i> <span class="title">Forms</span> <i class="icon-submenu ti-angle-left"></i></a>
-                        <div id="forms" class="collapse ">
-                            <ul class="submenu">
-                                <li><a href="~/Content/TemplateADMIN/forms-inputs.html">Inputs</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-multiselect.html">Multiselect</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-input-pickers.html">Input Pickers</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-input-sliders.html">Input Sliders</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-select2.html">Select2</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-xeditable.html">In-place Editing</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-dragdropupload.html">Drag and Drop Upload</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-layouts.html">Form Layouts</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-validation.html">Form Validation</a></li>
-                                <li><a href="~/Content/TemplateADMIN/forms-texteditor.html">Text Editor</a></li>
                             </ul>
                         </div>
                     </li>
@@ -240,25 +240,6 @@
                         </div>
                     </li>
                     <li><a href="~/Content/TemplateADMIN/typography.html"><i class="ti-paragraph"></i> <span class="title">Typography</span></a></li>
-                    <li class="panel">
-                        <a href="#" data-toggle="collapse" data-target="#submenuDemo" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-menu"></i> <span class="title">Multilevel Menu</span><i class="icon-submenu ti-angle-left"></i></a>
-                        <div id="submenuDemo" class="collapse">
-                            <ul class="submenu">
-                                <li class="panel">
-                                    <a href="#" data-toggle="collapse" data-target="#submenuDemoLv2" class="collapsed">Submenu 1 <i class="icon-submenu ti-angle-left"></i></a>
-                                    <div id="submenuDemoLv2" class="collapse">
-                                        <ul class="submenu">
-                                            <li><a href="#">Another menu level</a></li>
-                                            <li><a href="#" class="active">Another menu level</a></li>
-                                            <li><a href="#">Another menu level</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="#">Submenu 2</a></li>
-                                <li><a href="#">Submenu 3</a></li>
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
                 <button type="button" class="btn-toggle-minified" title="Toggle Minified Menu"><i class="ti-arrows-horizontal"></i></button>
             </nav>
@@ -269,7 +250,6 @@
         <div id="wrapper">
             <div class="main">
                 @RenderBody()
-                @RenderSection("body_scripts", false)
             </div>
         </div>
         <!-- RIGHT SIDEBAR -->
@@ -401,5 +381,6 @@
         </div>
     </footer>
     @Scripts.Render("~/bundles/js");
+    @RenderSection("body_scripts", false)
 </body>
 </html>

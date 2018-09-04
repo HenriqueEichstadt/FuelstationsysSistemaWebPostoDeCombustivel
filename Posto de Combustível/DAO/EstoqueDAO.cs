@@ -15,9 +15,8 @@ namespace Posto_de_Combustivel.DAO
             using (var contexto = new PostoContext())
             {
                 return contexto.Estoques
-                    .Include(p => p.Marca)
                     .Include(p => p.Subcategoria).ThenInclude(c => c.CategoriaDaSubCategoria)
-                    .Where(p => p.Subcategoria.CategoriaDaSubCategoria.Id == 1).ToList();
+                    .Include(p => p.Pessoa).ToList();
             }
         }
 
@@ -25,7 +24,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Estoques.Include(p => p.Marca).Include(p => p.Subcategoria).Include(p => p.CategoriaDaSubcategoria).ToList();
+                return contexto.Estoques.Include(p => p.Marca).Include(p => p.Subcategoria).ThenInclude(c => c.CategoriaDaSubCategoria).ToList();
             }
         }
     }

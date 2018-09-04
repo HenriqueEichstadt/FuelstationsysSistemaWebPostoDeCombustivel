@@ -13,9 +13,7 @@ namespace Posto_De_Combustivel.Models
         public string Nome { get; set; }
         public string Marca { get; set; }
         [Required]
-        public Categoria Categoria { get; set; }
         public Categoria Subcategoria { get; set; }
-        public Categoria CategoriaDaSubcategoria { get; set; }
         public double PrecoVenda { get; set; }
         public double PrecoCusto { get; set; }
         public string Descricao { get; set; }
@@ -26,9 +24,9 @@ namespace Posto_De_Combustivel.Models
         public IList<VendaEstoque> Vendas { get; set; }
         public int? TrocaPontosFidelidade { get; set; }
 
-        public Estoque()
-        {
-            Vendas = new List<VendaEstoque>();
-        }
+        //public Estoque()
+        //{
+        //    Vendas = new List<VendaEstoque>();
+        //}
     }
 }

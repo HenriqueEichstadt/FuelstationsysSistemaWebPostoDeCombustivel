@@ -45,11 +45,11 @@ namespace Posto_de_Combustivel.Controllers
                 return View("Index");
             }
         }
-        public ActionResult AdicionaVeiculo(Veiculo veiculo)
+        public JsonResult ListaFabricantesVeiculos()
         {
-            VeiculoDAO auto = new VeiculoDAO();
-            auto.Adiciona(veiculo);
-            return View("Index");
+            return Json(new
+            {
+                data = new VeiculoDAO().ListaProdutos()
+            }, JsonRequestBehavior.AllowGet);
         }
-    }
 }

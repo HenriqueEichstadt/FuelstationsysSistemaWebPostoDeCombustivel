@@ -19,11 +19,18 @@ namespace Posto_de_Combustivel.Controllers
 
         public JsonResult ListaProdutos()
         {
-            using(PostoContext pc = new PostoContext())
+            return Json(new
             {
-                var data = pc.Estoques.OrderBy(a => a.Nome).ToList();
-                return Json(new { data }, JsonRequestBehavior.AllowGet);
-            }
+                data = new EstoqueDAO().ListaProdutos()
+            }, JsonRequestBehavior.AllowGet);
+                
+
+
+            //using(PostoContext pc = new PostoContext())
+            //{
+            //    var data = pc.Estoques.OrderBy(a => a.Nome).ToList();
+            //    return Json(new { data }, JsonRequestBehavior.AllowGet);
+            //}
         }
     }
 }
