@@ -1027,6 +1027,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContadorController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
+    <Compile Include="Controllers\FabricanteVeiculoController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1060,6 +1061,14 @@
     <Compile Include="Migrations\20180903164326_CorrigindoCategoria.cs" />
     <Compile Include="Migrations\20180903164326_CorrigindoCategoria.designer.cs">
       <DependentUpon>20180903164326_CorrigindoCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180904191857_FabricanteVeiculo.cs" />
+    <Compile Include="Migrations\20180904191857_FabricanteVeiculo.designer.cs">
+      <DependentUpon>20180904191857_FabricanteVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180904193134_CorrigindoFabricanteVeiculo.cs" />
+    <Compile Include="Migrations\20180904193134_CorrigindoFabricanteVeiculo.designer.cs">
+      <DependentUpon>20180904193134_CorrigindoFabricanteVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -1184,6 +1193,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
+    <Folder Include="Views\FabricanteVeiculo\" />
     <Folder Include="Views\Veiculo\" />
   </ItemGroup>
   <ItemGroup>

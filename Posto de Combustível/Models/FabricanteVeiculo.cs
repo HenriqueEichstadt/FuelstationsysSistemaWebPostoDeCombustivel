@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Posto_De_Combustivel.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,6 @@ namespace Posto_de_Combustivel.Models
         [MaxLength(50)]
         public string TipoEFabricante { get; set; }
         public int? FabricanteVeiculoId { get; set; }
-        public FabricanteVeiculo CategoriaDaSubCategoria { get; set; }
+        public FabricanteVeiculo TipoDoFabricante { get; set; }
     }
 }

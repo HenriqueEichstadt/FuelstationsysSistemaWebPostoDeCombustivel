@@ -31,9 +31,9 @@ namespace Posto_de_Combustível.DAO
                 .WithMany()
                 .HasForeignKey(c => c.CategoriaId);
 
-            modelBuilder.Entity<FabricanteVeiculo>().HasOne(c => c.CategoriaDaSubCategoria)
-               .WithMany()
-               .HasForeignKey(c => c.FabricanteVeiculoId);
+            modelBuilder.Entity<FabricanteVeiculo>().HasOne(f => f.TipoDoFabricante)
+                .WithMany()
+                .HasForeignKey(f => f.FabricanteVeiculoId);
         }
 
 

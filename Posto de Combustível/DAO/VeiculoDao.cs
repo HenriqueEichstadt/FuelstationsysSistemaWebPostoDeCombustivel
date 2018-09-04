@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Posto_de_Combustível.DAO;
+using Posto_de_Combustivel.Models;
 using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,23 @@ namespace Posto_de_Combustivel.DAO
                 context.SaveChanges();
             }
         }
-        public IList<Veiculo> ListaVeiculos()
+        public IList<FabricanteVeiculo> ListaFabricantes(int tipoId)
         {
             using (var contexto = new PostoContext())
             {
                 return contexto.FabricanteVeiculos
-                    .Include(p => p.Subcategoria).ThenInclude(c => c.CategoriaDaSubCategoria);
+                    .Where(p => p.FabricanteVeiculoId == tipoId)
+                    .ToList();
+            }
+        }
+
+        public IList<FabricanteVeiculo> ListaTipoDeVeiculo()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.FabricanteVeiculos
+                    .Where(f => f.FabricanteVeiculoId == null)
+                    .ToList();
             }
         }
     }

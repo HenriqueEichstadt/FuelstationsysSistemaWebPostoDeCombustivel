@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label" for="Nome">Nascimento<h11>*</h11></label>
                         <div class="col-md-2">
-                            <input id="dtnasc" name="cliente.pessoa.Data" value="@ViewBag.Cliente.Pessoa.Data" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                            <input id="dtnasc" name="cliente.pessoa.Data" value="" placeholder="DD/MM/AAAA" class="form-control input-md" required type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                         </div>
 
                         <!-- Multiple Radios (inline) -->
@@ -212,10 +212,19 @@
                                         <!-- <form method="POST" action="/Cliente/AdicionaVeiculo" enctype="multipart/form-data">  -->
 
                                         <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Nome">Tipo de veículo:</label>
+                                            <div class="col-md-5">
+                                                <select id="listaTipoDeVeiculo" onclick="PegaFabricantes()" name="Marca" class="form-control input-md" required="">
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
                                             <label class="col-md-2 control-label" for="Nome">Fabricante:</label>
                                             <div class="col-md-5">
-                                                <select id="nome" name="Marca" class="form-control input-md" required="">
-                                                   <option></option>
+                                                <select id="listaFabricantes" name="Marca" disabled class="form-control input-md" required="">
+                                                    <option></option>
                                                 </select>
                                             </div>
                                         </div>
@@ -269,136 +278,180 @@
 
 
 
+    @section body_scripts{
+        <script type="text/javascript">
+            // Popular combo box de TipoDeVeiculos
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/FabricanteVeiculo/ListaTipoDeVeiculo",
+                    data: { listaTipoDeVeiculo: $("#listaTipoDeVeiculo").val() },
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (obj) {
+                        if (obj != null) {
+                            var data = obj.data;
+                            var selectbox = $('#listaTipoDeVeiculo');
+                            selectbox.find('option').remove();
+                                $('<option>').val("").text("Selecione um tipo").appendTo(selectbox);
+                            $.each(data, function (i, d) {
+                                $('<option>').val(d.Id).text(d.TipoEFabricante).appendTo(selectbox);
+                            });
+                        }
+                    }
+                });
+            });
 
-    <script type="text/javascript">
-        function limpa_formulario_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('estado').value = ("");
-
-        }
-
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('estado').value = (conteudo.uf);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulario_cep();
-                alert("CEP não encontrado.");
-                document.getElementById('cep').value = ("");
+            // Popular combo box de Fabricantes
+            function PegaFabricantes() {
+                $('#listaFabricantes').prop("disabled", false);
+                $.ajax({
+                    type: "GET",
+                    url: "/FabricanteVeiculo/ListaFabricantes/" + $("#listaTipoDeVeiculo").val(),
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success: function (obj) {
+                        if (obj != null) {
+                            var data = obj.data;
+                            var selectbox = $('#listaFabricantes');
+                            selectbox.find('option').remove();
+                            $.each(data, function (i, d) {
+                                $('<option>').val(d.Id).text(d.TipoEFabricante).appendTo(selectbox);
+                            });
+                        }
+                    }
+                });
             }
-        }
 
-        function pesquisacep(valor) {
+            function limpa_formulario_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('rua').value = ("");
+                document.getElementById('bairro').value = ("");
+                document.getElementById('cidade').value = ("");
+                document.getElementById('estado').value = ("");
 
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
+            }
 
-            //Verifica se campo cep possui valor informado.
-            if (cep !== "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('estado').value = "...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
+            function meu_callback(conteudo) {
+                if (!("erro" in conteudo)) {
+                    //Atualiza os campos com os valores.
+                    document.getElementById('rua').value = (conteudo.logradouro);
+                    document.getElementById('bairro').value = (conteudo.bairro);
+                    document.getElementById('cidade').value = (conteudo.localidade);
+                    document.getElementById('estado').value = (conteudo.uf);
                 } //end if.
                 else {
-                    //cep é inválido.
+                    //CEP não Encontrado.
                     limpa_formulario_cep();
-                    alert("Formato de CEP inválido.");
+                    alert("CEP não encontrado.");
+                    document.getElementById('cep').value = ("");
                 }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulario_cep();
-            }
-        }
-
-        function formatar(mascara, documento) {
-            var i = documento.value.length;
-            var saida = mascara.substring(0, 1);
-            var texto = mascara.substring(i);
-
-            if (texto.substring(0, 1) != saida) {
-                documento.value += texto.substring(0, 1);
             }
 
-        }
+            function pesquisacep(valor) {
 
-        function idade() {
-            var data = document.getElementById("dtnasc").value;
-            var dia = data.substr(0, 2);
-            var mes = data.substr(3, 2);
-            var ano = data.substr(6, 4);
-            var d = new Date();
-            var ano_atual = d.getFullYear(),
-                mes_atual = d.getMonth() + 1,
-                dia_atual = d.getDate();
+                //Nova variável "cep" somente com dígitos.
+                var cep = valor.replace(/\D/g, '');
 
-            ano = +ano,
-                mes = +mes,
-                dia = +dia;
+                //Verifica se campo cep possui valor informado.
+                if (cep !== "") {
 
-            var idade = ano_atual - ano;
+                    //Expressão regular para validar o CEP.
+                    var validacep = /^[0-9]{8}$/;
 
-            if (mes_atual < mes || mes_atual == mes_aniversario && dia_atual < dia) {
-                idade--;
+                    //Valida o formato do CEP.
+                    if (validacep.test(cep)) {
+
+                        //Preenche os campos com "..." enquanto consulta webservice.
+                        document.getElementById('rua').value = "...";
+                        document.getElementById('bairro').value = "...";
+                        document.getElementById('cidade').value = "...";
+                        document.getElementById('estado').value = "...";
+
+                        //Cria um elemento javascript.
+                        var script = document.createElement('script');
+
+                        //Sincroniza com o callback.
+                        script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                        //Insere script no documento e carrega o conteúdo.
+                        document.body.appendChild(script);
+
+                    } //end if.
+                    else {
+                        //cep é inválido.
+                        limpa_formulario_cep();
+                        alert("Formato de CEP inválido.");
+                    }
+                } //end if.
+                else {
+                    //cep sem valor, limpa formulário.
+                    limpa_formulario_cep();
+                }
             }
-            return idade;
-        }
+
+            function formatar(mascara, documento) {
+                var i = documento.value.length;
+                var saida = mascara.substring(0, 1);
+                var texto = mascara.substring(i);
+
+                if (texto.substring(0, 1) != saida) {
+                    documento.value += texto.substring(0, 1);
+                }
+
+            }
+
+            function idade() {
+                var data = document.getElementById("dtnasc").value;
+                var dia = data.substr(0, 2);
+                var mes = data.substr(3, 2);
+                var ano = data.substr(6, 4);
+                var d = new Date();
+                var ano_atual = d.getFullYear(),
+                    mes_atual = d.getMonth() + 1,
+                    dia_atual = d.getDate();
+
+                ano = +ano,
+                    mes = +mes,
+                    dia = +dia;
+
+                var idade = ano_atual - ano;
+
+                if (mes_atual < mes || mes_atual == mes_aniversario && dia_atual < dia) {
+                    idade--;
+                }
+                return idade;
+            }
 
 
-        function exibe(i) {
+            function exibe(i) {
 
 
 
-            document.getElementById(i).readOnly = true;
+                document.getElementById(i).readOnly = true;
 
 
 
 
-        }
+            }
 
-        function desabilita(i) {
+            function desabilita(i) {
 
-            document.getElementById(i).disabled = true;
-        }
+                document.getElementById(i).disabled = true;
+            }
 
-        function habilita(i) {
-            document.getElementById(i).disabled = false;
-        }
+            function habilita(i) {
+                document.getElementById(i).disabled = false;
+            }
 
 
-        function showhide() {
-            var div = document.getElementById("newpost");
+                        //function showhide() {
+                        //    var div = document.getElementById("newpost");
 
-            if (idade() >= 18) {
+                        //    if (idade() >= 18) {
 
-                div.style.display = "none";
-            } else if (idade() < 18) {
-                d
-    </script>
+                        //        div.style.display = "none";
+                        //    } else if (idade() < 18) {
+                        //        d
+        </script>
+    }

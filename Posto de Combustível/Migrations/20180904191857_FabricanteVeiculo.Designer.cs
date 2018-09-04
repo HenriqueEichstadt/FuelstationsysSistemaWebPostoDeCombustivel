@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Posto_de_Combustível.DAO;
 
 namespace Posto_de_Combustivel.Migrations
 {
     [DbContext(typeof(PostoContext))]
-    partial class PostoContextModelSnapshot : ModelSnapshot
+    [Migration("20180904191857_FabricanteVeiculo")]
+    partial class FabricanteVeiculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,12 +131,14 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<int?>("FabricanteVeiculoId");
 
+                    b.Property<int?>("SubcategoriaId");
+
                     b.Property<string>("TipoEFabricante")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FabricanteVeiculoId");
+                    b.HasIndex("SubcategoriaId");
 
                     b.ToTable("FabricanteVeiculos");
                 });
@@ -312,9 +316,9 @@ namespace Posto_de_Combustivel.Migrations
 
             modelBuilder.Entity("Posto_de_Combustivel.Models.FabricanteVeiculo", b =>
                 {
-                    b.HasOne("Posto_de_Combustivel.Models.FabricanteVeiculo", "TipoDoFabricante")
+                    b.HasOne("Posto_De_Combustivel.Models.Categoria", "Subcategoria")
                         .WithMany()
-                        .HasForeignKey("FabricanteVeiculoId");
+                        .HasForeignKey("SubcategoriaId");
                 });
 
             modelBuilder.Entity("Posto_De_Combustivel.Models.Funcionario", b =>

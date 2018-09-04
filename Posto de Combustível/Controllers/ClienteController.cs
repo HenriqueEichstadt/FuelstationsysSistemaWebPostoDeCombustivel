@@ -35,8 +35,8 @@ namespace Posto_de_Combustivel.Controllers
             if (cliente != null)
             {
                 dao.Adiciona(cliente);
-                
-             
+
+
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -45,11 +45,5 @@ namespace Posto_de_Combustivel.Controllers
                 return View("Index");
             }
         }
-        public JsonResult ListaFabricantesVeiculos()
-        {
-            return Json(new
-            {
-                data = new VeiculoDAO().ListaProdutos()
-            }, JsonRequestBehavior.AllowGet);
-        }
+    }
 }

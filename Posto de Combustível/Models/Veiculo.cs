@@ -15,7 +15,6 @@ namespace Posto_De_Combustivel.Models
         public int? Ano { get; set; }
         public string Placa { get; set; }
         public string Cor { get; set; }
-        public Veiculo Subcategoria { get; set; }
         public Veiculo CategoriaDaSubCategoria { get; set; }
     }
 }
