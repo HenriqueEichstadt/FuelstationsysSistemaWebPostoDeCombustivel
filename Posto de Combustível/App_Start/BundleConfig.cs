@@ -12,7 +12,7 @@ namespace Posto_de_Combustivel.App_Start
         {
             bundles.Add(new ScriptBundle("~/bundles/js")
                 .Include(
-                      "~/Content/TemplateADMIN/assets/vendor/jquery/jquery.min.js",
+                      "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery-3.3.1.js",
                       "~/Content/TemplateADMIN/assets/vendor/bootstrap/js/bootstrap.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/pace/pace.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/bootstrap-progressbar/js/bootstrap-progressbar.min.js",
@@ -31,7 +31,6 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/jquery-ui/ui/disable-selection.js",
                       "~/Content/TemplateADMIN/assets/vendor/jquery-ui/ui/widgets/mouse.js",
                       "~/Content/TemplateADMIN/assets/vendor/jquery-ui/ui/widgets/sortable.js",
-                      "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-bootstrap/dataTables.bootstrap.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/jquery-appear/jquery.appear.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/jqvmap/jquery.vmap.min.js",
@@ -42,7 +41,10 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/justgage-toorshia/justgage.js",
                       "~/Content/TemplateADMIN/assets/scripts/klorofilpro-common.js",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
-                      "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery-3.3.1.js",
+                      //"~/Content/TemplateADMIN/assets/vendor/ValidateJquery/additional-methods.js",
+                      "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/additional-methods.min.js",
+                      //"~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.js",
+                      "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js",
                       "~/Content/TemplateADMIN/assets/scripts/moment.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")

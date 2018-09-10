@@ -10,12 +10,13 @@ namespace Posto_de_Combustivel.DAO
 {
     public class ClienteDAO
     {
-        public void Adiciona(Cliente cliente)
+        public int AdicionaCliente(Cliente cliente)
         {
             using (var context = new PostoContext())
             {
                 context.Clientes.Add(cliente);
                 context.SaveChanges();
+                return cliente.Id;
             }
         }
 

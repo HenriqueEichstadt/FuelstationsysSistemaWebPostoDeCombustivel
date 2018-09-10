@@ -51,5 +51,6 @@ namespace Posto_de_Combustivel.DAO
                 return contexto.Funcionarios.Include(f => f.Pessoa).FirstOrDefault(f => f.NomeUsuario == login && f.Senha == senha);
             }
         }
+        
     }
 }

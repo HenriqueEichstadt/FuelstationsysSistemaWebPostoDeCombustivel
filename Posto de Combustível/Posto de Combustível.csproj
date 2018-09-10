@@ -280,6 +280,10 @@
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\moment.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.min.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\jquery.validate.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\jquery.validate.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Content\TemplateADMIN\assets\vendor\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Content\TemplateADMIN\assets\vendor\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
@@ -1032,6 +1036,7 @@
     <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -1069,6 +1074,10 @@
     <Compile Include="Migrations\20180904193134_CorrigindoFabricanteVeiculo.cs" />
     <Compile Include="Migrations\20180904193134_CorrigindoFabricanteVeiculo.designer.cs">
       <DependentUpon>20180904193134_CorrigindoFabricanteVeiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180910172641_teste.cs" />
+    <Compile Include="Migrations\20180910172641_teste.designer.cs">
+      <DependentUpon>20180910172641_teste.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -1193,6 +1202,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
+    <Folder Include="Models\Validacao\" />
     <Folder Include="Views\FabricanteVeiculo\" />
     <Folder Include="Views\Veiculo\" />
   </ItemGroup>

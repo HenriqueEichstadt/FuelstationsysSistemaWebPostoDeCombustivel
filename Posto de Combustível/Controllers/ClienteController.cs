@@ -27,16 +27,14 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public ActionResult AdicionaCliente(Cliente cliente, Veiculo veiculo)
+        public ActionResult AdicionaCliente(Cliente cliente)
         {
             ClienteDAO dao = new ClienteDAO();
             cliente.Pessoa.TipoPessoa = 'F';
             cliente.Pontos = 0;
             if (cliente != null)
             {
-                dao.Adiciona(cliente);
-
-
+                dao.AdicionaCliente(cliente);
                 return RedirectToAction("Index", "Home");
             }
             else

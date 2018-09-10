@@ -14,7 +14,7 @@ namespace Posto_De_Combustivel.Models
 
         public string Nome { get; set; }
 
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
 
         public char Genero { get; set; } 
         
