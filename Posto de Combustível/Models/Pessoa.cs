@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Posto_de_Combustivel.Models.Validacao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace Posto_De_Combustivel.Models
 
         public DateTime? Data { get; set; }
 
-        public char Genero { get; set; } 
-        
+        public char? Genero { get; set; }
+
         public char TipoPessoa { get; set; }
 
         [MaxLength(20)]
@@ -57,14 +58,8 @@ namespace Posto_De_Combustivel.Models
         }
         //Tornando o parametro nome opcional
         public Pessoa() { }
-        public static void Idade(DateTime data)
-        {
-            int idade = DateTime.Now.Year - data.Year;
-            if ((data.Month > DateTime.Now.Month) || (data.Month == DateTime.Now.Month && data.Day > DateTime.Now.Day))
-                idade--;
 
-            Console.WriteLine(idade);
-        }
+       
 
     }
 }

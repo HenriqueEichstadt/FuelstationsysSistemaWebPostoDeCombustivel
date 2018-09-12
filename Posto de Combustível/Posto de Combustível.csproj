@@ -1012,6 +1012,8 @@
     <Content Include="Content\TemplateADMIN\ui-wizard.html" />
     <Content Include="Content\TemplateADMIN\widgets.html" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Validacao\Fornecedor.js" />
+    <Content Include="Content\Validacao\Funcionario.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\CadastroPessoa\bootstrap.css" />
     <Content Include="Content\TelaLogin\avatar.png" />
@@ -1079,6 +1081,10 @@
     <Compile Include="Migrations\20180910172641_teste.designer.cs">
       <DependentUpon>20180910172641_teste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180911180807_charOpcional.cs" />
+    <Compile Include="Migrations\20180911180807_charOpcional.designer.cs">
+      <DependentUpon>20180911180807_charOpcional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -1087,6 +1093,17 @@
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FabricanteVeiculo.cs" />
     <Compile Include="Models\Pessoa.cs" />
+    <Compile Include="Models\Validacao\ValidacaoEmail.cs" />
+    <Compile Include="Models\Validacao\ValidacaoCnpj.cs" />
+    <Compile Include="Models\Validacao\ValidacaoCpf.cs" />
+    <Compile Include="Models\Validacao\ValidacaoIdade.cs" />
+    <Compile Include="Models\Validacao\ValidacaoInscricaoEstadual.cs" />
+    <Compile Include="Models\Validacao\ValidacaoNome.cs" />
+    <Compile Include="Models\Validacao\ValidacaoNomeFantasia.cs" />
+    <Compile Include="Models\Validacao\ValidacaoNomeRazaoSocial.cs" />
+    <Compile Include="Models\Validacao\ValidacaoObservacoes.cs" />
+    <Compile Include="Models\Validacao\ValidacaoTelefone.cs" />
+    <Compile Include="Models\Validacoes.cs" />
     <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaEstoque.cs" />
@@ -1202,7 +1219,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
-    <Folder Include="Models\Validacao\" />
     <Folder Include="Views\FabricanteVeiculo\" />
     <Folder Include="Views\Veiculo\" />
   </ItemGroup>
