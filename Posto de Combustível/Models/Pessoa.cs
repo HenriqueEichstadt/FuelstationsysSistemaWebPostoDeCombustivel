@@ -9,38 +9,42 @@ namespace Posto_De_Combustivel.Models
 {
     public class Pessoa
     {
-        //Dados Pessoais
 
         public int Id { get; set; }
 
         public string Nome { get; set; }
 
-        public DateTime? Data { get; set; }
-
+        public DateTime Data { get; set; }
+        
         public char? Genero { get; set; }
 
+        [Required]
         public char TipoPessoa { get; set; }
 
-        [MaxLength(20)]
+        [MaxLength(15)]
         public string Rg { get; set; }
 
-        [MaxLength(50)]
+        [Required, MaxLength(50)]
         public string Email { get; set; }
 
+        [Required, MinLength(13), MaxLength(14)]
         public string TelefoneUm { get; set; }
 
+        [MinLength(13), MaxLength(14)]
         public string TelefoneDois { get; set; }
 
+        [Required, MinLength(14), MaxLength(18)]
         public string CpfeCnpj { get; set; }
 
         //Dados Adicionais Fornecedor
 
-        [MaxLength(50)]
+        [MinLength(5), MaxLength(50)]
         public string NomeRazaoSocial { get; set; }
 
-        [MaxLength(50)]
+        [MinLength(5), MaxLength(50)]
         public string NomeFantasia { get; set; }
 
+        [MinLength(5), MaxLength(50)]
         public string InscricaoEstadual { get; set; }
 
         [MaxLength(200)]
@@ -59,7 +63,12 @@ namespace Posto_De_Combustivel.Models
         //Tornando o parametro nome opcional
         public Pessoa() { }
 
-       
+        public int IdadePessoa(DateTime dataNascimento)
+        {
+            TimeSpan ts = DateTime.Today - dataNascimento;
+            DateTime idade = (new DateTime() + ts).AddYears(-1).AddDays(-1);
+            return idade.Year;
+        }
 
     }
 }

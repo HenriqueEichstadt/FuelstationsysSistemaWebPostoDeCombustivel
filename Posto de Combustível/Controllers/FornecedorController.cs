@@ -29,15 +29,15 @@ namespace Posto_de_Combustivel.Controllers
         {
 
             FornecedorDAO dao = new FornecedorDAO();
-            Validacoes valida = new Validacoes();
             pessoa.TipoPessoa = 'J';
-            var cnpj = valida.ValidaCnpj(pessoa.CpfeCnpj);
-            var nomeF = valida.ValidaNomeFantasia(pessoa.NomeFantasia);
-            var razSoc = valida.ValidaNomeRazaoSocial(pessoa.NomeRazaoSocial);
-            var insEst = valida.ValidaInscricaoEstadual(pessoa.InscricaoEstadual);
-            var telUm = valida.ValidaTelefoneUm(pessoa.TelefoneUm);
-            var telDois = valida.ValidaTelefoneDois(pessoa.TelefoneDois);
-            var email = valida.ValidaEmail(pessoa.Email);
+            pessoa.Data = DateTime.Now;
+            var cnpj = Validacoes.ValidaCnpj(pessoa.CpfeCnpj);
+            var nomeF = Validacoes.ValidaNomeFantasia(pessoa.NomeFantasia);
+            var razSoc = Validacoes.ValidaNomeRazaoSocial(pessoa.NomeRazaoSocial);
+            var insEst = Validacoes.ValidaInscricaoEstadual(pessoa.InscricaoEstadual);
+            var telUm = Validacoes.ValidaTelefoneUm(pessoa.TelefoneUm);
+            var telDois = Validacoes.ValidaTelefoneDois(pessoa.TelefoneDois);
+            var email = Validacoes.ValidaEmail(pessoa.Email);
             if (pessoa != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true)
             {
                 dao.Adiciona(pessoa);

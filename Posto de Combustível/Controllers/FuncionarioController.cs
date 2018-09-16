@@ -1,4 +1,5 @@
 ﻿using Posto_de_Combustivel.DAO;
+using Posto_de_Combustivel.Models.Validacao;
 using Posto_De_Combustivel.Filtros;
 using Posto_De_Combustivel.Models;
 using System;
@@ -47,7 +48,16 @@ namespace Posto_de_Combustivel.Controllers
         {
             FuncionarioDAO dao = new FuncionarioDAO();
             funcionario.Pessoa.TipoPessoa = 'F';
-            if (funcionario.Senha == repitasenha)
+            var nome = Validacoes.ValidaNomePessoa(funcionario.Pessoa.Nome);
+            var gen = funcionario.Pessoa.Genero;
+            var rg = Validacoes.ValidaRg(funcionario.Pessoa.Rg);
+            var cpf = Validacoes.ValidaCpf(funcionario.Pessoa.CpfeCnpj);
+            var idade = Validacoes.ValidaIdade(funcionario.Pessoa.Data);
+            var email = Validacoes.ValidaEmail(funcionario.Pessoa.Email);
+            var telUm = Validacoes.ValidaTelefoneUm(funcionario.Pessoa.TelefoneUm);
+            var telDois = Validacoes.ValidaTelefoneDois(funcionario.Pessoa.TelefoneDois);
+
+            if (funcionario.Senha == repitasenha && gen != null &&  nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true )
             {
                 dao.Adiciona(funcionario);
                 return RedirectToAction("Index", "Home");

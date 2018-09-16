@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Posto_de_Combustível.DAO;
 
 namespace Posto_de_Combustivel.Migrations
 {
     [DbContext(typeof(PostoContext))]
-    partial class PostoContextModelSnapshot : ModelSnapshot
+    [Migration("20180916174449_ArrumandoClassePessoa")]
+    partial class ArrumandoClassePessoa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -239,16 +241,13 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<string>("Cor");
 
-                    b.Property<string>("Marca")
-                        .IsRequired();
+                    b.Property<string>("Marca");
 
-                    b.Property<string>("Modelo")
-                        .IsRequired();
+                    b.Property<string>("Modelo");
 
                     b.Property<int>("PessoaId");
 
-                    b.Property<string>("Placa")
-                        .IsRequired();
+                    b.Property<string>("Placa");
 
                     b.HasKey("Id");
 

@@ -8,25 +8,28 @@ namespace Posto_De_Combustivel.Models
 {
     public class Endereco
     {
-        // Dados de endereço
         public int Id { get; set; }
 
-        [MaxLength(100)]
+        [Required, MaxLength(100)]
         public string Rua { get; set; }
+
+        [Required, MaxLength(7)]
         public string Numero { get; set; }
 
-        [MaxLength(50)]
+        [Required, MaxLength(50)]
         public string Bairro { get; set; }
 
         [MaxLength(50)]
         public string Complemento { get; set; }
 
-        [MaxLength(50)]
+        [Required, MaxLength(50)]
         public string Estado { get; set; }
 
-        [MaxLength(50)]
+        [Required ,MaxLength(50)]
         public string Cidade { get; set; }
-        public int Cep { get; set; }
+
+        [Required ,MaxLength(9)]
+        public string Cep { get; set; }
 
     }
 }

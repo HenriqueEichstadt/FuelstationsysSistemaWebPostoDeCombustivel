@@ -280,6 +280,7 @@
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\moment.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\JQueryMask\jquery.mask.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\jquery.validate.js" />
@@ -1085,6 +1086,18 @@
     <Compile Include="Migrations\20180911180807_charOpcional.designer.cs">
       <DependentUpon>20180911180807_charOpcional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180916170448_ArrumandoClasseEndereco.cs" />
+    <Compile Include="Migrations\20180916170448_ArrumandoClasseEndereco.designer.cs">
+      <DependentUpon>20180916170448_ArrumandoClasseEndereco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180916174449_ArrumandoClassePessoa.cs" />
+    <Compile Include="Migrations\20180916174449_ArrumandoClassePessoa.designer.cs">
+      <DependentUpon>20180916174449_ArrumandoClassePessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180916192705_ArrumandoClasseVeiculo.cs" />
+    <Compile Include="Migrations\20180916192705_ArrumandoClasseVeiculo.designer.cs">
+      <DependentUpon>20180916192705_ArrumandoClasseVeiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -1093,16 +1106,7 @@
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FabricanteVeiculo.cs" />
     <Compile Include="Models\Pessoa.cs" />
-    <Compile Include="Models\Validacao\ValidacaoEmail.cs" />
-    <Compile Include="Models\Validacao\ValidacaoCnpj.cs" />
-    <Compile Include="Models\Validacao\ValidacaoCpf.cs" />
-    <Compile Include="Models\Validacao\ValidacaoIdade.cs" />
-    <Compile Include="Models\Validacao\ValidacaoInscricaoEstadual.cs" />
-    <Compile Include="Models\Validacao\ValidacaoNome.cs" />
-    <Compile Include="Models\Validacao\ValidacaoNomeFantasia.cs" />
-    <Compile Include="Models\Validacao\ValidacaoNomeRazaoSocial.cs" />
     <Compile Include="Models\Validacao\ValidacaoObservacoes.cs" />
-    <Compile Include="Models\Validacao\ValidacaoTelefone.cs" />
     <Compile Include="Models\Validacoes.cs" />
     <Compile Include="Models\Veiculo.cs" />
     <Compile Include="Models\Venda.cs" />

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Posto_de_Combustível.DAO;
 
 namespace Posto_de_Combustivel.Migrations
 {
     [DbContext(typeof(PostoContext))]
-    partial class PostoContextModelSnapshot : ModelSnapshot
+    [Migration("20180916170448_ArrumandoClasseEndereco")]
+    partial class ArrumandoClasseEndereco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,14 +179,11 @@ namespace Posto_de_Combustivel.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CpfeCnpj")
-                        .IsRequired()
-                        .HasMaxLength(18);
+                    b.Property<string>("CpfeCnpj");
 
                     b.Property<DateTime?>("Data");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(50);
 
                     b.Property<int?>("EnderecoId");
@@ -192,8 +191,7 @@ namespace Posto_de_Combustivel.Migrations
                     b.Property<string>("Genero")
                         .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 1)));
 
-                    b.Property<string>("InscricaoEstadual")
-                        .HasMaxLength(50);
+                    b.Property<string>("InscricaoEstadual");
 
                     b.Property<string>("Nome");
 
@@ -207,14 +205,11 @@ namespace Posto_de_Combustivel.Migrations
                         .HasMaxLength(200);
 
                     b.Property<string>("Rg")
-                        .HasMaxLength(15);
+                        .HasMaxLength(20);
 
-                    b.Property<string>("TelefoneDois")
-                        .HasMaxLength(14);
+                    b.Property<string>("TelefoneDois");
 
-                    b.Property<string>("TelefoneUm")
-                        .IsRequired()
-                        .HasMaxLength(14);
+                    b.Property<string>("TelefoneUm");
 
                     b.Property<string>("TipoPessoa")
                         .IsRequired()
@@ -239,16 +234,13 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<string>("Cor");
 
-                    b.Property<string>("Marca")
-                        .IsRequired();
+                    b.Property<string>("Marca");
 
-                    b.Property<string>("Modelo")
-                        .IsRequired();
+                    b.Property<string>("Modelo");
 
                     b.Property<int>("PessoaId");
 
-                    b.Property<string>("Placa")
-                        .IsRequired();
+                    b.Property<string>("Placa");
 
                     b.HasKey("Id");
 
