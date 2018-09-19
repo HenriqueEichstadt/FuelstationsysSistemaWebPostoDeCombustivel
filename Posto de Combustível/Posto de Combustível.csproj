@@ -1013,6 +1013,7 @@
     <Content Include="Content\TemplateADMIN\ui-wizard.html" />
     <Content Include="Content\TemplateADMIN\widgets.html" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Validacao\Cliente.js" />
     <Content Include="Content\Validacao\Fornecedor.js" />
     <Content Include="Content\Validacao\Funcionario.js" />
     <Content Include="Global.asax" />

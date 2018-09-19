@@ -17,6 +17,10 @@ namespace Posto_de_Combustivel.Models.Validacao
             string digito;
             int soma;
             int resto;
+            if(cpf == null || string.IsNullOrEmpty(cpf))
+            {
+                return false;
+            }
             cpf = cpf.Trim();
             cpf = cpf.Replace(".", "").Replace("-", "");
             if (cpf.Length != 11)

@@ -1,4 +1,5 @@
 ﻿using Posto_de_Combustivel.DAO;
+using Posto_de_Combustivel.Models.Validacao;
 using Posto_De_Combustivel.Filtros;
 using Posto_De_Combustivel.Models;
 using System;
@@ -32,7 +33,23 @@ namespace Posto_de_Combustivel.Controllers
             ClienteDAO dao = new ClienteDAO();
             cliente.Pessoa.TipoPessoa = 'F';
             cliente.Pontos = 0;
-            if (cliente != null)
+            var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);
+            var gen = cliente.Pessoa.Genero;
+            var rg = Validacoes.ValidaRg(cliente.Pessoa.Rg);
+            var cpf = Validacoes.ValidaCpf(cliente.Pessoa.CpfeCnpj);
+            var idade = Validacoes.ValidaIdade(cliente.Pessoa.Data);
+            var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
+            var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
+            var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
+            var cep = cliente.Pessoa.Endereco.Cep;
+            var rua = cliente.Pessoa.Endereco.Rua;
+            var num = cliente.Pessoa.Endereco.Numero;
+            var bairro = cliente.Pessoa.Endereco.Bairro;
+            var compl = cliente.Pessoa.Endereco.Complemento;
+            var est = cliente.Pessoa.Endereco.Estado;
+            var cid = cliente.Pessoa.Endereco.Cidade;
+
+            if (cliente != null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true && cep != null && rua != null && num != null && bairro != null && compl != null && est != null && cid != null)
             {
                 dao.AdicionaCliente(cliente);
                 return RedirectToAction("Index", "Home");
