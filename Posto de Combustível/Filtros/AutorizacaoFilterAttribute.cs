@@ -12,6 +12,7 @@ namespace Posto_De_Combustivel.Filtros
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             object usuario = filterContext.HttpContext.Session["FuncionarioLogado"];
+            
 
             if (usuario == null)
             {

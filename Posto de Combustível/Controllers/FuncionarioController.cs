@@ -35,6 +35,8 @@ namespace Posto_de_Combustivel.Controllers
             if (funcionario != null)
             {
                 Session["FuncionarioLogado"] = funcionario;
+                Session.Timeout = 10;
+                
                 return RedirectToAction("Index", "Home");
 
             }
@@ -42,6 +44,12 @@ namespace Posto_de_Combustivel.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        public JsonResult EncerrarSessao()
+        {
+            Session.Abandon();
+            return Json(new { logOut = true });
         }
 
         public ActionResult AdicionaUsuario(Funcionario funcionario, string repitasenha)
@@ -57,7 +65,7 @@ namespace Posto_de_Combustivel.Controllers
             var telUm = Validacoes.ValidaTelefoneUm(funcionario.Pessoa.TelefoneUm);
             var telDois = Validacoes.ValidaTelefoneDois(funcionario.Pessoa.TelefoneDois);
 
-            if (funcionario.Senha == repitasenha && gen != null &&  nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true )
+            if (funcionario.Senha == repitasenha && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
             {
                 dao.Adiciona(funcionario);
                 return RedirectToAction("Index", "Home");

@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{Posto_De_Combustivel.Models.Funcionario funcionarioLogado = (Posto_De_Combustivel.Models.Funcionario)HttpContext.Current.Session["FuncionarioLogado"]; }
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,6 +11,7 @@
 
 </head>
 <body>
+
     <!-- WRAPPER -->
     <div id="wrapper">
 
@@ -99,14 +103,23 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="~/Content/TemplateADMIN/assets/img/user.png" alt="Avatar">
-                                <span>Samuel</span>
+                                
+
+                                @{ // Mostra nome do usuário logado na sessão
+                                    string nome = "";
+
+                                    if (funcionarioLogado != null)
+                                    {
+                                        nome = funcionarioLogado.NomeUsuario;
+                                <i class="ti-user"></i><span>@nome</span>
+                                    }
+                                }
                             </a>
                             <ul class="dropdown-menu logged-user-menu">
                                 <li><a href="#"><i class="ti-user"></i> <span>My Profile</span></a></li>
                                 <li><a href="~/Content/TemplateADMIN/appviews-inbox.html"><i class="ti-email"></i> <span>Message</span></a></li>
                                 <li><a href="#"><i class="ti-settings"></i> <span>Settings</span></a></li>
-                                <li><a href="~/Content/TemplateADMIN/page-lockscreen.html"><i class="ti-power-off"></i> <span>Logout</span></a></li>
+                                <li><a href="#" onclick="LogOut();"><i class="ti-power-off"></i> <span>Sair</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -382,5 +395,18 @@
     </footer>
     @Scripts.Render("~/bundles/js");
     @RenderSection("body_scripts", false)
+
+    <script>
+        function LogOut() {
+            var url = "@Url.Action("EncerrarSessao", "Funcionario")";
+            $.post(url, null, encerrar);
+        }
+
+        function encerrar(login) {
+            if (login.logOut == true) {
+                location.href = "/Home";
+            }
+        }
+    </script>
 </body>
 </html>
