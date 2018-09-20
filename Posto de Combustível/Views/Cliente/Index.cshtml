@@ -63,7 +63,7 @@
                     <label class="col-md-1 control-label" for="Nome">CPF <h11>*</h11></label>
                     <div class="col-md-2">
                         <input id="CpfeCnpj" name="cliente.pessoa.CpfeCnpj" value="@ViewBag.Cliente.Pessoa.CpfeCnpj" placeholder="Apenas números" onkeyup="confereCPF(this)" class="form-control input-md" type="text" maxlength="15" pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})$">
-                  <span id="cpfFrase"></span>
+                        <span id="cpfFrase"></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -286,4 +286,6 @@
 
 @section body_scripts{
     <script src="~/Content/Validacao/Cliente.js"></script>
+    <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
+
 }

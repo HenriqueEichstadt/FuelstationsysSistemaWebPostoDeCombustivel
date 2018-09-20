@@ -280,6 +280,7 @@
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\moment.js" />
+    <Content Include="Content\TemplateADMIN\assets\scripts\TemplateAdminScripts.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\JQueryMask\jquery.mask.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.min.js" />

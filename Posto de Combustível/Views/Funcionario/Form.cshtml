@@ -82,12 +82,12 @@
                     <label class="col-md-2 control-label" for="idRg">RG <h11>*</h11></label>
                     <div class="col-md-2">
                         <input id="Rg" name="funcionario.pessoa.Rg" value="@ViewBag.Funcionario.Pessoa.Rg" placeholder="Apenas números" class="form-control input-md" type="text" maxlength="15">
-                   <span id="rgFrase"></span>
+                        <span id="rgFrase"></span>
                     </div>
                     <label class="col-md-1 control-label" for="idCpf">CPF <h11>*</h11></label>
                     <div class="col-md-2">
                         <input id="CpfeCnpj" name="funcionario.pessoa.CpfeCnpj" value="@ViewBag.Funcionario.Pessoa.CpfeCnpj" placeholder="Apenas números" onkeyup="confereCPF(this)" class="form-control input-md" type="text" maxlength="15" pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})$">
-                   <span id="cpfFrase"></span>
+                        <span id="cpfFrase"></span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -230,4 +230,6 @@
 
 @section body_scripts{
     <script src="~/Content/Validacao/Funcionario.js"></script>
+    <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
+
 }
