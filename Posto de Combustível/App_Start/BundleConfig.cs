@@ -41,7 +41,6 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/justgage-toorshia/justgage.js",
                       "~/Content/TemplateADMIN/assets/scripts/klorofilpro-common.js",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
-                     // "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/additional-methods.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/JQueryMask/jquery.mask.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js",
                       "~/Content/TemplateADMIN/assets/scripts/moment.js"));
@@ -63,9 +62,9 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/css/skins/navbar3.css",
                       "~/Content/TemplateADMIN/assets/css/demo.css",
                       "~/Content/TemplateADMIN/demo-panel/style-switcher.css",
-                      "~/Content/TemplateADMIN/assets/vendor/datatables/css-main/jquery.dataTables.min.css"));
+                      "~/Content/TemplateADMIN/assets/vendor/datatables/css-main/jquery.dataTables.min.css",
+                      "~/Content/DataTableCss/DataTables.css"));
 
-            //BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -165,7 +165,7 @@ $("#CpfeCnpj").mask("000.000.000-00");
 $("#telefoneUm").mask("(00)00000-0000");
 $("#telefoneDois").mask("(00)00000-0000");
 $("#Cep").mask("00000-000");
-$("#Rg").mask("0.000.000.000");
+//$("#Rg").mask("0.000.000.000");
 
 
 // Função para conferir se o CPF é válido ou não

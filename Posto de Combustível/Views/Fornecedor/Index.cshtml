@@ -111,7 +111,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
                     <div class="col-md-2">
-                        <input id="Cep" name="pessoa.endereco.Cep" value="@ViewBag.Pessoa.Endereco.Cep" placeholder="Apenas números" class="form-control input-md" type="search" maxlength="9" pattern="[0-9]{5}[0-9]{3}+$">
+                        <input id="Cep" name="pessoa.endereco.Cep" value="@ViewBag.Pessoa.Endereco.Cep" onfocusout="pesquisacep(Cep.value)" placeholder="Apenas números" class="form-control input-md" type="search" maxlength="9" pattern="[0-9]{5}[0-9]{3}+$">
                     </div>
                     <div class="col-md-2">
                         <button type="button" class="btn btn-primary" onclick="pesquisacep(Cep.value)">Pesquisar</button>
@@ -122,19 +122,19 @@
                     <div class="col-md-4">
                         <div class="input-group">
                             <span class="input-group-addon">Rua</span>
-                            <input id="Rua" name="pessoa.endereco.Rua" value="@ViewBag.Pessoa.Endereco.Rua" class="form-control" placeholder="" type="text">
+                            <input id="rua" name="pessoa.endereco.Rua" value="@ViewBag.Pessoa.Endereco.Rua" class="form-control" placeholder="" type="text">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="input-group">
                             <span class="input-group-addon">Nº <h11>*</h11></span>
-                            <input id="Numero" name="pessoa.endereco.Numero" value="@ViewBag.Pessoa.Endereco.Numero" class="form-control" placeholder="" type="text">
+                            <input id="numero" name="pessoa.endereco.Numero" value="@ViewBag.Pessoa.Endereco.Numero" class="form-control" placeholder="" type="text">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon">Bairro</span>
-                            <input id="Bairro" name="pessoa.endereco.Bairro" value="@ViewBag.Pessoa.Endereco.Bairro" class="form-control" placeholder="" type="text">
+                            <input id="bairro" name="pessoa.endereco.Bairro" value="@ViewBag.Pessoa.Endereco.Bairro" class="form-control" placeholder="" type="text">
                         </div>
                     </div>
                 </div>

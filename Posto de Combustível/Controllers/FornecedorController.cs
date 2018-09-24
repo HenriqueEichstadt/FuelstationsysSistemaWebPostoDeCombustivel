@@ -19,7 +19,12 @@ namespace Posto_de_Combustivel.Controllers
         {
             ViewBag.Pessoa = new Pessoa();
             ViewBag.Pessoa.Endereco = new Endereco();
-            
+
+            return View();
+        }
+
+        public ActionResult Pessoas()
+        {
             return View();
         }
 
@@ -41,7 +46,7 @@ namespace Posto_de_Combustivel.Controllers
             if (pessoa != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true)
             {
                 dao.Adiciona(pessoa);
-               // return Json(new { adicionou = true, msg = "nao adicionou" });
+                // return Json(new { adicionou = true, msg = "nao adicionou" });
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -49,6 +54,21 @@ namespace Posto_de_Combustivel.Controllers
                 ViewBag.Pessoa = pessoa;
                 return View("Index");
             }
+        }
+        public JsonResult ListaFornecedores(Pessoa pessoa)
+        {
+            char fornecedor = pessoa.TipoPessoa;
+           // if (fornecedor == 'J')
+            //{
+                return Json(new
+                {
+                    data = new FornecedorDAO().ListaFornecedores(pessoa)
+                }, JsonRequestBehavior.AllowGet);
+            //}
+            /*else
+            {
+                return null;
+            }*/
         }
     }
 }

@@ -34,6 +34,7 @@ namespace Posto_de_Combustível.DAO
             modelBuilder.Entity<FabricanteVeiculo>().HasOne(f => f.TipoDoFabricante)
                 .WithMany()
                 .HasForeignKey(f => f.FabricanteVeiculoId);
+
         }
 
 

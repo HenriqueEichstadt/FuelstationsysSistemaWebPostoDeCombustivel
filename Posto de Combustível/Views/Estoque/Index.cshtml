@@ -46,6 +46,10 @@
                     "url": "/Estoque/ListaProdutos",
                     "type": "GET",
                     "datatype": "json",
+                    "dom": 'Bfrtip',
+                    "buttons": [
+                        'Adicionar', 'Alterar', 'Excluir'
+                    ],
                 },
                 "columns": [
                     { "data": "Id", "autoWidth": true, },
@@ -65,10 +69,10 @@
                     {
                         "data": "TrocaPontosFidelidade", "autoWidth": true,
                         render: function (data, row) {
-                            if (row.TrocaPontosFidelidade == null) { return "0"}
+                            if (row.TrocaPontosFidelidade == null) { return "0" }
                         }
                     }
-                ]
+                ],
             });
         });
     </script>

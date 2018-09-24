@@ -1,4 +1,4 @@
-﻿
+﻿ // funções para pesquisar cep por web service ViaCep
 function limpa_formulario_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('rua').value = ("");
@@ -65,6 +65,9 @@ function pesquisacep(valor) {
         limpa_formulario_cep();
     }
 }
+
+
+
 
 function formatar(mascara, documento) {
     var i = documento.value.length;

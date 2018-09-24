@@ -19,12 +19,13 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
-        public IList<Pessoa> Lista()
+        public IList<Pessoa> ListaFornecedores(Pessoa pessoa)
         {
-            using (var contexto = new PostoContext())
-            {
-                return contexto.Pessoas.ToList();
-            }
+                using (var contexto = new PostoContext())
+                {
+                    return contexto.Pessoas.ToList();
+                }
+            
         }
 
         public Pessoa BuscaPorId(int id)

@@ -28,6 +28,11 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
+        public ActionResult Clientes()
+        {
+            return View();
+        }
+
         public ActionResult AdicionaCliente(Cliente cliente)
         {
             ClienteDAO dao = new ClienteDAO();
@@ -41,15 +46,8 @@ namespace Posto_de_Combustivel.Controllers
             var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
             var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
             var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
-            var cep = cliente.Pessoa.Endereco.Cep;
-            var rua = cliente.Pessoa.Endereco.Rua;
-            var num = cliente.Pessoa.Endereco.Numero;
-            var bairro = cliente.Pessoa.Endereco.Bairro;
-            var compl = cliente.Pessoa.Endereco.Complemento;
-            var est = cliente.Pessoa.Endereco.Estado;
-            var cid = cliente.Pessoa.Endereco.Cidade;
 
-            if (cliente != null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true && cep != null && rua != null && num != null && bairro != null && compl != null && est != null && cid != null)
+            if (cliente != null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
             {
                 dao.AdicionaCliente(cliente);
                 return RedirectToAction("Index", "Home");
@@ -59,6 +57,13 @@ namespace Posto_de_Combustivel.Controllers
                 ViewBag.Pessoa = cliente;
                 return View("Index");
             }
+        }
+        public JsonResult ListaClientes(Cliente cliente)
+        {
+            return Json(new
+            {
+                data = new ClienteDAO().ListaClientes(cliente)
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

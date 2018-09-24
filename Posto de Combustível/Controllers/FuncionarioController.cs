@@ -26,6 +26,10 @@ namespace Posto_de_Combustivel.Controllers
 
             return View();
         }
+        public ActionResult Funcionarios()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Autentica(String nomeusuario, String senha)
@@ -75,6 +79,15 @@ namespace Posto_de_Combustivel.Controllers
                 ViewBag.Funcionario = funcionario;
                 return View("Form");
             }
+        }
+
+        public JsonResult ListaFuncionarios(Funcionario funcionario)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            return Json(new
+            {
+                data = new FuncionarioDAO().ListaFuncionarios(funcionario)
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

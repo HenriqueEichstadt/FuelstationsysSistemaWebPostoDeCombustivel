@@ -19,11 +19,11 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
-        public IList<Funcionario> Lista()
+        public IList<Funcionario> ListaFuncionarios(Funcionario funcionario)
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Funcionarios.Include(f => f.Pessoa).ToList();
+                return contexto.Funcionarios.ToList();
             }
         }
 

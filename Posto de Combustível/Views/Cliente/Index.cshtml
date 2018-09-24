@@ -108,14 +108,14 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
                     <div class="col-md-2">
-                        <input id="Cep" name="cliente.pessoa.endereco.Cep" value="@ViewBag.Cliente.Pessoa.Endereco.Cep" placeholder="Apenas números" class="form-control input-md" type="search" maxlength="8" pattern="[0-9]+$">
+                        <input id="Cep" name="cliente.pessoa.endereco.Cep" value="@ViewBag.Cliente.Pessoa.Endereco.Cep" onfocusout="pesquisacep(Cep.value)" placeholder="Apenas números" class="form-control input-md" type="search" maxlength="8" pattern="[0-9]+$">
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                        <button type="button" class="btn btn-primary" onclick="pesquisacep(Cep.value)">Pesquisar</button>
                     </div>
                 </div>
 
-                <!-- Endereço       //readonly="readonly"-->
+                <!-- Endereço-->
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
                     <div class="col-md-4">

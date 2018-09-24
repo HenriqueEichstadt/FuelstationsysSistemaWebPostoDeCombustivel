@@ -20,11 +20,11 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
-        public IList<Pessoa> Lista()
+        public IList<Cliente> ListaClientes(Cliente cliente)
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Pessoas.ToList();
+                return contexto.Clientes.ToList();
             }
         }
 
