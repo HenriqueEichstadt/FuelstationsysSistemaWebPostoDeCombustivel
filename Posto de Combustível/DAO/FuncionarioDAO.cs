@@ -23,7 +23,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Funcionarios.ToList();
+                return contexto.Funcionarios.Include(f => f.Pessoa).ToList();
             }
         }
 

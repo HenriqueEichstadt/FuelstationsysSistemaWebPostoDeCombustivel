@@ -63,7 +63,8 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/css/demo.css",
                       "~/Content/TemplateADMIN/demo-panel/style-switcher.css",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/css-main/jquery.dataTables.min.css",
-                      "~/Content/DataTableCss/DataTables.css"));
+                      "~/Content/DataTableCss/DataTables.css",
+                      "~/Content/Site.css"));
 
         }
     }
