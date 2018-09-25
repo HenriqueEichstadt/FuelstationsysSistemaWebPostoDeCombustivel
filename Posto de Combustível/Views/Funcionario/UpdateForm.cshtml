@@ -1,0 +1,239 @@
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Formulário</h1>
+            <p class="page-subtitle">Editar funcionário</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Formulário</a></li>
+            <li><a href="#">Editar funcionário</a></li>
+        </ul>
+    </div>
+
+
+    <form action="/Funcionario/ModificaFuncionarios" id="FormCadastro" method="post">
+        <div class="form-horizontal">
+
+
+            <div class="panel-body">
+                <div class="form-group">
+
+                    <div class="col-md-11 control-label">
+                        <p class="help-block">
+                            <h11>*</h11> Campo Obrigatório
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3 control-label">
+                        <h3>Dados do Funcionário:</h3>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="cargo">Cargo <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="cargo" name="funcionario.Cargo" value="@ViewBag.Funcionario.Cargo" placeholder="Função do novo funcionário" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="radios">Nivel de acesso <h11>*</h11></label>
+                    <div class="col-md-4">
+                        <label class="radio-inline" for="radios-0">
+                            <input name="funcionario.NivelAcesso" value="0" id="administrador" type="radio">
+                            Administrador
+                        </label>
+                        <label class="radio-inline" for="radios-1">
+                            <input name="funcionario.NivelAcesso" id="funcionario" value="1" type="radio">
+                            Funcionário
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Nome Completo <h11>*</h11></label>
+                    <div class="col-md-5">
+                        <input id="Nome" name="funcionario.pessoa.Nome" value="@ViewBag.Funcionario.Pessoa.Nome" placeholder="Nome do funcionário" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Nascimento<h11>*</h11></label>
+                    <div class="col-md-2">
+                        <input id="Data" name="funcionario.pessoa.Data" value="@ViewBag.Funcionario.Pessoa.Data" placeholder="DD/MM/AAAA" class="form-control input-md" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                    </div>
+
+                    <!-- Multiple Radios (inline) -->
+
+                    <label class="col-md-1 control-label" for="radios">Gênero <h11>*</h11></label>
+                    <div class="col-md-4">
+                        <label class="radio-inline" for="radios-0">
+                            <input name="funcionario.pessoa.Genero" id="generoMasculino" value="M" type="radio">
+                            Masculino
+                        </label>
+                        <label class="radio-inline" for="radios-1">
+                            <input name="funcionario.pessoa.Genero" id="generoFeminino" value="F" type="radio">
+                            Feminino
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="idRg">RG <h11>*</h11></label>
+                    <div class="col-md-2">
+                        <input id="Rg" name="funcionario.pessoa.Rg" value="@ViewBag.Funcionario.Pessoa.Rg" placeholder="Apenas números" class="form-control input-md" type="text" maxlength="15">
+                        <span id="rgFrase"></span>
+                    </div>
+                    <label class="col-md-1 control-label" for="idCpf">CPF <h11>*</h11></label>
+                    <div class="col-md-2">
+                        <input id="CpfeCnpj" name="funcionario.pessoa.CpfeCnpj" value="@ViewBag.Funcionario.Pessoa.CpfeCnpj" placeholder="Apenas números" onkeyup="confereCPF(this)" class="form-control input-md" type="text" maxlength="15" pattern="^(\d{3}\.\d{3}\.\d{3}-\d{2})$">
+                        <span id="cpfFrase"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input id="Endereco" name="funcionario.pessoa.Email" value="@ViewBag.Funcionario.Pessoa.Email" class="form-control" placeholder="funcionario@email.com" type="email">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prepended text-->
+                <div class="form-group">
+
+                    <label class="col-md-2 control-label" for="prependedtext">Telefone 1 <h11>*</h11></label>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input id="telefoneUm" name="funcionario.pessoa.TelefoneUm" value="@ViewBag.Funcionario.Pessoa.TelefoneUm" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                        </div>
+                    </div>
+
+                    <label class="col-md-1 control-label" for="prependedtext">Telefone 2 <h11></h11></label>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input id="telefoneDois" name="funcionario.pessoa.TelefoneDois" value="@ViewBag.Funcionario.Pessoa.TelefoneDois" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" OnKeyPress="formatar('## #####-####', this)">
+                        </div>
+                    </div>
+
+
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-3 control-label">
+                        <h3>Dados de endereço:</h3>
+                    </div>
+                </div>
+
+                <!-- Search input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+                    <div class="col-md-2">
+                        <input id="Cep" name="funcionario.pessoa.endereco.Cep" onfocusout="pesquisacep(Cep.value)" value="@ViewBag.Funcionario.Pessoa.Endereco.Cep" placeholder="Apenas números" class="form-control input-md" type="search" maxlength="9" pattern="[0-9]{5}[0-9]{3}+$">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" onclick="pesquisacep(Cep.value)">Pesquisar</button>
+                    </div>
+                </div>
+
+                <!-- Endereço       //readonly="readonly"-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rua</span>
+                            <input id="rua" name="funcionario.pessoa.endereco.Rua" value="@ViewBag.Funcionario.Pessoa.Endereco.Rua" class="form-control" placeholder="" type="text">
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Nº <h11>*</h11></span>
+                            <input id="numero" name="funcionario.pessoa.endereco.Numero" value="@ViewBag.Funcionario.Pessoa.Endereco.Numero" class="form-control" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Bairro</span>
+                            <input id="bairro" name="funcionario.pessoa.endereco.Bairro" value="@ViewBag.Funcionario.Pessoa.Endereco.Bairro" class="form-control" placeholder="" type="text">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="prependedtext"></label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Cidade</span>
+                            <input id="cidade" name="funcionario.pessoa.endereco.Cidade" value="@ViewBag.Funcionario.Pessoa.Endereco.Cidade" class="form-control" placeholder="" type="text">
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Estado</span>
+                            <input id="estado" name="funcionario.pessoa.endereco.Estado" value="@ViewBag.Funcionario.Pessoa.Endereco.Estado" class="form-control" placeholder="" type="text">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Complemento</span>
+                            <input id="complemento" name="funcionario.pessoa.endereco.Complemento" value="@ViewBag.Funcionario.Pessoa.Endereco.Complemento" class="form-control" placeholder="" type="text">
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="col-md-3 control-label">
+                        <h3>Dados de login no sistema:</h3>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Nome de usuário <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="NomeUsuario" name="funcionario.NomeUsuario" value="@ViewBag.Funcionario.NomeUsuario" placeholder="Seu nome de usuário" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Senha <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="senhaPrincipal" name="funcionario.Senha" placeholder="Digite sua senha" class="form-control input-md" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Nome">Repita a senha <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="SenhaDois" name="repitasenha" placeholder="Digite sua senha novamente" class="form-control input-md" type="password">
+                    </div>
+                </div>
+                <!-- Botão Cadastrar e Cancelar -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Cadastrar"></label>
+                    <div class="col-md-8">
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section body_scripts{
+    <script src="~/Content/Validacao/Funcionario.js"></script>
+    <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}

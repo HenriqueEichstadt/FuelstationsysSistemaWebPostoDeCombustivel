@@ -28,6 +28,12 @@ namespace Posto_de_Combustivel.Controllers
         }
         public ActionResult Funcionarios()
         {
+           
+            return View();
+        }
+        public ActionResult UpdateForm()
+        {
+            ViewBag.Funcionario = new Funcionario() { Pessoa = new Pessoa() { Endereco = new Endereco() } };
             return View();
         }
 
@@ -72,7 +78,7 @@ namespace Posto_de_Combustivel.Controllers
             if (funcionario.Senha == repitasenha && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
             {
                 dao.Adiciona(funcionario);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Funcionarios", "Funcionario");
             }
             else
             {
@@ -88,6 +94,43 @@ namespace Posto_de_Combustivel.Controllers
             {
                 data = new FuncionarioDAO().ListaFuncionarios(funcionario)
             }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ModificaFuncionarios(Funcionario funcionario, string repitasenha)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            funcionario.Pessoa.TipoPessoa = 'F';
+            var nome = Validacoes.ValidaNomePessoa(funcionario.Pessoa.Nome);
+            var gen = funcionario.Pessoa.Genero;
+            var rg = Validacoes.ValidaRg(funcionario.Pessoa.Rg);
+            var cpf = Validacoes.ValidaCpf(funcionario.Pessoa.CpfeCnpj);
+            var idade = Validacoes.ValidaIdade(funcionario.Pessoa.Data);
+            var email = Validacoes.ValidaEmail(funcionario.Pessoa.Email);
+            var telUm = Validacoes.ValidaTelefoneUm(funcionario.Pessoa.TelefoneUm);
+            var telDois = Validacoes.ValidaTelefoneDois(funcionario.Pessoa.TelefoneDois);
+
+            if (funcionario.Senha == repitasenha && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+            {
+                dao.Atualiza(funcionario);
+                return Json(new
+                {
+                    data = true
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                ViewBag.Funcionario = funcionario;
+                return Json(new
+                {
+                    data = false
+                }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        public JsonResult DeletaFuncionario(int id)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.Deleta(id);
+            return Json(new { deletou = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

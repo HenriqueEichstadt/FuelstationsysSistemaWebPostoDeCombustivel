@@ -282,6 +282,8 @@
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\moment.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\TemplateAdminScripts.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\DataTablesSelect\dataTables.select.min.js" />
+    <Content Include="Content\TemplateADMIN\assets\vendor\DataTablesSelect\select.dataTables.min.css" />
     <Content Include="Content\TemplateADMIN\assets\vendor\JQueryMask\jquery.mask.min.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\ValidateJquery\additional-methods.min.js" />
@@ -1219,6 +1221,7 @@
     <Content Include="Views\Funcionario\Funcionarios.cshtml" />
     <Content Include="Views\Cliente\Clientes.cshtml" />
     <Content Include="Views\Fornecedor\Pessoas.cshtml" />
+    <Content Include="Views\Funcionario\UpdateForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

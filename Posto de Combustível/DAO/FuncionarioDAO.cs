@@ -19,6 +19,20 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public void Deleta(int id)
+        {
+            using (var context = new PostoContext())
+            {
+                var funcionario = new FuncionarioDAO().BuscaPorId(id);
+                context.Funcionarios.Remove(funcionario);
+                var pessoa = context.Pessoas.Find(funcionario.PessoaId);
+                context.Pessoas.Remove(pessoa);
+                var endereco = context.Enderecos.Find(pessoa.EnderecoId);
+                context.Enderecos.Remove(endereco);
+                context.SaveChanges();
+            }
+        }
+
         public IList<Funcionario> ListaFuncionarios(Funcionario funcionario)
         {
             using (var contexto = new PostoContext())

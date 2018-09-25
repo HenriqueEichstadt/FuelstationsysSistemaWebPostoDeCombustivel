@@ -51,6 +51,7 @@ namespace Posto_De_Combustivel.Models
         public string Observacoes { get; set; }
 
         public Endereco Endereco { get; set; }
+        public int EnderecoId { get; set; }
 
         public Veiculo Veiculo { get; set; }
 
