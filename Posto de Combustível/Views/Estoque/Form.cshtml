@@ -1,0 +1,122 @@
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Formulário</h1>
+            <p class="page-subtitle">Cadastrar novo produto</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Formulário</a></li>
+            <li><a href="#">Cadastrar novo produto</a></li>
+        </ul>
+    </div>
+
+
+    <form action="/Estoque/AdicionaProdutoEstoque" id="FormCadastro" method="post">
+        <div class="form-horizontal">
+            <div class="panel-body" id="formCadastro">
+                <div class="form-group">
+
+                    <div class="col-md-11 control-label">
+                        <p class="help-block">
+                            <h11>*</h11> Campo Obrigatório
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 control-label">
+                        <h3>Dados do Produto:</h3>
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="nomeproduto">Nome <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="nomeproduto" name="estoque.Nome" value="@ViewBag.Estoque.Nome" placeholder="Nome do produto" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="marca">Marca<h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="marca" name="estoque.Marca" value="@ViewBag.Estoque.Marca" placeholder="Marca do produto" class="form-control input-md" type="text" maxlength="50">
+                    </div>
+                </div>
+                <!-- Multiple Radios (inline) -->
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" id="Genero" for="Genero">Categoria <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <select id="categoria" name="estoque.Categoria" class="form-control input-md">
+                            <option value="P">Produto</option>
+                            <option value="C">Combustível</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="precoVenda">Preço de Venda<h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="precoVenda" name="estoque.PrecoVenda" value="@ViewBag.Estoque.PrecoVenda" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="precoCusto">Preço de Custo<h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="precoCusto" name="estoque.PrecoCusto" value="@ViewBag.Estoque.PrecoCusto" placeholder="R$ 00,00" class="form-control input-md" type="number" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="precoVenda">Estoque Atual<h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="precoVenda" name="estoque.EstoqueAtual" value="@ViewBag.Estoque.EstoqueAtual" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="precoCusto">Limite de Estoque<h11></h11></label>
+                    <div class="col-md-3">
+                        <input id="precoCusto" name="estoque.LimiteEstoque" value="@ViewBag.Estoque.LimiteEstoque" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="idObservacoes">Descrição <h11>    </h11></label>
+                    <div class="col-md-3">
+                        <textarea id="observacoes" name="pessoa.Descricao" value="@ViewBag.Descricao" placeholder="Opcional" class="form-control input-md" type="text"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Validade">Validade<h11>*</h11></label>
+                    <div class="col-md-2">
+                        <input id="Validade" name="estoque.Validade" value="@ViewBag.Estoque.Validade" placeholder="DD/MM/AAAA" class="form-control input-md" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="trocapontos">Troca por Pontos<h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="trocapontos" name="estoque.TrocaPontosFidelidade" value="@ViewBag.Estoque.TrocaPontosFidelidade" placeholder="" class="form-control input-md" type="number" maxlength="6">
+                    </div>
+                </div>
+
+                <hr>
+                <!-- Botão Cadastrar e Cancelar -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Cadastrar"></label>
+                    <div class="col-md-8">
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    </div>
+                    <fieldset id=""></fieldset>
+
+                </div>
+            </div>
+            <fieldset id="panel-body"></fieldset>
+        </div>
+    </form>
+</div>
+
+
+
+@section body_scripts{
+    <script src="~/Content/Validacao/Estoque.js"></script>
+    <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
+   
+}

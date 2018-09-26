@@ -23,8 +23,14 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public ActionResult Pessoas()
+        public ActionResult Fornecedores()
         {
+            return View();
+        }
+
+        public ActionResult UpdateForm()
+        {
+            ViewBag.Pessoa = new Pessoa();
             return View();
         }
 
@@ -47,7 +53,7 @@ namespace Posto_de_Combustivel.Controllers
             {
                 dao.Adiciona(pessoa);
                 // return Json(new { adicionou = true, msg = "nao adicionou" });
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Fornecedores", "Fornecedor");
             }
             else
             {
@@ -58,17 +64,16 @@ namespace Posto_de_Combustivel.Controllers
         public JsonResult ListaFornecedores(Pessoa pessoa)
         {
             char fornecedor = pessoa.TipoPessoa;
-           // if (fornecedor == 'J')
-            //{
-                return Json(new
-                {
-                    data = new FornecedorDAO().ListaFornecedores(pessoa)
-                }, JsonRequestBehavior.AllowGet);
-            //}
-            /*else
+            return Json(new
             {
-                return null;
-            }*/
+                data = new FornecedorDAO().ListaFornecedores(pessoa)
+            }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult DeletaFornecedor(int id)
+        {
+            FornecedorDAO dao = new FornecedorDAO();
+            dao.Deleta(id);
+            return Json(new { deletou = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

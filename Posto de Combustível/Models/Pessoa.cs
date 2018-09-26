@@ -55,6 +55,7 @@ namespace Posto_De_Combustivel.Models
 
         public Veiculo Veiculo { get; set; }
 
+
         // Construtores
         //Pede para adicionar o nome do cliente
         public Pessoa(string nome)

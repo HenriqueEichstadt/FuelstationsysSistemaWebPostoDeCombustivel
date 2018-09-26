@@ -17,20 +17,57 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
+        public ActionResult Form()
+        {
+            ViewBag.Estoque = new Estoque();
+            return View();
+        }
+
+        public ActionResult UpdateForm()
+        {
+            ViewBag.Estoque = new Estoque();
+            return View();
+        }
+
         public JsonResult ListaProdutos()
         {
             return Json(new
             {
                 data = new EstoqueDAO().ListaProdutos()
             }, JsonRequestBehavior.AllowGet);
-                
-
-
-            //using(PostoContext pc = new PostoContext())
-            //{
-            //    var data = pc.Estoques.OrderBy(a => a.Nome).ToList();
-            //    return Json(new { data }, JsonRequestBehavior.AllowGet);
-            //}
+        }
+        public ActionResult AdicionaProdutoEstoque(Estoque estoque)
+        {
+            EstoqueDAO dao = new EstoqueDAO();
+            estoque.Ativo = true;
+            if (estoque != null)
+            {
+                dao.Adiciona(estoque);
+                return RedirectToAction("Index", "Estoque");
+            }
+            else
+            {
+                return View("Form");
+            }
+        }
+        public ActionResult EditaProduto(Estoque estoque)
+        {
+            EstoqueDAO dao = new EstoqueDAO();
+            if (estoque != null)
+            {
+                dao.Atualiza(estoque);
+                return RedirectToAction("Index", "Estoque");
+            }
+            else
+            {
+                return View("Form");
+            }
+        }
+        public JsonResult InativaProduto(int id)
+        {
+            EstoqueDAO dao = new EstoqueDAO();
+            dao.Inativa(id);
+            return Json(new { inativou = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

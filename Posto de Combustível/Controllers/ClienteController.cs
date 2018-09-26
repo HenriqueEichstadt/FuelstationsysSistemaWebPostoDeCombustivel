@@ -33,10 +33,25 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
+        public ActionResult UpdateForm()
+        {
+            ViewBag.Cliente = new Cliente()
+            {
+                Pessoa = new Pessoa()
+                {
+                    Endereco = new Endereco(),
+                    Veiculo = new Veiculo(),
+
+                }
+            };
+            return View();
+        }
+
         public ActionResult AdicionaCliente(Cliente cliente)
         {
             ClienteDAO dao = new ClienteDAO();
             cliente.Pessoa.TipoPessoa = 'F';
+            cliente.Ativo = true;
             cliente.Pontos = 0;
             var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);
             var gen = cliente.Pessoa.Genero;
@@ -50,7 +65,7 @@ namespace Posto_de_Combustivel.Controllers
             if (cliente != null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
             {
                 dao.AdicionaCliente(cliente);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Clientes", "Cliente");
             }
             else
             {
@@ -58,12 +73,34 @@ namespace Posto_de_Combustivel.Controllers
                 return View("Index");
             }
         }
-        public JsonResult ListaClientes(Cliente cliente)
+        public JsonResult ListaClientes()
         {
             return Json(new
             {
-                data = new ClienteDAO().ListaClientes(cliente)
+                data = new ClienteDAO().ListaClientes()
             }, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult UpdateCliente(Cliente cliente)
+        {
+            ClienteDAO dao = new ClienteDAO();
+            if (cliente != null)
+            {
+                dao.AdicionaCliente(cliente);
+                return RedirectToAction("Clientes", "Cliente");
+            }
+            else
+            {
+                ViewBag.Pessoa = cliente;
+                return View("Index");
+            }
+        }
+        public JsonResult InativaCliente(int id)
+        {
+            ClienteDAO dao = new ClienteDAO();
+            dao.Inativa(id);
+            return Json(new { inativou = true }, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -20,19 +20,29 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
-        public IList<Cliente> ListaClientes(Cliente cliente)
+        public void Inativa(int id)
         {
-            using (var contexto = new PostoContext())
+            using (var context = new PostoContext())
             {
-                return contexto.Clientes.Include(f => f.Pessoa).ToList();
+                var cliente = new ClienteDAO().BuscaPorId(id);
+
+                cliente.Ativo = false;
             }
         }
 
-        public Pessoa BuscaPorId(int id)
+        public IList<Cliente> ListaClientes()
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Pessoas.Find(id);
+                return contexto.Clientes.Include(f => f.Pessoa).Where(c => c.Ativo == true).ToList();
+            }
+        }
+
+        public Cliente BuscaPorId(int id)
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Clientes.Find(id);
             }
         }
 

@@ -15,7 +15,6 @@ namespace Posto_de_Combustível.DAO
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<FabricanteVeiculo> FabricanteVeiculos { get; set; }
@@ -26,10 +25,6 @@ namespace Posto_de_Combustível.DAO
                 .Entity<VendaEstoque>()
                 .HasKey(ve => new { ve.VendaId, ve.EstoqueId });
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Categoria>().HasOne(c => c.CategoriaDaSubCategoria)
-                .WithMany()
-                .HasForeignKey(c => c.CategoriaId);
 
             modelBuilder.Entity<FabricanteVeiculo>().HasOne(f => f.TipoDoFabricante)
                 .WithMany()

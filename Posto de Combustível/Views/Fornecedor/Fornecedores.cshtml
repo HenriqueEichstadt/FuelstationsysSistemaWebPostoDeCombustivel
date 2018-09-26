@@ -1,0 +1,79 @@
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Cadastros</h1>
+            <p class="page-subtitle">Lista de Fornecedores</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Cadastros</a></li>
+            <li><a href="#">Lista de Fornecedores</a></li>
+        </ul>
+    </div>
+
+    <div class="panel demo display">
+        <div class="panel-heading">
+            <h3 class="panel-title">Fornecedores</h3>
+        </div>
+        <div class="panel-body text-center">
+
+            <div>
+                <button type="button" class="btn btn-success btn-lg" onclick="window.location.href='/Fornecedor/Index'">Adicionar</button>
+                <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/Funcionario/UpdateForm'">Editar</button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="" id="excluir">Deletar</button>
+            </div>
+
+            <table id="MyEstoque" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome Fantasia</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section body_scripts{
+
+    <script>
+        $(document).ready(function () {
+            var tabela = $('#MyEstoque').DataTable({
+                dom: 'Blftip',
+                select: true,
+                "ajax": {
+                    "url": "/Fornecedor/ListaFornecedores",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                "columns": [
+
+                    { "data": "Id", "autoWidth": true },
+                    { "data": "NomeFantasia", "autoWidth": true },
+                    { "data": "TelefoneUm", "autoWidth": true },
+                    { "data": "Email", "autoWidth": true },
+                ]
+            });
+
+            // Exclui Fornecedor do banco de dados e da DataTable
+            $('#excluir').click(function () {
+                var fornecedorId = tabela.rows({ selected: true }).data()[0].Id;
+                $.ajax({
+                    type: "GET",
+                    url: "/Fornecedor/DeletaFornecedor/" + fornecedorId,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.deletou) {
+                            alert("Fornecedor apagado!");
+                            tabela.ajax.reload();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+

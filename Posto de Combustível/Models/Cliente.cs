@@ -13,6 +13,7 @@ namespace Posto_De_Combustivel.Models
         public Pessoa Pessoa { get; set; }
         public int PessoaId { get; set; }
         public int? Pontos { get; set; }
+        public bool Ativo { get; set; }
 
 
 

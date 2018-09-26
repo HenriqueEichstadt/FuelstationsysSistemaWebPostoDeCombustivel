@@ -16,7 +16,13 @@
             <h3 class="panel-title">Clientes</h3>
         </div>
         <div class="panel-body text-center">
-            <p class="alert alert-info">Mensagem!</p>
+
+            <div>
+                <button type="button" class="btn btn-success btn-lg" onclick="window.location.href='/Cliente/Index'">Adicionar</button>
+                <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/Cliente/UpdateForm'">Editar</button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="" id="excluir">Deletar</button>
+            </div>
+
             <table id="MyEstoque" class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -35,7 +41,9 @@
     <script>
 
         $(document).ready(function () {
-            $('#MyEstoque').DataTable({
+           var tabela = $('#MyEstoque').DataTable({
+                dom: 'Blftip',
+                select: true,
                 "ajax": {
                     "url": "/Cliente/ListaClientes",
                     "type": "GET",
@@ -48,6 +56,23 @@
 
                 ]
             });
+
+            // Inativa CLiente no banco de dados e da DataTable
+            $('#excluir').click(function () {
+                var clienteId = tabela.rows({ selected: true }).data()[0].Id;
+                $.ajax({
+                    type: "GET",
+                    url: "/Cliente/InativaCliente/" + clienteId,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.inativou) {
+                            alert("Cliente apagado!");
+                            tabela.ajax.reload();
+                        }
+                    }
+                });
+            });
+
         });
     </script>
 }

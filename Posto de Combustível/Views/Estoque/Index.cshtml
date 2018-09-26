@@ -16,7 +16,13 @@
             <h3 class="panel-title">Cadastro de produtos</h3>
         </div>
         <div class="panel-body text-center">
-            <p class="alert alert-info">Mensagem!</p>
+
+            <div>
+                <button type="button" class="btn btn-success btn-lg" onclick="window.location.href='/Estoque/Form'">Adicionar</button>
+                <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/Estoque/UpdateForm'">Editar</button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="" id="excluir">Deletar</button>
+            </div>
+
             <table id="MyEstoque" class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -41,7 +47,9 @@
 
     <script>
         $(document).ready(function () {
-            $('#MyEstoque').DataTable({
+            var tabela = $('#MyEstoque').DataTable({
+                dom: 'Blftip',
+                select: true,
                 "ajax": {
                     "url": "/Estoque/ListaProdutos",
                     "type": "GET",
@@ -54,12 +62,45 @@
                 "columns": [
                     { "data": "Id", "autoWidth": true, },
                     { "data": "Nome", "autoWidth": true },
-                    { "data": "Marca", "autoWidth": true },
-                    { "data": "Subcategoria.CategoriaDaSubCategoria.Nome", "autoWidth": true },
+                    {
+                        "data": "Marca",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            if (row.Marca == null) {
+                                return "Sem Marca";
+                            }
+                            else {
+                                return data;
+                            }
+                        }
+                    },
+                    {
+                        "data": "Categoria",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            if (row.Categoria == 'C') {
+                                return "Combustível";
+                            }
+                            else {
+                                return "Produto";
+                            }
+                        }
+                    },
                     { "data": "PrecoVenda", "autoWidth": true },
                     { "data": "PrecoCusto", "autoWidth": true },
                     { "data": "EstoqueAtual", "autoWidth": true },
-                    { "data": "LimiteEstoque", "autoWidth": true },
+                    {
+                        "data": "LimiteEstoque",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            if (row.LimiteEstoque == null) {
+                                return "Sem Limite";
+                            }
+                            else {
+                                return data;
+                            }
+                        }
+                    },
                     {
                         "data": "Validade", "autoWidth": true,
                         render: function (data, row) {
@@ -74,6 +115,23 @@
                     }
                 ],
             });
+
+            // Exclui Funcionario do banco de dados e da DataTable
+            $('#excluir').click(function () {
+                var ProdutoId = tabela.rows({ selected: true }).data()[0].Id;
+                $.ajax({
+                    type: "GET",
+                    url: "/Estoque/InativaProduto/" + ProdutoId,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.inativou) {
+                            alert("Produto apagado.");
+                            tabela.ajax.reload();
+                        }
+                    }
+                });
+            });
+
         });
     </script>
 }

@@ -19,13 +19,25 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public void Deleta(int id)
+        {
+            using (var context = new PostoContext())
+            {
+                var fornecedor = new FornecedorDAO().BuscaPorId(id);
+                context.Pessoas.Remove(fornecedor);
+                var endereco = context.Enderecos.Find(fornecedor.EnderecoId);
+                context.Enderecos.Remove(endereco);
+                context.SaveChanges();
+            }
+        }
+
         public IList<Pessoa> ListaFornecedores(Pessoa pessoa)
         {
-                using (var contexto = new PostoContext())
-                {
-                    return contexto.Pessoas.ToList();
-                }
-            
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Pessoas.ToList();
+            }
+
         }
 
         public Pessoa BuscaPorId(int id)

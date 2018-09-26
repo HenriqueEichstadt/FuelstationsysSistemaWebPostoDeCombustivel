@@ -1018,6 +1018,7 @@
     <Content Include="Content\TemplateADMIN\widgets.html" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Validacao\Cliente.js" />
+    <Content Include="Content\Validacao\Estoque.js" />
     <Content Include="Content\Validacao\Fornecedor.js" />
     <Content Include="Content\Validacao\Funcionario.js" />
     <Content Include="Global.asax" />
@@ -1103,8 +1104,35 @@
     <Compile Include="Migrations\20180916192705_ArrumandoClasseVeiculo.designer.cs">
       <DependentUpon>20180916192705_ArrumandoClasseVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180926105031_AtivoEstoque.cs" />
+    <Compile Include="Migrations\20180926105031_AtivoEstoque.designer.cs">
+      <DependentUpon>20180926105031_AtivoEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926113605_ExcluindoCategoria.cs" />
+    <Compile Include="Migrations\20180926113605_ExcluindoCategoria.designer.cs">
+      <DependentUpon>20180926113605_ExcluindoCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926114342_Categoria.cs" />
+    <Compile Include="Migrations\20180926114342_Categoria.designer.cs">
+      <DependentUpon>20180926114342_Categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926120535_ArrumandoEstoque.cs" />
+    <Compile Include="Migrations\20180926120535_ArrumandoEstoque.designer.cs">
+      <DependentUpon>20180926120535_ArrumandoEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926133449_AtivoPessoa.cs" />
+    <Compile Include="Migrations\20180926133449_AtivoPessoa.designer.cs">
+      <DependentUpon>20180926133449_AtivoPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926133644_RemovendoAtivoPessoa.cs" />
+    <Compile Include="Migrations\20180926133644_RemovendoAtivoPessoa.designer.cs">
+      <DependentUpon>20180926133644_RemovendoAtivoPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180926133745_AtivoCliente.cs" />
+    <Compile Include="Migrations\20180926133745_AtivoCliente.designer.cs">
+      <DependentUpon>20180926133745_AtivoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
-    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Estoque.cs" />
@@ -1220,8 +1248,12 @@
     <Content Include="Views\Estoque\Index.cshtml" />
     <Content Include="Views\Funcionario\Funcionarios.cshtml" />
     <Content Include="Views\Cliente\Clientes.cshtml" />
-    <Content Include="Views\Fornecedor\Pessoas.cshtml" />
+    <Content Include="Views\Fornecedor\Fornecedores.cshtml" />
     <Content Include="Views\Funcionario\UpdateForm.cshtml" />
+    <Content Include="Views\Estoque\Form.cshtml" />
+    <Content Include="Views\Estoque\UpdateForm.cshtml" />
+    <Content Include="Views\Fornecedor\UpdateForm.cshtml" />
+    <Content Include="Views\Cliente\UpdateForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
