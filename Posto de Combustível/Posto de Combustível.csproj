@@ -1245,7 +1245,7 @@
     <Content Include="Views\Shared\_MainView.cshtml" />
     <Content Include="Views\Home\MenuPrincipal.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Estoque\Index.cshtml" />
+    <Content Include="Views\Estoque\Produtos.cshtml" />
     <Content Include="Views\Funcionario\Funcionarios.cshtml" />
     <Content Include="Views\Cliente\Clientes.cshtml" />
     <Content Include="Views\Fornecedor\Fornecedores.cshtml" />
@@ -1264,7 +1264,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
-    <Folder Include="Views\FabricanteVeiculo\" />
     <Folder Include="Views\Veiculo\" />
   </ItemGroup>
   <ItemGroup>

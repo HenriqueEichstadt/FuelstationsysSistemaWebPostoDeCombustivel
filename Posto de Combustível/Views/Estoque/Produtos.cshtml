@@ -116,7 +116,7 @@
                 ],
             });
 
-            // Exclui Funcionario do banco de dados e da DataTable
+            // Inativa produto no banco de dados e da DataTable
             $('#excluir').click(function () {
                 var ProdutoId = tabela.rows({ selected: true }).data()[0].Id;
                 $.ajax({

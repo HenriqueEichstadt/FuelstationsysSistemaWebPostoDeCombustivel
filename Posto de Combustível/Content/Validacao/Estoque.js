@@ -18,9 +18,6 @@ $(document).ready(function () {
             "estoque.Descricao": {
                 maxlength: 200
             },
-            "estoque.LimiteEstoque": {
-                required: true
-            },
             "estoque.EstoqueAtual": {
                 required: true
             },
@@ -41,9 +38,6 @@ $(document).ready(function () {
             },
             "estoque.Descricao": {
                 maxlength: "Máximo de 200 Caracteres!"
-            },
-            "estoque.LimiteEstoque": {
-                required: "Campo obrigatório!",
             },
             "estoque.EstoqueAtual": {
                 required: "Campo obrigatório!",

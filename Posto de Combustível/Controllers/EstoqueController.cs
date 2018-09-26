@@ -12,7 +12,7 @@ namespace Posto_de_Combustivel.Controllers
     public class EstoqueController : Controller
     {
         // GET: Estoque
-        public ActionResult Index()
+        public ActionResult Produtos()
         {
             return View();
         }
