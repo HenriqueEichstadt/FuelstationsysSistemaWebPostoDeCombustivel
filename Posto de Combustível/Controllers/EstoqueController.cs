@@ -23,9 +23,12 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public ActionResult UpdateForm()
+        public ActionResult UpdateForm(int id)
         {
-            ViewBag.Estoque = new Estoque();
+            EstoqueDAO dao = new EstoqueDAO();
+
+            ViewBag.Produto = dao.BuscaPorId(id);
+
             return View();
         }
 
@@ -43,7 +46,7 @@ namespace Posto_de_Combustivel.Controllers
             if (estoque != null)
             {
                 dao.Adiciona(estoque);
-                return RedirectToAction("Index", "Estoque");
+                return RedirectToAction("Produtos", "Estoque");
             }
             else
             {
@@ -53,14 +56,16 @@ namespace Posto_de_Combustivel.Controllers
         public ActionResult EditaProduto(Estoque estoque)
         {
             EstoqueDAO dao = new EstoqueDAO();
+
             if (estoque != null)
             {
+                estoque.Ativo = true;
                 dao.Atualiza(estoque);
-                return RedirectToAction("Index", "Estoque");
+                return View("Produtos");
             }
             else
             {
-                return View("Form");
+                return View("UpdateForm");
             }
         }
         public JsonResult InativaProduto(int id)

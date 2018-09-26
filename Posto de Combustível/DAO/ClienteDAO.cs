@@ -16,7 +16,7 @@ namespace Posto_de_Combustivel.DAO
             {
                 context.Clientes.Add(cliente);
                 context.SaveChanges();
-               // return cliente.Id;
+                // return cliente.Id;
             }
         }
 
@@ -25,8 +25,9 @@ namespace Posto_de_Combustivel.DAO
             using (var context = new PostoContext())
             {
                 var cliente = new ClienteDAO().BuscaPorId(id);
-
                 cliente.Ativo = false;
+                context.Entry(cliente).State = EntityState.Modified;
+                context.SaveChanges();
             }
         }
 

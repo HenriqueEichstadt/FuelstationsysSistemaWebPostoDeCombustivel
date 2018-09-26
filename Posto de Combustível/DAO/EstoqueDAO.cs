@@ -24,9 +24,10 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var context = new PostoContext())
             {
-                var estoque = new EstoqueDAO().BuscaPorId(id);
-               
-                estoque.Ativo = false;
+                var produto = new EstoqueDAO().BuscaPorId(id);
+                produto.Ativo = false;
+                context.Entry(produto).State = EntityState.Modified;
+                context.SaveChanges();
             }
         }
 
@@ -37,12 +38,12 @@ namespace Posto_de_Combustivel.DAO
                 return contexto.Estoques.Where(a => a.Ativo == true).ToList();
             }
         }
-        
+
         public void Atualiza(Estoque estoque)
         {
             using (var contexto = new PostoContext())
             {
-                contexto.Entry(estoque).State = EntityState.Modified;
+                contexto.Estoques.Update(estoque);
                 contexto.SaveChanges();
             }
         }

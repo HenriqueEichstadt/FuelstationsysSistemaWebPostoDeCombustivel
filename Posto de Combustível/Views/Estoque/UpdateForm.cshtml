@@ -12,7 +12,7 @@
     </div>
 
 
-    <form action="/Estoque/EditaProduto" id="FormCadastro" method="post">
+    <form action="/Estoque/EditaProduto/" id="FormCadastro" method="post">
         <div class="form-horizontal">
             <div class="panel-body" id="formCadastro">
                 <div class="form-group">
@@ -28,17 +28,23 @@
                         <h3>Dados do Produto:</h3>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="nomeproduto">Id <h11>*</h11></label>
+                    <div class="col-md-3">
+                        <input id="nomeproduto" readonly name="estoque.Id" value="@ViewBag.Produto.Id" placeholder="Nome do produto" class="form-control input-md" type="text">
+                    </div>
+                </div>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="nomeproduto">Nome <h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="nomeproduto" name="estoque.Nome" value="@ViewBag.Estoque.Nome" placeholder="Nome do produto" class="form-control input-md" type="text">
+                        <input id="nomeproduto" name="estoque.Nome" value="@ViewBag.Produto.Nome" placeholder="Nome do produto" class="form-control input-md" type="text">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="marca">Marca<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="marca" name="estoque.Marca" value="@ViewBag.Estoque.Marca" placeholder="Marca do produto" class="form-control input-md" type="text" maxlength="50">
+                        <input id="marca" name="estoque.Marca" value="@ViewBag.Produto.Marca" placeholder="Marca do produto" class="form-control input-md" type="text" maxlength="50">
                     </div>
                 </div>
                 <!-- Multiple Radios (inline) -->
@@ -56,43 +62,43 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoVenda">Preço de Venda<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoVenda" name="estoque.PrecoVenda" value="@ViewBag.Estoque.PrecoVenda" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
+                        <input id="precoVenda" name="estoque.PrecoVenda" value="@ViewBag.Produto.PrecoVenda" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoCusto">Preço de Custo<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoCusto" name="estoque.PrecoCusto" value="@ViewBag.Estoque.PrecoCusto" placeholder="R$ 00,00" class="form-control input-md" type="number" maxlength="50">
+                        <input id="precoCusto" name="estoque.PrecoCusto" value="@ViewBag.Produto.PrecoCusto" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoVenda">Estoque Atual<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoVenda" name="estoque.EstoqueAtual" value="@ViewBag.Estoque.EstoqueAtual" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                        <input id="precoVenda" name="estoque.EstoqueAtual" value="@ViewBag.Produto.EstoqueAtual" placeholder="" class="form-control input-md" type="number" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoCusto">Limite de Estoque<h11></h11></label>
                     <div class="col-md-3">
-                        <input id="precoCusto" name="estoque.LimiteEstoque" value="@ViewBag.Estoque.LimiteEstoque" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                        <input id="precoCusto" name="estoque.LimiteEstoque" value="@ViewBag.Produto.LimiteEstoque" placeholder="" class="form-control input-md" type="number" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="idObservacoes">Descrição <h11>    </h11></label>
                     <div class="col-md-3">
-                        <textarea id="observacoes" name="pessoa.Descricao" value="@ViewBag.Descricao" placeholder="Opcional" class="form-control input-md" type="text"></textarea>
+                        <textarea id="observacoes" name="estoque.Descricao" value="@ViewBag.Produto.Descricao" class="form-control input-md" type="text"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="Validade">Validade<h11>*</h11></label>
                     <div class="col-md-2">
-                        <input id="Validade" name="estoque.Validade" value="@ViewBag.Estoque.Validade" placeholder="DD/MM/AAAA" class="form-control input-md" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
+                        <input id="Validade" name="estoque.Validade" value="@ViewBag.Produto.Validade" class="form-control input-md" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="trocapontos">Troca por Pontos<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="trocapontos" name="estoque.TrocaPontosFidelidade" value="@ViewBag.Estoque.TrocaPontosFidelidade" placeholder="" class="form-control input-md" type="number" maxlength="6">
+                        <input id="trocapontos" name="estoque.TrocaPontosFidelidade" value="@ViewBag.Produto.TrocaPontosFidelidade" placeholder="" class="form-control input-md" type="number" maxlength="6">
                     </div>
                 </div>
 
@@ -104,11 +110,8 @@
                         <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Salvar</button>
                         <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
                     </div>
-                    <fieldset id=""></fieldset>
-
                 </div>
             </div>
-            <fieldset id="panel-body"></fieldset>
         </div>
     </form>
 </div>
