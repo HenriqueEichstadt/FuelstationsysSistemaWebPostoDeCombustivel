@@ -28,9 +28,10 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public ActionResult UpdateForm()
+        public ActionResult UpdateForm(int id)
         {
-            ViewBag.Pessoa = new Pessoa();
+            FornecedorDAO dao = new FornecedorDAO();
+            ViewBag.Fornecedor = dao.BuscaPorId(id);
             return View();
         }
 
@@ -74,6 +75,23 @@ namespace Posto_de_Combustivel.Controllers
             FornecedorDAO dao = new FornecedorDAO();
             dao.Deleta(id);
             return Json(new { deletou = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EditaFornecedor(Pessoa fornecedor)
+        {
+            FornecedorDAO dao = new FornecedorDAO();
+            fornecedor.TipoPessoa = 'J';
+            fornecedor.Data = DateTime.Now;
+            if (fornecedor != null)
+            {
+                dao.Atualiza(fornecedor);
+                return RedirectToAction("Fornecedores", "Fornecedor");
+            }
+            else
+            {
+                ViewBag.Pessoa = fornecedor;
+                return View("UpdateForm");
+            }
         }
     }
 }

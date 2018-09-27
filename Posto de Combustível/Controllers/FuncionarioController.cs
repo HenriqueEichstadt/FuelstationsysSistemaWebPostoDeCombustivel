@@ -28,12 +28,13 @@ namespace Posto_de_Combustivel.Controllers
         }
         public ActionResult Funcionarios()
         {
-           
+
             return View();
         }
-        public ActionResult UpdateForm()
+        public ActionResult UpdateForm(int id)
         {
-            ViewBag.Funcionario = new Funcionario() { Pessoa = new Pessoa() { Endereco = new Endereco() } };
+            FuncionarioDAO dao = new FuncionarioDAO();
+            ViewBag.Funcionario = dao.BuscaPorId(id);
             return View();
         }
 
@@ -46,7 +47,7 @@ namespace Posto_de_Combustivel.Controllers
             {
                 Session["FuncionarioLogado"] = funcionario;
                 Session.Timeout = 10;
-                
+
                 return RedirectToAction("Index", "Home");
 
             }
@@ -96,41 +97,27 @@ namespace Posto_de_Combustivel.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult ModificaFuncionarios(Funcionario funcionario, string repitasenha)
-        {
-            FuncionarioDAO dao = new FuncionarioDAO();
-            funcionario.Pessoa.TipoPessoa = 'F';
-            var nome = Validacoes.ValidaNomePessoa(funcionario.Pessoa.Nome);
-            var gen = funcionario.Pessoa.Genero;
-            var rg = Validacoes.ValidaRg(funcionario.Pessoa.Rg);
-            var cpf = Validacoes.ValidaCpf(funcionario.Pessoa.CpfeCnpj);
-            var idade = Validacoes.ValidaIdade(funcionario.Pessoa.Data);
-            var email = Validacoes.ValidaEmail(funcionario.Pessoa.Email);
-            var telUm = Validacoes.ValidaTelefoneUm(funcionario.Pessoa.TelefoneUm);
-            var telDois = Validacoes.ValidaTelefoneDois(funcionario.Pessoa.TelefoneDois);
-
-            if (funcionario.Senha == repitasenha && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
-            {
-                dao.Atualiza(funcionario);
-                return Json(new
-                {
-                    data = true
-                }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                ViewBag.Funcionario = funcionario;
-                return Json(new
-                {
-                    data = false
-                }, JsonRequestBehavior.AllowGet);
-            }
-        }
         public JsonResult DeletaFuncionario(int id)
         {
             FuncionarioDAO dao = new FuncionarioDAO();
             dao.Deleta(id);
             return Json(new { deletou = true }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EditaFuncionario(Funcionario funcionario, string repitasenha)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+            funcionario.Pessoa.TipoPessoa = 'F';
+            if (funcionario != null && funcionario.Senha == repitasenha)
+            {
+                dao.Atualiza(funcionario);
+                return RedirectToAction("Funcionarios", "Funcionario");
+            }
+            else
+            {
+                ViewBag.Pessoa = funcionario;
+                return View("UpdateForm");
+            }
         }
     }
 }

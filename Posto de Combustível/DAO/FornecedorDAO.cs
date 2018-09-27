@@ -35,7 +35,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Pessoas.ToList();
+                return contexto.Pessoas.Where(f => f.TipoPessoa == 'J').ToList();
             }
 
         }
@@ -44,7 +44,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Pessoas.Find(id);
+                return contexto.Pessoas.Include(p => p.Endereco).Where(p => p.Id == id).FirstOrDefault();
             }
         }
 
@@ -52,7 +52,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                contexto.Entry(pessoa).State = EntityState.Modified;
+                contexto.Pessoas.Update(pessoa);
                 contexto.SaveChanges();
             }
         }

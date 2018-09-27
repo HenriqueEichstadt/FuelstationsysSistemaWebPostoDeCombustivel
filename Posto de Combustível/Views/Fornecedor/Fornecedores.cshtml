@@ -19,7 +19,7 @@
 
             <div>
                 <button type="button" class="btn btn-success btn-lg" onclick="window.location.href='/Fornecedor/Index'">Adicionar</button>
-                <button type="button" class="btn btn-info btn-lg" onclick="window.location.href='/Funcionario/UpdateForm'">Editar</button>
+                <button type="button" class="btn btn-info btn-lg" id="editar">Editar</button>
                 <button type="button" class="btn btn-danger btn-lg" onclick="" id="excluir">Deletar</button>
             </div>
 
@@ -72,6 +72,12 @@
                         }
                     }
                 });
+            });
+
+            // envia id para controler
+            $('#editar').click(function () {
+                var FornecedorId = tabela.rows({ selected: true }).data()[0].Id;
+                window.location.href = "/Fornecedor/UpdateForm/" + FornecedorId
             });
         });
     </script>
