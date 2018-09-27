@@ -72,12 +72,28 @@
                             </ul>
                         </div>
                     </li>
+                    @{
+                        if (funcionarioLogado.NivelAcesso == 0)
+                        {
+                            <li class="panel">
+                                <a href="#charts" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-pie-chart"></i> <span class="title">Administrador</span> <i class="icon-submenu ti-angle-left"></i></a>
+                                <div id="charts" class="collapse ">
+                                    <ul class="submenu">
+                                        <li><a href="/Funcionario/Form">Cadastro de Funcionario</a></li>
+                                        <li><a href="/Fornecedor/Index">Cadastro de Fornecedor</a></li>
+                                        <li><a href="charts-flot.html"></a></li>
+                                        <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                    }
                     <li class="panel">
                         <a href="#uiElements" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="money-bil-alt"></i> <span class="title">Venda</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="uiElements" class="collapse ">
                             <ul class="submenu">
-                                <li><a href="#">Venda</a></li>
-                                <li><a href="#">Venda Rápida</a></li>
+                                <li><a href="/Venda/Index">Venda</a></li>
+
                             </ul>
                         </div>
                     </li>
@@ -98,7 +114,7 @@
                         <div id="submenuDemo" class="collapse">
                             <ul class="submenu">
                                 <li><a href="/Estoque/Produtos">Produtos - Loja de conveniência</a></li>
-                                <li><a href="#">Submenu 3</a></li>
+
                             </ul>
                         </div>
                     </li>

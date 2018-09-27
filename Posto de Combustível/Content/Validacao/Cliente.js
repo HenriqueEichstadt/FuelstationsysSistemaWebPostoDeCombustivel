@@ -1,5 +1,4 @@
-﻿
-// Popular combo box de TipoDeVeiculos
+﻿// Popular combo box de TipoDeVeiculos
 $(document).ready(function () {
     $.ajax({
         type: "GET",

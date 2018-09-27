@@ -44,7 +44,8 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/JQueryMask/jquery.mask.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js",
                       "~/Content/TemplateADMIN/assets/scripts/moment.js",
-                      "~/Content/TemplateADMIN/assets/vendor/DataTablesSelect/dataTables.select.min.js"));
+                      "~/Content/TemplateADMIN/assets/vendor/DataTablesSelect/dataTables.select.min.js",
+                      "~/Content/TemplateADMIN/assets/css/select2/select2.min.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css")
                 .Include(
@@ -65,8 +66,9 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/demo-panel/style-switcher.css",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/css-main/jquery.dataTables.min.css",
                       "~/Content/DataTableCss/DataTables.css",
+                      "~/Content/TemplateADMIN/assets/vendor/DataTablesSelect/select.dataTables.min.css",
                       "~/Content/Site.css",
-                      "~/Content/TemplateADMIN/assets/vendor/DataTablesSelect/select.dataTables.min.css"));
+                      "~/Content/TemplateADMIN/assets/css/select2/select2.min.css"));
 
         }
     }

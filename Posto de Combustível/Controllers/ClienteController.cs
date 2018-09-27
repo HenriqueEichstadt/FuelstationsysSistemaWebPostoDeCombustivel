@@ -33,17 +33,10 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public ActionResult UpdateForm()
+        public ActionResult UpdateForm(int id)
         {
-            ViewBag.Cliente = new Cliente()
-            {
-                Pessoa = new Pessoa()
-                {
-                    Endereco = new Endereco(),
-                    Veiculo = new Veiculo(),
-
-                }
-            };
+            ClienteDAO dao = new ClienteDAO();
+            ViewBag.Cliente = dao.BuscaPorId(id);
             return View();
         }
 
@@ -61,8 +54,11 @@ namespace Posto_de_Combustivel.Controllers
             var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
             var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
             var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
+            var procuracpf = dao.BuscaCPfCnpj(cliente.Pessoa.CpfeCnpj);
 
-            if (cliente != null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+
+
+            if (gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
             {
                 dao.AdicionaCliente(cliente);
                 return RedirectToAction("Clientes", "Cliente");
@@ -87,7 +83,9 @@ namespace Posto_de_Combustivel.Controllers
             ClienteDAO dao = new ClienteDAO();
             if (cliente != null)
             {
-                dao.AdicionaCliente(cliente);
+                cliente.Ativo = true;
+                cliente.Pessoa.TipoPessoa = 'F';
+                dao.Atualiza(cliente);
                 return RedirectToAction("Clientes", "Cliente");
             }
             else

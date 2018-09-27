@@ -288,4 +288,13 @@
     <script src="~/Content/Validacao/Cliente.js"></script>
     <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
 
+   
+        @{ 
+            if(ViewBag.Erro != null)
+            {
+                <script>alert("CPF já Cadastrado!")</script>
+            }
+        }
+   
+
 }

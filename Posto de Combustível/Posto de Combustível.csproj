@@ -214,6 +214,8 @@
     <Content Include="Content\TemplateADMIN\assets\css\demo.min.css" />
     <Content Include="Content\TemplateADMIN\assets\css\main.css" />
     <Content Include="Content\TemplateADMIN\assets\css\main.min.css" />
+    <Content Include="Content\TemplateADMIN\assets\css\select2\select2.min.css" />
+    <Content Include="Content\TemplateADMIN\assets\css\select2\select2.min.js" />
     <Content Include="Content\TemplateADMIN\assets\css\skins\navbar1.css" />
     <Content Include="Content\TemplateADMIN\assets\css\skins\navbar1.min.css" />
     <Content Include="Content\TemplateADMIN\assets\css\skins\navbar2.css" />
@@ -1046,6 +1048,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VeiculoController.cs" />
+    <Compile Include="Controllers\VendaController.cs" />
     <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -1254,6 +1257,7 @@
     <Content Include="Views\Estoque\UpdateForm.cshtml" />
     <Content Include="Views\Fornecedor\UpdateForm.cshtml" />
     <Content Include="Views\Cliente\UpdateForm.cshtml" />
+    <Content Include="Views\Venda\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
