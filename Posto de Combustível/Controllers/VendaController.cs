@@ -12,7 +12,6 @@ namespace Posto_de_Combustivel.Controllers
 {
     public class VendaController : Controller
     {
-        [AutorizacaoFilter]
         public ActionResult Index()
         {
             ViewBag.Venda = new Venda();
@@ -22,6 +21,7 @@ namespace Posto_de_Combustivel.Controllers
         public ActionResult Venda()
         {
             ViewBag.Venda = new Venda();
+            ViewBag.Venda.VendaEstoque = new List<VendaEstoque>();
             return View();
         }
 

@@ -59,8 +59,11 @@ function removeProduto() {
 
 function gravarNaTabela() {
     var proximoId = 0
-    $('#tabelaVenda tr:last').after('<tr><td>' + $('#selectProdutos').val() + '</td>' +
-        '<td>' + $('#quantidade').val() + '</td>' + '<td>' + $('#valor').val() + '</td></tr>');
+    $('#tabelaVenda tr:last').after(
+        '<tr><td>' + $('#selectProdutos').val() + '</td>' +
+        '<td>' + $('#quantidade').val() + '</td>' +
+        '<td>' + $('#valor').val() + '</td>' +
+        '<td>' + $('<i class="money-bil-alt"></i>') + '</td></tr>');
     proximoId = proximoId;
 }
 
