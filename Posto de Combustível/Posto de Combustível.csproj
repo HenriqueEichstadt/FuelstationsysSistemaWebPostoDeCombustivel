@@ -205,6 +205,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\DataTableCss\DataTables.css" />
+    <Content Include="Content\javascript\Venda.js" />
     <Content Include="Content\TemplateADMIN\appviews-file-manager.html" />
     <Content Include="Content\TemplateADMIN\appviews-inbox.html" />
     <Content Include="Content\TemplateADMIN\appviews-project-detail.html" />
@@ -1039,6 +1040,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContadorController.cs" />
     <Compile Include="Controllers\EstoqueController.cs" />
@@ -1055,6 +1057,7 @@
     <Compile Include="DAO\PostoContext.cs" />
     <Compile Include="DAO\EstoqueDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
+    <Compile Include="DAO\VendaDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1134,6 +1137,10 @@
     <Compile Include="Migrations\20180926133745_AtivoCliente.cs" />
     <Compile Include="Migrations\20180926133745_AtivoCliente.designer.cs">
       <DependentUpon>20180926133745_AtivoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180928012716_EditandoVeiculo.cs" />
+    <Compile Include="Migrations\20180928012716_EditandoVeiculo.designer.cs">
+      <DependentUpon>20180928012716_EditandoVeiculo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -1258,6 +1265,7 @@
     <Content Include="Views\Fornecedor\UpdateForm.cshtml" />
     <Content Include="Views\Cliente\UpdateForm.cshtml" />
     <Content Include="Views\Venda\Index.cshtml" />
+    <Content Include="Views\Venda\Venda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

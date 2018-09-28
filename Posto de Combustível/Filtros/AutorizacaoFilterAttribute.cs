@@ -12,9 +12,12 @@ namespace Posto_De_Combustivel.Filtros
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             object usuario = filterContext.HttpContext.Session["FuncionarioLogado"];
-            
 
-            if (usuario == null)
+            bool funcionario = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName == "Funcionario";
+            bool index = filterContext.ActionDescriptor.ActionName == "Index";
+            bool autentica = filterContext.ActionDescriptor.ActionName == "Autentica";
+            bool actionDeLogin = (funcionario && index) || (funcionario && autentica);
+            if (usuario == null && !actionDeLogin)
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(

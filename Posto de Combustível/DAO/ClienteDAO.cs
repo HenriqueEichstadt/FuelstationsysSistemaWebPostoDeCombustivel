@@ -44,7 +44,7 @@ namespace Posto_de_Combustivel.DAO
             using (var contexto = new PostoContext())
             {
 
-                return contexto.Clientes.Include(c => c.Pessoa).ThenInclude(p => p.Endereco).Where(c => c.Id == id).FirstOrDefault();
+                return contexto.Clientes.Include(c => c.Pessoa).ThenInclude(p => p.Endereco).Include(p => p.Pessoa.Veiculo).Where(c => c.Id == id).FirstOrDefault();
             }
         }
 

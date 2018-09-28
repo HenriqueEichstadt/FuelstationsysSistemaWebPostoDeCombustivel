@@ -1,31 +1,42 @@
-﻿<div class="main-content">
+﻿@{Posto_De_Combustivel.Models.Funcionario funcionarioLogado = (Posto_De_Combustivel.Models.Funcionario)HttpContext.Current.Session["FuncionarioLogado"]; }
+
+<div class="main-content">
     <div class="content-heading clearfix">
         <div class="heading-left">
-            <h1 class="page-title">Bem Vindo!</h1>
+            @{ // Mostra nome do usuário logado na sessão
+                string nome = "";
+
+                if (funcionarioLogado != null)
+                {
+                    nome = funcionarioLogado.NomeUsuario;
+                    <h1 class="page-title">Seja Bem Vindo <span>@nome</span>!</h1>
+                }
+            }
+
             <p class="page-subtitle">Menu Principal do Sistema</p>
         </div>
         <ul class="breadcrumb">
             <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
             <li><a href="#">Menu Principal</a></li>
         </ul>
-        </div>
-
-        <div style="text-align: center;">
-            <h1>Menu Principal do Sistema</h1>
-
-            <nav>
-                <div style="text-align: center;">
-                    <button class="btn btn-default" onclick="window.location.href='/Home/Index'">Home</button>
-                    <hr />
-                    <button class="btn btn-default" onclick="window.location.href='/Funcionario/Index'">Tela de Login</button>
-                    <hr />
-                    <button class="btn btn-default" onclick="window.location.href='/Funcionario/Form'">Adicionar Funcionário</button>
-                    <hr />
-                    <button class="btn btn-default" onclick="window.location.href='/Fornecedor/Index'">Adicionar Fornecedor</button>
-                    <hr />
-                    <button class="btn btn-default" onclick="window.location.href='/Cliente/Index'">Adicionar Cliente</button>
-                </div>
-            </nav>
-
-        </div>
     </div>
+
+    <div style="text-align: center;">
+        <h1>Menu Principal do Sistema</h1>
+
+        <nav>
+            <div style="text-align: center;">
+                <button class="btn btn-default" onclick="window.location.href='/Home/Index'">Home</button>
+                <hr />
+                <button class="btn btn-default" onclick="window.location.href='/Funcionario/Index'">Tela de Login</button>
+                <hr />
+                <button class="btn btn-default" onclick="window.location.href='/Funcionario/Form'">Adicionar Funcionário</button>
+                <hr />
+                <button class="btn btn-default" onclick="window.location.href='/Fornecedor/Index'">Adicionar Fornecedor</button>
+                <hr />
+                <button class="btn btn-default" onclick="window.location.href='/Cliente/Index'">Adicionar Cliente</button>
+            </div>
+        </nav>
+
+    </div>
+</div>

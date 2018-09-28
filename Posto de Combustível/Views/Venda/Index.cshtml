@@ -9,127 +9,113 @@
         </ul>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <!-- Campo para Adicionar Forma de Pagamento e Selecionar o Cliente-->
-            <div id="buscaCliente" class="col-md-6 bg-success borda lightseagreen" style="height: 300px;">
-                <div class="form-group">
-                    <!-- Select para Forma de Pagamento-->
-                    <div class="col-md-12 margin-top-15">
-                        <div class="input-group">
-                            <span class="input-group-addon">Forma de Pagamento</span>
-                            <select id="formaDePagamento" value="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
-                                <option>Selecione uma forma de pagamento</option>
-                                <option value="0">Dinheiro</option>
-                                <option value="1">Débito</option>
-                                <option value="2">Crédito</option>
-                                <option value="4">Troca por pontos</option>
-                            </select>
+    <form action="/Venda/EmitirVenda" id="FormCadastro" method="post">
+        <div class="container">
+            <div class="row">
+                <!-- Campo para Adicionar Forma de Pagamento e Selecionar o Cliente-->
+                <div id="buscaCliente" class="col-md-6 bg-success borda lightseagreen" style="height: 300px;">
+                    <div class="form-group">
+                        <!-- Select para Forma de Pagamento-->
+                        <div class="col-md-12 margin-top-15">
+                            <div class="input-group">
+                                <span class="input-group-addon">Forma de Pagamento</span>
+                                <select id="formaDePagamento" name="formaDePagamento" class="form-control" style="text-align-last:center;" type="text">
+                                    <option>Selecione uma forma de pagamento</option>
+                                    <option value="0">Dinheiro</option>
+                                    <option value="1">Débito</option>
+                                    <option value="2">Crédito</option>
+                                    <option value="4">Troca por pontos</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Select para Forma de Pagamento-->
+                        <div class="col-md-12 margin-top-15">
+                            <div class="input-group">
+                                <span class="input-group-addon">Cliente</span>
+                                <select id="selectClientes" name="cliente" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+                                    <option></option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <!-- Select para Forma de Pagamento-->
+                </div>
+
+                <!-- Campo para mostrar os produtos cadastrados-->
+                <div id="mostraProdutos" class="col-md-6 bg-warning borda lightseagreen" style="height: 300px;">
+                    <!-- Select para Buscar Produtos do banco-->
                     <div class="col-md-12 margin-top-15">
                         <div class="input-group">
-                            <span class="input-group-addon">Cliente</span>
-                            <select id="selectClientes" value="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+                            <span class="input-group-addon">Seleciona um Produto</span>
+                            <select id="selectProdutos" onclick="Mostraprodutos()" name="cliente" class="form-control" style="text-align-last:center;" placeholder="" type="text">
                                 <option></option>
                             </select>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Campo para mostrar os produtos cadastrados-->
-            <div id="mostraProdutos" class="col-md-6 bg-warning borda lightseagreen" style="height: 300px;"></div>
-
-            <!-- Tabela de produtos a serem vendidos -->
-            <div id="tabelaVenda" class="col-md-6 bg-danger borda lightseagreen" style="height: 300px;">
-
-                <table id="MyEstoque" class="table table-striped table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nome</th>
-                            <th>Qtd.</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>Agua</td>
-                        <td>2</td>
-                        <td>10</td>
-                    </tr>
-                </table>
-
-            </div>
-
-            <!-- Finalização da Venda-->
-            <div id="precoTotal" class="col-md-6 bg-info borda lightseagreen" style="height: 300px;">
-
-                <div class="form-group">
-                    <!-- input para valor total de Pagamento -->
-                    <div class="col-md-11 floatRigth margin-top-15">
+                    <div class="col-md-5">
                         <div class="input-group">
-                            <span class="input-group-addon">Total a pagar</span>
-                            <input id="cidade" value="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
-
+                            <span class="input-group-addon">Quantidade</span>
+                            <input id="quantidade" name="" class="form-control" placeholder="" type="number">
                         </div>
                     </div>
-
-                    <label class="col-md-6 control-label" for="Cadastrar"></label>
-                    <div class="col-md-6">
-                        <button id="botaoFinalizar" name="Cadastrar" class="btn btn-success" type="Submit">Finalizar</button>
-                        <button id="botaoCancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">Valor</span>
+                            <input id="valor" name="" class="form-control" placeholder="" type="number">
+                        </div>
                     </div>
-                    <fieldset id=""></fieldset>
-
+                    <div class="col-md-6">
+                        <button id="botaoFinalizar" onclick="gravarNaTabela()" type="button" class="btn btn-success">Adicionar</button>
+                    </div>
                 </div>
 
+          
+
+                <!-- Tabela de produtos a serem vendidos -->
+                <div id="tabelaVenda" class="col-md-6 borda lightseagreen" style="height: 500px;">
+
+                    <table id="MyTable" class=" col-md-12 table table-striped table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Qtd.</th>
+                                <th>Valor</th>
+                                <th>X</th>
+                            </tr>
+                        </thead>
+                        <tr></tr>
+                    </table>
+                </div>
+
+                <!-- Finalização da Venda-->
+                <div id="precoTotal" class="col-md-6 bg-info borda lightseagreen" style="height: 300px;">
+
+                    <div class="form-group">
+                        <!-- input para valor total de Pagamento -->
+                        <div class="col-md-11 floatRigth margin-top-15">
+                            <div class="input-group">
+                                <span class="input-group-addon">Total a pagar</span>
+                                <input id="cidade" value="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+
+                            </div>
+                        </div>
+
+                        <label class="col-md-6 control-label" for="Cadastrar"></label>
+                        <div class="col-md-6">
+                            <button id="botaoFinalizar" name="Cadastrar" class="btn btn-success" type="Submit">Finalizar</button>
+                            <button id="botaoCancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                        </div>
+                        <fieldset id=""></fieldset>
+
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
+
 @section body_scripts{
-    <script></script>
-    <script></script>
-
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.ajax({
-                type: "GET",
-                url: "/Cliente/ListaClientes",
-                data: { ListaClientes: $("#selectClientes").val() },
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
-                success: function (obj) {
-                    if (obj != null) {
-                        var data = obj.data;
-                        var selectbox = $('#selectClientes').select2();
-                        selectbox.find('option').remove();
-                        $('<option>').val("").text("Selecione um tipo").appendTo(selectbox);
-                        $.each(data, function (i, d) {
-                            $('<option>').val(d.Id).text(d.Pessoa.Nome).appendTo(selectbox);
-                        });
-                    }
-                }
-            });
-        });
-        $("#formaDePagamento").select2();
-
-        function removeProduto() {
-            event.preventDefault();
-            var linha = $(this).parent().parent();
-            linha.fadeOut(1000);
-            setTimeout(function () {
-                linha.remove();
-            }, 1000);
-        }
-
-    </script>
-
+    <script src="~/Content/javascript/Venda.js"></script>
 }
 

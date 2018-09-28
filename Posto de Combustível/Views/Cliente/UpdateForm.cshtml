@@ -182,114 +182,65 @@
                             <span class="input-group-addon">Complemento</span>
                             <input id="complemento" name="cliente.pessoa.endereco.Complemento" value="@ViewBag.Cliente.Pessoa.Endereco.Complemento" class="form-control" placeholder="" type="text">
                         </div>
-
                     </div>
                 </div>
                 <hr>
-                <label class="col-md-2 control-label" for="prependedtext">Cadastro de veículo:</label>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <td>veiculo.TipoVeiculo</td>
-                            <th>Fabricante</th>
-                            <th>Modelo</th>
-                            <th>Ano</th>
-                            <th>Placa</th>
-                            <th>Cor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>veiculo.TipoVeiculo</td>
-                            <td>veiculo.Fabricante</td>
-                            <td>veiculo.Modelo</td>
-                            <td>veiculo.Ano</td>
-                            <td>veiculo.Placa</td>
-                            <td>veiculo.Cor</td>
-                            <td>
-                                <button id="removerVeiculo" onclick="decrementa()" class="btn btn-danger">Remover veículo</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
                 <div class="form-group">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="Cadastrar Veículo"></label>
-
-                        <div class="col-md-8">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCadastroVeiculo">Cadastrar Veículo</button>
-                        </div>
-                    </div>
-                    <!-- Iniciando modal de cadastro de Veículo-->
-                    <div class="modal fade" id="modalCadastroVeiculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title text-center" id="myModalLabel">Cadastrar Veículo</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- <form method="POST" action="/Cliente/AdicionaVeiculo" enctype="multipart/form-data">  -->
-
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Tipo de veículo:</label>
-                                        <div class="col-md-5">
-                                            <select id="listaTipoDeVeiculo" onclick="PegaFabricantes()" name="Marca" class="form-control input-md">
-                                                <option></option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Fabricante:</label>
-                                        <div class="col-md-5">
-                                            <select id="listaFabricantes" name="Marca" disabled class="form-control input-md">
-                                                <option></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Modelo:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Ano:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Cor:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" class="form-control input-md" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Nome">Placa:</label>
-                                        <div class="col-md-5">
-                                            <input id="nome" name="" placeholder="ABC1234" class="form-control input-md" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Cadastrar</button>
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                    <!-- </form> -->
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-2 control-label">
+                        <h3>Dados do Veículo:</h3>
                     </div>
                 </div>
+                <hr />
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="nomeproduto">Id do Veículo<h11></h11></label>
+                    <div class="col-md-3">
+                        <input id="idveiculo" readonly name="cliente.Id" value="@ViewBag.Cliente.Pessoa.Veiculo.Id" placeholder="Nome do produto" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Rg">Tipo de Veículo</label>
+                    <div class="col-md-2">
+                        <select id="listaTipoDeVeiculo" name="cliente.pessoa.veiculo.TipoDeVeiculo" value="@ViewBag.Cliente.Pessoa.Veiculo.TipoDeVeiculo" class="form-control input-md">
+                            <option></option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 control-label" for="Nome">Fabricante</label>
+                    <div class="col-md-2">
+                        <select id="listaFabricantes" onclick="PegaFabricantes()" name="cliente.pessoa.veiculo.Fabricante" oncç value="@ViewBag.Cliente.Pessoa.Veiculo.Fabricante" class="form-control input-md">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="modelo">Modelo <h11>*</h11></label>
+                    <div class="col-md-5">
+                        <input id="modelo" name="cliente.pessoa.veiculo.Modelo" value="@ViewBag.Cliente.Pessoa.Veiculo.Modelo" placeholder="Modelo do veículo" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="placa">Placa</label>
+                    <div class="col-md-2">
+                        <input id="placa" name="cliente.pessoa.veiculo.Placa" value="@ViewBag.Cliente.Pessoa.Veiculo.Placa" placeholder="ABC-1234" class="form-control input-md" type="text">
+                    </div>
+                    <label class="col-md-1 control-label" for="Rg">Ano</label>
+                    <div class="col-md-2">
+                        <input id="ano" name="cliente.pessoa.veiculo.Ano" value="@ViewBag.Cliente.Pessoa.Veiculo.Ano" class="form-control input-md" type="text">
+                    </div>
+                    <label class="col-md-1 control-label" for="Rg">Cor</label>
+                    <div class="col-md-2">
+                        <input id="cor" name="cliente.pessoa.veiculo.Cor" value="@ViewBag.Cliente.Pessoa.Veiculo.Cor" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
                 <hr>
                 <!-- Botão Cadastrar e Cancelar -->
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="Cadastrar"></label>
                     <div class="col-md-8">
                         <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Salvar</button>
-                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" onclick="window.location.href = '/Cliente/Clientes'">Cancelar</button>
                     </div>
                     <fieldset id=""></fieldset>
 

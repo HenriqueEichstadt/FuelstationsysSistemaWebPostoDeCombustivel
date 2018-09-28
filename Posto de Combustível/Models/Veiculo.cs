@@ -12,7 +12,9 @@ namespace Posto_De_Combustivel.Models
         public Pessoa pessoa { get; set; }
         public int PessoaId { get; set; }
         [Required]
-        public string Marca { get; set; }
+        public string TipoDeVeiculo { get; set; }
+        [Required]
+        public string Fabricante { get; set; }
         [Required]
         public string Modelo { get; set; }
         public int? Ano { get; set; }

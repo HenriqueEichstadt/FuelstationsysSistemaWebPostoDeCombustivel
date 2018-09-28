@@ -1,4 +1,5 @@
 ﻿using Posto_de_Combustivel.DAO;
+using Posto_de_Combustivel.Models;
 using Posto_De_Combustivel.Filtros;
 using Posto_De_Combustivel.Models;
 using System;
@@ -14,12 +15,26 @@ namespace Posto_de_Combustivel.Controllers
         [AutorizacaoFilter]
         public ActionResult Index()
         {
+            ViewBag.Venda = new Venda();
             return View();
         }
 
-        public ActionResult EmitirVenda(Estoque estoque)
+        public ActionResult Venda()
+        {
+            ViewBag.Venda = new Venda();
+            return View();
+        }
+
+        public ActionResult EmitirVenda(int unidades, double precoTotal, Cliente cliente, IList<VendaEstoque> vendaEstoque, int formaDePagamento)
         {
             EstoqueDAO dao = new EstoqueDAO();
+            Venda venda = new Venda();
+            venda.Data = DateTime.Now;
+            venda.Unidades = unidades;
+            venda.PrecoTotal = precoTotal;
+            venda.Cliente = cliente;
+            venda.Estoques = vendaEstoque;
+            venda.FormaDePagamento = formaDePagamento;
             return View();
         }
     }

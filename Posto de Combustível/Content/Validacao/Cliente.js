@@ -9,7 +9,7 @@ $(document).ready(function () {
         success: function (obj) {
             if (obj != null) {
                 var data = obj.data;
-                var selectbox = $('#listaTipoDeVeiculo');
+                var selectbox = $('#listaTipoDeVeiculo').select2();
                 selectbox.find('option').remove();
                 $('<option>').val("").text("Selecione um tipo").appendTo(selectbox);
                 $.each(data, function (i, d) {
@@ -31,7 +31,7 @@ function PegaFabricantes() {
         success: function (obj) {
             if (obj != null) {
                 var data = obj.data;
-                var selectbox = $('#listaFabricantes');
+                var selectbox = $('#listaFabricantes').select2();
                 selectbox.find('option').remove();
                 $.each(data, function (i, d) {
                     $('<option>').val(d.Id).text(d.TipoEFabricante).appendTo(selectbox);

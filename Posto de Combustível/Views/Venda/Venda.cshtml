@@ -1,0 +1,113 @@
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Menu</h1>
+            <p class="page-subtitle">Venda</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Venda</a></li>
+        </ul>
+    </div>
+
+
+    <form action="/Venda/EmitirVenda" id="FormCadastro" method="post">
+        <div class="form-horizontal">
+            <div class="panel-body" id="formCadastro">
+                <div class="form-group">
+                    <!-- Select para Forma de Pagamento-->
+                    <div class="col-md-4 margin-top-15">
+                        <div class="input-group">
+                            <span class="input-group-addon">Forma de Pagamento</span>
+                            <select id="formaDePagamento" name="formaDePagamento" class="form-control" style="text-align-last:center;" type="text">
+                                <option>Selecione uma forma de pagamento</option>
+                                <option value="0">Dinheiro</option>
+                                <option value="1">Débito</option>
+                                <option value="2">Crédito</option>
+                                <option value="4">Troca por pontos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Select para Forma de Pagamento-->
+                    <div class="col-md-5 margin-top-15">
+                        <div class="input-group">
+                            <span class="input-group-addon">Cliente</span>
+                            <select id="selectClientes" name="cliente" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Select para Buscar Produtos do banco-->
+                    <div class="">
+                        <div class="col-md-5 margin-top-15">
+                            <div class="input-group">
+                                <span class="input-group-addon">Seleciona um Produto</span>
+                                <select id="selectProdutos" onclick="Mostraprodutos()" name="cliente" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group margin-top-15">
+                                <span class="input-group-addon">Quantidade</span>
+                                <input id="quantidade" name="" class="form-control" placeholder="" type="number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group margin-top-15">
+                                <span class="input-group-addon">Valor</span>
+                                <input id="valor" name="" class="form-control" placeholder="" type="number">
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-1 margin-top-15">
+                            <button id="botaoFinalizar" onclick="gravarNaTabela()" type="button" class="btn btn-success">Adicionar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabela de produtos a serem vendidos -->
+                <div id="tabelaVenda" class="col-md-7 lightseagreen text-center" style="height: 300px; text-align:center;   ">
+
+                    <table id="MyTable" class="table table-striped table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Qtd.</th>
+                                <th>Valor</th>
+                                <th>X</th>
+                            </tr>
+                        </thead>
+                        <tr></tr>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <!-- input para valor total de Pagamento -->
+                    <div class="col-md-5 floatRigth margin-top-15" style="float:right;">
+                        <div class="input-group">
+                            <span class="input-group-addon">Total a pagar</span>
+                            <input id="cidade" value="" readonly form-control" style="text-align-last:center;" placeholder="" type="text">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-6 control-label" for="Cadastrar"></label>
+                    <div class="col-md-12">
+                        <button id="botaoFinalizar" name="Cadastrar" class="btn btn-success" type="Submit">Finalizar</button>
+                        <button id="botaoCancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    </div>
+                    <fieldset id=""></fieldset>
+                </div>
+            </div>
+
+        </div>
+</div>
+    </form>
+</div>
+
+@section body_scripts{
+    <script src="~/Content/javascript/Venda.js"></script>
+}

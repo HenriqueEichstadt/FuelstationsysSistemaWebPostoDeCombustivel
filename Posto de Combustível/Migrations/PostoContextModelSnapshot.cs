@@ -224,7 +224,7 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<string>("Cor");
 
-                    b.Property<string>("Marca")
+                    b.Property<string>("Fabricante")
                         .IsRequired();
 
                     b.Property<string>("Modelo")
@@ -233,6 +233,9 @@ namespace Posto_de_Combustivel.Migrations
                     b.Property<int>("PessoaId");
 
                     b.Property<string>("Placa")
+                        .IsRequired();
+
+                    b.Property<string>("TipoDeVeiculo")
                         .IsRequired();
 
                     b.HasKey("Id");
