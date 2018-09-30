@@ -14,28 +14,23 @@ namespace Posto_de_Combustivel.Controllers
     {
         public ActionResult Index()
         {
+
             ViewBag.Venda = new Venda();
             return View();
         }
 
         public ActionResult Venda()
         {
-            ViewBag.Venda = new Venda();
-            ViewBag.Venda.VendaEstoque = new List<VendaEstoque>();
             return View();
         }
 
-        public ActionResult EmitirVenda(int unidades, double precoTotal, Cliente cliente, IList<VendaEstoque> vendaEstoque, int formaDePagamento)
+        public JsonResult EmitirVenda(Venda venda, List<VendaEstoque> arrayDeVendaEstoque)
         {
-            EstoqueDAO dao = new EstoqueDAO();
-            Venda venda = new Venda();
+            venda.Estoques = arrayDeVendaEstoque;
             venda.Data = DateTime.Now;
-            venda.Unidades = unidades;
-            venda.PrecoTotal = precoTotal;
-            venda.Cliente = cliente;
-            venda.Estoques = vendaEstoque;
-            venda.FormaDePagamento = formaDePagamento;
-            return View();
+           
+            new VendaDAO().AdicionaVenda(venda);
+            return Json(new{ adicionou = true });
         }
     }
 }

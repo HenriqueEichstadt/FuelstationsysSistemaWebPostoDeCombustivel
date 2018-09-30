@@ -16,6 +16,7 @@ namespace Posto_de_Combustivel.Models
         public double PrecoTotal { get; set; }
         [Required]
         public Cliente Cliente { get; set; }
+        public int? ClienteId { get; set; }
         public IList<VendaEstoque> Estoques { get; set; }
         public int FormaDePagamento { get; set; }
         

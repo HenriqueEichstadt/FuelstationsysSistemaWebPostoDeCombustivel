@@ -41,9 +41,9 @@
     <script>
 
         $(document).ready(function () {
-           var tabela = $('#MyEstoque').DataTable({
+            var tabela = $('#MyEstoque').DataTable({
                 dom: 'Blftip',
-                select: true,
+                select: { style: 'single'},
                 "ajax": {
                     "url": "/Cliente/ListaClientes",
                     "type": "GET",
