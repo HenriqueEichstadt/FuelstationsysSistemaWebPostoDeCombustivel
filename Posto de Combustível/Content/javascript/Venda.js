@@ -14,6 +14,7 @@ $(document).ready(function () {
             if (obj != null) {
                 var data = obj.data;
                 var selectboxProduto = $('#selectProdutos').select2();
+                var CampoValor = $("#valor");
                 selectboxProduto.find('option').remove();
                 $('<option>').val("").text("Selecione um Produto").appendTo(selectboxProduto);
                 $.each(data, function (i, d) {
@@ -66,6 +67,8 @@ $(document).ready(function () {
             idSelecionado = $(this).parent().parent().find(".IdDoProduto").text();
             arrayDeVendaEstoque.splice(arrayDeVendaEstoque.findIndex(p => p.ProdutoId == idSelecionado), 1);
             $(this).parent().parent().remove();
+            // atualiza valores dos campos Quantidade e PreçoTotal
+            AtualizaValoresDaQuantidadeEDoPreco();
         });
 
         // Cria uma linha na tabela com os dados do produto
@@ -93,11 +96,10 @@ $(document).ready(function () {
                 PrecoTotalItem: produto.precoSubtotal
             });
 
-        var somaValores = 0;
-        $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
-            somaValores += produto.Quantidade * produto.PrecoVenda;
-        });
-        $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
+
+        // Atualiza valores dos campos Quantidade e PreçoTotal
+        AtualizaValoresDaQuantidadeEDoPreco();
+
     });
 
     $("#botaoFinalizar").click(function (event) {
@@ -136,9 +138,28 @@ var produto = {
 };
 
 
+// function para atualizar valores dos campos Quantidade e PreçoTotal
+function AtualizaValoresDaQuantidadeEDoPreco() {
 
+    // limpa valores dos campos ValorTotal e Quantidade
+    AtualizaCamposValorEQuantidade();
 
+    var somaValores = 0;
+    var somaUnidades = 0;
+    $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
+        somaValores += vendaEstoque.PrecoTotalItem;
+        somaUnidades += vendaEstoque.Unidades; // erro aqui
+    });
+    $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
+    $("#totalUnidades").val(Number.parseFloat(somaUnidades));
+    alert("Quantidade:  " + somaUnidades + "  PrecoTotal:  " + somaValores);
+}
 
+// function para limpar os campos de unidades e valortotal
+function AtualizaCamposValorEQuantidade() {
+    $("#totalAPagar").val("");
+    $("#totalUnidades").val("");
+}
 
 
 
