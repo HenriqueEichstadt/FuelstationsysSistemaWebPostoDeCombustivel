@@ -24,6 +24,11 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
+        public ActionResult Vendas()
+        {
+            return View();
+        }
+
         public JsonResult EmitirVenda(Venda venda, List<VendaEstoque> arrayDeVendaEstoque)
         {
             venda.Estoques = arrayDeVendaEstoque;
@@ -31,6 +36,14 @@ namespace Posto_de_Combustivel.Controllers
            
             new VendaDAO().AdicionaVenda(venda);
             return Json(new{ adicionou = true });
+        }
+
+        public JsonResult ListaVendas()
+        {
+            return Json(new
+            {
+                data = new VendaDAO().ListaVendas()
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }

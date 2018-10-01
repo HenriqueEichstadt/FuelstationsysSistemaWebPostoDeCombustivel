@@ -1,0 +1,96 @@
+﻿<div class="main-content">
+    <div class="content-heading clearfix">
+        <div class="heading-left">
+            <h1 class="page-title">Orçamentos</h1>
+            <p class="page-subtitle">Lista de Vendas</p>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Orçamentos</a></li>
+            <li><a href="#">Lista de Vendas</a></li>
+        </ul>
+    </div>
+
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Lista de Vendas</h3>
+        </div>
+        <div class="panel-body text-center">
+
+            <div>
+                <button type="button" class="btn btn-success btn-lg" onclick="window.location.href=">Adicionar</button>
+                <button type="button" class="btn btn-info btn-lg" id="editar">Editar</button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="" id="excluir">Deletar</button>
+            </div>
+
+            <table id="MyEstoque" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Data</th>
+                        <th>Unidades</th>
+                        <th>Preço Total</th>
+                        <th>Cliente</th>
+                        <th>Forma De Pagamento</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section body_scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            var tabela = $('#MyEstoque').DataTable({
+                dom: 'Blftip',
+                select: true,
+                "ajax": {
+                    "url": "/Venda/ListaVendas",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                "columns": [
+
+                    { "data": "Id", "autoWidth": true },
+                    {
+                        "data": "Data", "autoWidth": true,
+                        render: function (data, row) {
+                            return moment(row.Data).format("DD/MM/YYYY");
+                        }
+                    },
+                    { "data": "Unidades", "autoWidth": true },
+                    { "data": "PrecoTotal", "autoWidth": true },
+                    { "data": "Cliente.Pessoa.Nome", "autoWidth": true },
+                    { "data": "FormaDePagamento", "autoWidth": true },
+                ]
+            });
+
+        // Inativa produto no banco de dados e da DataTable
+            $('#excluir').click(function () {
+                var ProdutoId = tabela.rows({ selected: true }).data()[0].Id;
+                $.ajax({
+                    type: "GET",
+                    url: "/Estoque/InativaProduto/" + ProdutoId,
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.inativou) {
+                            alert("Produto apagado.");
+                            tabela.ajax.reload();
+                        }
+                    }
+                });
+            });
+
+            // envia id para controler
+            $('#editar').click(function () {
+                var ProdutoId = tabela.rows({ selected: true }).data()[0].Id;
+                window.location.href = "/Estoque/UpdateForm/" + ProdutoId
+            });
+
+        });
+    </script>
+}
+

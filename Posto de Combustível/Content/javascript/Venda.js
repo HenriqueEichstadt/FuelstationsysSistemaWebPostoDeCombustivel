@@ -19,6 +19,11 @@ $(document).ready(function () {
                 $('<option>').val("").text("Selecione um Produto").appendTo(selectboxProduto);
                 $.each(data, function (i, d) {
                     $('<option>').val(d.Id).text(d.Nome).appendTo(selectboxProduto);
+                    produtos.push({
+                        PrecoVenda: d.PrecoVenda,
+                        Id: d.Id,
+                        Categoria: d.Categoria
+                    });
                 });
             }
         }
@@ -44,19 +49,31 @@ $(document).ready(function () {
         }
     });
 
+    // Ocultar campo de quantidade quando seleciona o tipo de Produto
+    $("#selectProdutos").change(function () {
+        var idSelecionada = $("#selectProdutos").val();
+        var produtoSelecionado = produtos[produtos.findIndex(p => p.Id == idSelecionada)];
+        if (produtoSelecionado.Categoria == "C") {
+            $("#ocultarCampo").fadeOut();
+        }
+
+        else {
+            $("#ocultarCampo").fadeIn();
+        }
+    });
+
     // Adiciona o Produto na Tabela
     $("#adicionaProdutoNaTabela").click(function (event) {
         event.preventDefault();
         produto.Nome = $("#select2-selectProdutos-container").text();
         produto.Id = $("#selectProdutos").val();
-        produto.Quantidade = $("#quantidade").val();
         produto.PrecoVenda = $("#valor").val();
         produto.precoSelecionado = produto.PrecoVenda;
+
+        produtoSelecionado
+
+        produto.Quantidade = $("#quantidade").val();
         produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
-
-
-
-
 
         // Botão para remover o produto na linha
         var botaoRemoverProduto = $("<button>").addClass("btn btn-sm btn-danger rounded-circle").append(
@@ -129,14 +146,15 @@ $(document).ready(function () {
 // Array para pegar produtos da tabela de venda
 var arrayDeVendaEstoque = [];
 var produto = {
-    Id: "",
+    Id: 0,
     Nome: "",
-    PrecoVenda: "",
-    Quantidade: "",
-    precoSubtotal: "",
-    precoSelecionado: ""
+    PrecoVenda: 0,
+    Quantidade: 0,
+    precoSubtotal: 0,
+    precoSelecionado: 0
 };
 
+var produtos = [];
 
 // function para atualizar valores dos campos Quantidade e PreçoTotal
 function AtualizaValoresDaQuantidadeEDoPreco() {
@@ -148,11 +166,10 @@ function AtualizaValoresDaQuantidadeEDoPreco() {
     var somaUnidades = 0;
     $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
         somaValores += vendaEstoque.PrecoTotalItem;
-        somaUnidades += vendaEstoque.Unidades; // erro aqui
+        somaUnidades += Number.parseInt(vendaEstoque.Unidades);
     });
     $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
     $("#totalUnidades").val(Number.parseFloat(somaUnidades));
-    alert("Quantidade:  " + somaUnidades + "  PrecoTotal:  " + somaValores);
 }
 
 // function para limpar os campos de unidades e valortotal
