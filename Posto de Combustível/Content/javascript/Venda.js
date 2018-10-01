@@ -43,45 +43,19 @@ $(document).ready(function () {
         }
     });
 
-
-
-
-
-
-
-
-    // Pega os valores dos campos da tabela de vendas
-    $("#tabelaVenda").change(function () {
-        if ($(this).val() == "") return;
-        var dadosDoProduto = $(this).val().match(/id=(.*)&pve=(.*)&qua=(.*)/);
-        produto.Id = dadosDoProduto[1];
-        produto.Nome = $("#select2-selectProdutos-container").text();
-        produto.PrecoVenda = dadosDoProduto[2];
-        produto.Quantidade = dadosDoProduto[3];
-    });
-
-
     // Adiciona o Produto na Tabela
-    $("#botaoFinalizar").click(function (event) {
+    $("#adicionaProdutoNaTabela").click(function (event) {
         event.preventDefault();
+        produto.Nome = $("#select2-selectProdutos-container").text();
+        produto.Id = $("#selectProdutos").val();
         produto.Quantidade = $("#quantidade").val();
         produto.PrecoVenda = $("#valor").val();
-        switch (produto.tipoPrecoSelecionado) {
-            case "2":
-                var precoSelecionado = produto.precoRecarga;
-                produto.precoSubtotal = produto.quantidade * produto.precoRecarga;
-                break;
-            case "3":
-                precoSelecionado = produto.precoTroca;
-                produto.precoSubtotal = produto.quantidade * produto.precoTroca;
-                break;
-            default:
-                precoSelecionado = produto.PrecoVenda;
-                produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
-        }
-        var botaoRemover = $("<button>").addClass("btn btn-sm btn-danger rounded-circle").append(
-            $("<i>").addClass("fa fa-minus-circle")
-        );
+        produto.precoSelecionado = produto.PrecoVenda;
+        produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
+
+
+
+
 
         // Botão para remover o produto na linha
         var botaoRemoverProduto = $("<button>").addClass("btn btn-sm btn-danger rounded-circle").append(
@@ -89,7 +63,7 @@ $(document).ready(function () {
         );
         botaoRemoverProduto.click(function (event) {
             event.preventDefault();
-            idSelecionado = $(this).parent().parent().find(".ClassIdProduto").text();
+            idSelecionado = $(this).parent().parent().find(".IdDoProduto").text();
             arrayDeVendaEstoque.splice(arrayDeVendaEstoque.findIndex(p => p.ProdutoId == idSelecionado), 1);
             $(this).parent().parent().remove();
         });
@@ -97,42 +71,69 @@ $(document).ready(function () {
         // Cria uma linha na tabela com os dados do produto
         $("#MyTable").append(
             $("<tr>").append(
-                $("<td>").text(produto.Id).addClass("ClassIdProduto")
+                $("<td>").text(produto.Id).addClass("IdDoProduto")
             ).append(
                 $("<td>").text(produto.Nome)
             ).append(
-                $("<td>").text("R$" + Number.parseFloat(precoSelecionado).toFixed(2).replace(".", ",")) // falta arrumar
+                $("<td>").text("R$" + Number.parseFloat(produto.precoSelecionado).toFixed(2).replace(".", ","))
             ).append(
                 $("<td>").text(produto.Quantidade)
             ).append(
                 $("<td>").text("R$" + Number.parseFloat(produto.precoSubtotal).toFixed(2).replace(".", ","))
             ).append(
-                $("<td>").html(botaoRemoverProduto)
-            )
+                $("<td>").html(botaoRemoverProduto))
         );
-
 
 
         // adiciona os produtos no array
         arrayDeVendaEstoque.push(
             {
-                ProdutoId: produto.Id,
-                Quantidade: produto.Quantidade,
-                PrecoVenda: produto.PrecoVenda
+                EstoqueId: produto.Id,
+                Unidades: produto.Quantidade,
+                PrecoTotalItem: produto.precoSubtotal
             });
+
+        var somaValores = 0;
+        $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
+            somaValores += produto.Quantidade * produto.PrecoVenda;
+        });
+        $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
     });
+
+    $("#botaoFinalizar").click(function (event) {
+        event.preventDefault();
+        var venda = {
+            ClienteId: $("#selectClientes").val(),
+            Unidades: $("#totalUnidades").val(),
+            FormaDePagamento: $("#formaDePagamento").val(),
+            PrecoTotal: $("#totalAPagar").val(),
+        };
+        $.ajax({
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            type: 'POST',
+            url: '/Venda/EmitirVenda',
+            data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
+            success: function (response) {
+                alert("Venda efetuada");
+            }
+        });
+    });
+
+
 });
 
 
-    // Array para pegar produtos da tabela de venda
-    var arrayDeVendaEstoque = [];
-    var produto = {
-        Id: "",
-        Nome: "",
-        PrecoVenda: "",
-        Quantidade: "",
-        precoSubtotal: ""
-    };
+// Array para pegar produtos da tabela de venda
+var arrayDeVendaEstoque = [];
+var produto = {
+    Id: "",
+    Nome: "",
+    PrecoVenda: "",
+    Quantidade: "",
+    precoSubtotal: "",
+    precoSelecionado: ""
+};
 
 
 
