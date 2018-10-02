@@ -47,6 +47,15 @@
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Input para Valor do produto-->
+                        <div class="col-md-2">
+                            <div class="input-group margin-top-15">
+                                <span class="input-group-addon">Preço</span>
+                                <input id="valor" name="" class="form-control" placeholder="" type="text">
+                            </div>
+                        </div>
+
                         <!-- Input para Quantidade-->
                         <div class="col-md-2" id="ocultarCampo">
                             <div class="input-group margin-top-15">
@@ -54,15 +63,14 @@
                                 <input id="quantidade" name="" class="form-control" placeholder="" type="number">
                             </div>
                         </div>
-                        <!-- Input para Valor do produto-->
-                        <div class="col-md-2">
-                            <div class="input-group margin-top-15">
-                                <span class="input-group-addon">Valor</span>
-                                <input id="valor" name="" class="form-control" placeholder="" type="number">
+
+                        <div class="col-md-2" id="ocultarCampo">
+                            <div class="input-group margin-top-15" id="ocultarValorVendido">
+                                <span class="input-group-addon">Val. Vendido</span>
+                                <input id="valorVendido" name="" class="form-control" placeholder="" type="text">
                             </div>
-
-
                         </div>
+
                         <div class="col-md-2 margin-top-15 text-right">
                             <button id="adicionaProdutoNaTabela" autofocus type="button" class="btn btn-success">Adicionar</button>
                         </div>

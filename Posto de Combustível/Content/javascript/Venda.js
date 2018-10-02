@@ -1,5 +1,7 @@
 ﻿
 $(document).ready(function () {
+    $("#ocultarValorVendido").fadeOut();
+
     //Select2 para Forma de pagamento
     $("#formaDePagamento").select2();
 
@@ -51,29 +53,46 @@ $(document).ready(function () {
 
     // Ocultar campo de quantidade quando seleciona o tipo de Produto
     $("#selectProdutos").change(function () {
-        var idSelecionada = $("#selectProdutos").val();
-        var produtoSelecionado = produtos[produtos.findIndex(p => p.Id == idSelecionada)];
-        if (produtoSelecionado.Categoria == "C") {
+        var produtoIdSelecionado = $("#selectProdutos").val();
+        dadosProduto = produtos[produtos.findIndex(p => p.Id == produtoIdSelecionado)];
+        if (dadosProduto.Categoria == "C") {
+
+            $("#quantidade").val("");
             $("#ocultarCampo").fadeOut();
+            $("#ocultarValorVendido").fadeIn();
+            $("#valor").val(dadosProduto.PrecoVenda);
         }
 
         else {
+            $("#ocultarValorVendido").fadeOut();
             $("#ocultarCampo").fadeIn();
+            $("#valor").val(dadosProduto.PrecoVenda);
         }
     });
 
     // Adiciona o Produto na Tabela
     $("#adicionaProdutoNaTabela").click(function (event) {
+
         event.preventDefault();
         produto.Nome = $("#select2-selectProdutos-container").text();
         produto.Id = $("#selectProdutos").val();
         produto.PrecoVenda = $("#valor").val();
         produto.precoSelecionado = produto.PrecoVenda;
-
-        produtoSelecionado
-
+        produtoSelecionado = produto.PrecoVenda;
         produto.Quantidade = $("#quantidade").val();
-        produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
+        produto.valorSelecionadoDeCombustivel = $("#valorVendido").val();
+        //produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
+
+
+        if (dadosProduto.Categoria == "C") {
+
+            //produto.precoSubtotal = produto.valorSelecionadoDeCombustivel / produto.PrecoVenda; para litros vendidos
+            produto.precoSubtotal = produto.valorSelecionadoDeCombustivel;
+        }
+        else {
+            produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
+        }
+
 
         // Botão para remover o produto na linha
         var botaoRemoverProduto = $("<button>").addClass("btn btn-sm btn-danger rounded-circle").append(
@@ -142,6 +161,8 @@ $(document).ready(function () {
 
 });
 
+// Variavel global para pegar os valores do produto escolhido no select2
+var dadosProduto = "";
 
 // Array para pegar produtos da tabela de venda
 var arrayDeVendaEstoque = [];
@@ -151,7 +172,8 @@ var produto = {
     PrecoVenda: 0,
     Quantidade: 0,
     precoSubtotal: 0,
-    precoSelecionado: 0
+    precoSelecionado: 0,
+    valorSelecionadoDeCombustivel: 0
 };
 
 var produtos = [];
@@ -165,8 +187,9 @@ function AtualizaValoresDaQuantidadeEDoPreco() {
     var somaValores = 0;
     var somaUnidades = 0;
     $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
-        somaValores += vendaEstoque.PrecoTotalItem;
+        somaValores += Number.parseInt(vendaEstoque.PrecoTotalItem);
         somaUnidades += Number.parseInt(vendaEstoque.Unidades);
+
     });
     $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
     $("#totalUnidades").val(Number.parseFloat(somaUnidades));
