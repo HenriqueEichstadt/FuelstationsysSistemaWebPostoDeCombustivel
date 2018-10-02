@@ -1142,6 +1142,10 @@
     <Compile Include="Migrations\20180928012716_EditandoVeiculo.designer.cs">
       <DependentUpon>20180928012716_EditandoVeiculo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181002135033_ClienteOpcional.cs" />
+    <Compile Include="Migrations\20181002135033_ClienteOpcional.designer.cs">
+      <DependentUpon>20181002135033_ClienteOpcional.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Endereco.cs" />

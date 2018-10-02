@@ -101,7 +101,7 @@ $(document).ready(function () {
         botaoRemoverProduto.click(function (event) {
             event.preventDefault();
             idSelecionado = $(this).parent().parent().find(".IdDoProduto").text();
-            arrayDeVendaEstoque.splice(arrayDeVendaEstoque.findIndex(p => p.ProdutoId == idSelecionado), 1);
+            arrayDeVendaEstoque.splice(arrayDeVendaEstoque.findIndex(p => p.EstoqueId == idSelecionado), 1);
             $(this).parent().parent().remove();
             // atualiza valores dos campos Quantidade e PreçoTotal
             AtualizaValoresDaQuantidadeEDoPreco();
@@ -140,22 +140,29 @@ $(document).ready(function () {
 
     $("#botaoFinalizar").click(function (event) {
         event.preventDefault();
-        var venda = {
-            ClienteId: $("#selectClientes").val(),
-            Unidades: $("#totalUnidades").val(),
-            FormaDePagamento: $("#formaDePagamento").val(),
-            PrecoTotal: $("#totalAPagar").val(),
-        };
-        $.ajax({
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            type: 'POST',
-            url: '/Venda/EmitirVenda',
-            data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
-            success: function (response) {
-                alert("Venda efetuada");
-            }
-        });
+        var valorFinalDaVenda = $("#valorFinalDaVenda").val();
+        var formaDePagamento = $("#formaDePagamento").val();
+        if (formaDePagamento == "Selecione uma forma de pagamento") {
+            alert("Selecione uma forma de pagamento!");
+        }
+        else {
+            var venda = {
+                ClienteId: $("#selectClientes").val(),
+                Unidades: $("#totalUnidades").val(),
+                FormaDePagamento: $("#formaDePagamento").val(),
+                PrecoTotal: Number.parseFloat(valorFinalDaVenda)
+            };
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: '/Venda/EmitirVenda',
+                data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
+                success: function (response) {
+                    alert("Venda efetuada");
+                }
+            });
+        }
     });
 
 
@@ -187,12 +194,17 @@ function AtualizaValoresDaQuantidadeEDoPreco() {
     var somaValores = 0;
     var somaUnidades = 0;
     $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
-        somaValores += Number.parseInt(vendaEstoque.PrecoTotalItem);
+        somaValores += Number.parseFloat(vendaEstoque.PrecoTotalItem);
+        if (vendaEstoque.Unidades == 0) {
+            somaUnidades += 0;
+        }
+        else {
         somaUnidades += Number.parseInt(vendaEstoque.Unidades);
-
+        }
     });
     $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
     $("#totalUnidades").val(Number.parseFloat(somaUnidades));
+    $("#valorFinalDaVenda").val(Number.parseFloat(somaValores));
 }
 
 // function para limpar os campos de unidades e valortotal

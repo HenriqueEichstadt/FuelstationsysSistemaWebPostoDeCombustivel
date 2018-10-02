@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Posto_de_Combustível.DAO;
 
 namespace Posto_de_Combustivel.Migrations
 {
     [DbContext(typeof(PostoContext))]
-    partial class PostoContextModelSnapshot : ModelSnapshot
+    [Migration("20181002135033_ClienteOpcional")]
+    partial class ClienteOpcional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
