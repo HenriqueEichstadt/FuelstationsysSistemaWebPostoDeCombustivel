@@ -48,6 +48,10 @@ $(document).ready(function () {
                 $('<option>').val("").text("Selecione um Cliente").appendTo(selectbox);
                 $.each(data, function (i, d) {
                     $('<option>').val(d.Id).text(d.Pessoa.Nome).appendTo(selectbox);
+                    clientes.push({
+                        Id: d.Id,
+                        Pontos: d.Pontos
+                    });
                 });
             }
         }
@@ -78,6 +82,11 @@ $(document).ready(function () {
         valorTotalQuePodeAdicionar = estoqueAtual * preco;
         $("#valorVendido").prop("max", valorTotalQuePodeAdicionar);
 
+    });
+
+    $("#selectClientes").change(function () {
+        var clienteSelecionado = $("#selectClientes").val();
+        dadosCliente = clientes[clientes.findIndex(c => c.Id == clienteSelecionado)];
     });
 
     // Adiciona o Produto na Tabela
@@ -200,6 +209,17 @@ $(document).ready(function () {
                 FormaDePagamento: $("#formaDePagamento").val(),
                 PrecoTotal: Number.parseFloat(valorFinalDaVenda)
             };
+
+            var formadePagamento = $("#formaDePagamento").val();
+            if (formadePagamento == 3) {
+                var pontosDoCliente = dadosCliente.Pontos;
+                var valorTotalVenda = venda.PrecoTotal * 100;
+                if (valorTotalVenda > pontosDoCliente) {
+                    alert("O cliente não possui pontos o suficiente para a troca ");
+                    return;
+                }
+            }
+
             $.ajax({
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
@@ -207,13 +227,19 @@ $(document).ready(function () {
                 url: '/Venda/EmitirVenda',
                 data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
                 success: function (response) {
-                    alert("Venda efetuada");
-
                     var formadePagamento = $("#formaDePagamento").val();
+
+                    if (formadePagamento == 3) {
+                        alert("Troca por Pontos efetuada com sucesso!");
+                    }
+                    else {
+                        alert("Venda efetuada");
+                    }
                     if (formadePagamento == 0 || formadePagamento == 1) {
-                        var valorPontuado = venda.PrecoTotal * 0.8;
+                        var valorPontuado = venda.PrecoTotal;
                         alert("O cliente pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
                     }
+                    window.location.href = "/Home/Index"
                 }
             });
         }
@@ -224,7 +250,7 @@ $(document).ready(function () {
 
 // Variavel global para pegar os valores do produto escolhido no select2
 var dadosProduto = "";
-
+var dadosCliente = "";
 var valorTotalQuePodeAdicionar;
 // Array para pegar produtos da tabela de venda
 var arrayDeVendaEstoque = [];
@@ -239,7 +265,7 @@ var produto = {
 };
 
 var produtos = [];
-
+var clientes = [];
 // function para atualizar valores dos campos Quantidade e PreçoTotal
 function AtualizaValoresDaQuantidadeEDoPreco() {
 

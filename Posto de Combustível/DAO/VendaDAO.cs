@@ -20,6 +20,17 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public void TrocaPorPontos(int ClienteId, int pontos)
+        {
+            using (var contexto = new PostoContext())
+            {
+                var cliente = contexto.Clientes.Find(ClienteId);
+                cliente.Pontos -= pontos;
+                contexto.Entry(cliente).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+        }
+
         public IList<Venda> ListaVendas()
         {
             using (var contexto = new PostoContext())
@@ -69,15 +80,5 @@ namespace Posto_de_Combustivel.DAO
                 contexto.SaveChanges();
             }
         }
-
-        //public void SomaPontosFidelidade(Venda clienteVenda, int QtdDePontos)
-        //{
-        //    using (var contexto = new PostoContext())
-        //    {
-        //        int IdDoCliente = Convert.ToInt32(clienteVenda.ClienteId);
-        //        SomaPontos(IdDoCliente, QtdDePontos);
-        //    }
-        //}
-
     }
 }

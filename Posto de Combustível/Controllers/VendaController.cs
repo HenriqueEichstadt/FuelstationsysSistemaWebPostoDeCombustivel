@@ -31,18 +31,29 @@ namespace Posto_de_Combustivel.Controllers
 
         public JsonResult EmitirVenda(Venda venda, List<VendaEstoque> arrayDeVendaEstoque)
         {
+
             venda.Estoques = arrayDeVendaEstoque;
             venda.Data = DateTime.Now;
             VendaDAO dao = new VendaDAO();
-            dao.AdicionaVenda(venda);
-            dao.DecrementaDoEstoque(arrayDeVendaEstoque);
 
+            // Se for uma venda por troca de pontos
+            if (venda.FormaDePagamento == 3)
+            {
+                int trocaPontos = Convert.ToInt32(venda.PrecoTotal * 100);
+                dao.TrocaPorPontos(venda.ClienteId, trocaPontos);
+            }
+            // Demais Vendas
+            else
+            {
+                dao.AdicionaVenda(venda);
+                dao.DecrementaDoEstoque(arrayDeVendaEstoque);
+            }
+            // Se for no Dinheiro ou Débito gera pontos para o programa de fidelidade
             if (venda.FormaDePagamento == 0 || venda.FormaDePagamento == 1)
             {
-                int QtdDePontos = Convert.ToInt32(venda.PrecoTotal * 0.8);
+                int QtdDePontos = Convert.ToInt32(venda.PrecoTotal);
                 dao.SomaPontos(venda.ClienteId, QtdDePontos);
             }
-
             return Json(new { adicionou = true });
         }
 
