@@ -40,7 +40,8 @@ namespace Posto_de_Combustivel.Controllers
             if (venda.FormaDePagamento == 3)
             {
                 int trocaPontos = Convert.ToInt32(venda.PrecoTotal * 100);
-                dao.TrocaPorPontos(venda.ClienteId, trocaPontos);
+                int cliente = Convert.ToInt32(venda.ClienteId);
+                dao.TrocaPorPontos(cliente, trocaPontos);
             }
             // Demais Vendas
             else
@@ -49,10 +50,11 @@ namespace Posto_de_Combustivel.Controllers
                 dao.DecrementaDoEstoque(arrayDeVendaEstoque);
             }
             // Se for no Dinheiro ou Débito gera pontos para o programa de fidelidade
-            if (venda.FormaDePagamento == 0 || venda.FormaDePagamento == 1)
+            if (venda.ClienteId != null && venda.FormaDePagamento == 0 || venda.FormaDePagamento == 1)
             {
                 int QtdDePontos = Convert.ToInt32(venda.PrecoTotal);
-                dao.SomaPontos(venda.ClienteId, QtdDePontos);
+                int cliente = Convert.ToInt32(venda.ClienteId);
+                dao.SomaPontos(cliente, QtdDePontos);
             }
             return Json(new { adicionou = true });
         }

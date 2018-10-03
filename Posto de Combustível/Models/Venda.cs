@@ -15,7 +15,7 @@ namespace Posto_de_Combustivel.Models
         public DateTime Data { get; set; }
         public double PrecoTotal { get; set; }
         public Cliente Cliente { get; set; }
-        public int ClienteId { get; set; }
+        public int? ClienteId { get; set; }
         public IList<VendaEstoque> Estoques { get; set; }
         public int FormaDePagamento { get; set; }
         

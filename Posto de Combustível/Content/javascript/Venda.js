@@ -63,7 +63,6 @@ $(document).ready(function () {
         dadosProduto = produtos[produtos.findIndex(p => p.Id == produtoIdSelecionado)];
         if (dadosProduto.Categoria == "C") {
 
-            // $("#quantidade").val("");
             $("#ocultarCampo").hide();
             $("#ocultarValorVendido").show();
             $("#valor").val(dadosProduto.PrecoVenda);
@@ -84,6 +83,7 @@ $(document).ready(function () {
 
     });
 
+    // Pega os dados do cliente selecionado
     $("#selectClientes").change(function () {
         var clienteSelecionado = $("#selectClientes").val();
         dadosCliente = clientes[clientes.findIndex(c => c.Id == clienteSelecionado)];
@@ -235,7 +235,8 @@ $(document).ready(function () {
                     else {
                         alert("Venda efetuada");
                     }
-                    if (formadePagamento == 0 || formadePagamento == 1) {
+                    var cliente = $("#selectClientes").val();
+                    if (cliente != "" && formadePagamento == 0 || formadePagamento == 1) {
                         var valorPontuado = venda.PrecoTotal;
                         alert("O cliente pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
                     }
