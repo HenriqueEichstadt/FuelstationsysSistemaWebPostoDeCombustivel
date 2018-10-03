@@ -46,7 +46,7 @@
         $(document).ready(function () {
             var tabela = $('#MyEstoque').DataTable({
                 dom: 'Blftip',
-                select: true,
+                select: { style: 'single' },
                 "ajax": {
                     "url": "/Venda/ListaVendas",
                     "type": "GET",
@@ -63,8 +63,18 @@
                     },
                     { "data": "Unidades", "autoWidth": true },
                     { "data": "PrecoTotal", "autoWidth": true },
-                    { "data": "Cliente.Pessoa.Nome", "autoWidth": true },
-                    { "data": "FormaDePagamento", "autoWidth": true },
+                    {
+                        render: (data, type, row) => row.ClienteId != null ? row.Cliente.Pessoa.Nome : "Cliente anônimo", "autoWidth": true },
+                    {
+                        "data": "FormaDePagamento",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            if (row.FormaDePagamento == '0') return "Dinheiro";
+                            if (row.FormaDePagamento == '1') return "Débito";
+                            if (row.FormaDePagamento == '2') return "Crédito";
+                            if (row.FormaDePagamento == '3') return "Troca por pontos";
+                        }
+                    },
                 ]
             });
 

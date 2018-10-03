@@ -278,6 +278,7 @@
     <Content Include="Content\TemplateADMIN\assets\img\user3.png" />
     <Content Include="Content\TemplateADMIN\assets\img\user4.png" />
     <Content Include="Content\TemplateADMIN\assets\img\user5.png" />
+    <Content Include="Content\TemplateADMIN\assets\scripts\bootstrap-notify.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\demo-mock.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\jquery.mockjax.min.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\jquery.vmap.sampledata.js" />

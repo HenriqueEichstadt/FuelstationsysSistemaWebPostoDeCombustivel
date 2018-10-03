@@ -45,7 +45,7 @@ $(document).ready(function () {
                 var data = obj.data;
                 var selectbox = $('#selectClientes').select2({
                     placeholder: "Selecione um Cliente"
-                });   
+                });
                 selectbox.find('option').remove();
                 $('<option>').val("").appendTo(selectbox);
                 $.each(data, function (i, d) {
@@ -95,7 +95,7 @@ $(document).ready(function () {
     $("#adicionaProdutoNaTabela").click(function (event) {
         event.preventDefault();
         if ($("#selectProdutos").val() == "") {
-            alert("Selecione um produto para a venda!");
+            $.notify("Selecione um produto para a venda!");
             return;
         }
 
@@ -104,22 +104,20 @@ $(document).ready(function () {
         produto.PrecoVenda = $("#valor").val();
         produto.precoSelecionado = produto.PrecoVenda;
         produtoSelecionado = produto.PrecoVenda;
-        // produto.Quantidade = $("#quantidade").val();
-        //produto.valorSelecionadoDeCombustivel = $("#valorVendido").val();
 
         if (dadosProduto.Categoria == "P") {
 
             var estoqueAtual = dadosProduto.EstoqueAtual;
             var pegaValorCampo = $("#quantidade").val();
             if (pegaValorCampo > estoqueAtual) {
-                alert("Há apenas " + estoqueAtual + " no estoque!");
+                $.notify("Há apenas " + estoqueAtual + " unidades no Estoque!");
                 return;
             }
         }
         else {
             var valorAdicionado = $("#valorVendido").val();
             if (valorAdicionado > valorTotalQuePodeAdicionar) {
-                alert("Valor máximo de R$: " + Number.parseFloat(valorTotalQuePodeAdicionar - 1).toFixed(2) + " disponível para venda!");
+                $.notify("Valor máximo de R$: " + Number.parseFloat(valorTotalQuePodeAdicionar - 1).toFixed(2) + " disponível para venda!");
                 return;
             }
         }
@@ -130,14 +128,15 @@ $(document).ready(function () {
             buscaId = Number.parseFloat(vendaEstoque.EstoqueId);
         });
         if (buscaId == IdAtual) {
-            alert("Este produto já está adicionado na venda!");
+            $.notify("Este produto já está adicionado na venda !");
             return;
         }
 
         if (dadosProduto.Categoria == "C") {
 
             if ($("#valorVendido").val() == "") {
-                alert("Selecione um valor para a venda do Combustível!");
+                $.notify("Selecione um valor para a venda do Combustível!");
+
                 return;
             }
             produto.valorSelecionadoDeCombustivel = Number.parseFloat($("#valorVendido").val());
@@ -196,12 +195,12 @@ $(document).ready(function () {
         event.preventDefault();
         var vendaEstoque = arrayDeVendaEstoque;
         if (vendaEstoque == "") {
-            alert("Venda vazia!");
+            $.notify("Venda vazia!");
             return;
         }
         var valorFinalDaVenda = $("#valorFinalDaVenda").val();
         if ($("#formaDePagamento").val() == "") {
-            alert("Selecione uma forma de pagamento!");
+            $.notify("Selecione uma forma de pagamento!");
             return;
         }
         else {
@@ -217,7 +216,7 @@ $(document).ready(function () {
                 var pontosDoCliente = dadosCliente.Pontos;
                 var valorTotalVenda = venda.PrecoTotal * 100;
                 if (valorTotalVenda > pontosDoCliente) {
-                    alert("O cliente não possui pontos o suficiente para a troca ");
+                    $.notify("O cliente não possui pontos o suficiente para a troca ");
                     return;
                 }
             }
@@ -233,21 +232,19 @@ $(document).ready(function () {
                     var cliente = $("#selectClientes").val();
 
                     if (cliente != "" && formadePagamento == 3) {
-                        alert("Troca por Pontos efetuada com sucesso!");
+                        return $.notify("Troca por Pontos efetuada com sucesso!");
                     }
                     if (cliente == "" && formadePagamento == 3) {
-                        alert("Selecione um cliente para trocar por pontos!");
-                        return;
+                        return $.notify("Selecione um cliente para trocar por pontos!");
                     }
-                    else {
-                        alert("Venda efetuada");
-                    }
-                   
                     if (cliente != "" && formadePagamento == 0 || formadePagamento == 1) {
                         var valorPontuado = venda.PrecoTotal;
-                        alert("O cliente pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
+                        return $.notify("Venda Efetuada com Sucesso! " + "O Cliente Pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
                     }
-                    window.location.href = "/Home/Index"
+                    else {
+                        return $.notify("Venda Efetuada com Sucesso");
+                    }
+                    // window.location.href = "/Home/Index"
                 }
             });
         }

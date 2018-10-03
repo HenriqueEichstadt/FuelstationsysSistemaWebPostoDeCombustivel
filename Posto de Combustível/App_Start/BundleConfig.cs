@@ -40,6 +40,7 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/raphael/raphael.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/justgage-toorshia/justgage.js",
                       "~/Content/TemplateADMIN/assets/scripts/klorofilpro-common.js",
+                      "~/Content/TemplateADMIN/assets/scripts/bootstrap-notify.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/JQueryMask/jquery.mask.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js",
