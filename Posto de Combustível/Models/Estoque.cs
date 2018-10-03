@@ -23,8 +23,8 @@ namespace Posto_De_Combustivel.Models
         [MaxLength(200)]
         public string Descricao { get; set; }
         [Required]
-        public int EstoqueAtual { get; set; }
-        public int? LimiteEstoque { get; set; }
+        public double EstoqueAtual { get; set; }
+        public double? LimiteEstoque { get; set; }
         public DateTime? Validade { get; set; }
         public IList<VendaEstoque> Vendas { get; set; }
         public int? TrocaPontosFidelidade { get; set; }

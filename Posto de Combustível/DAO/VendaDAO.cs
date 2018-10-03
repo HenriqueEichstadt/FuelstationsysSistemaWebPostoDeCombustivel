@@ -27,5 +27,27 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public void DecrementaDoEstoque(List<VendaEstoque> vendaEstoque)
+        {
+            using (var contexto = new PostoContext())
+            {
+                foreach (var estoques in vendaEstoque)
+                {
+                    DecrementaProdutoDoEstoque(estoques.EstoqueId, estoques.Unidades);
+                }
+            }
+        }
+
+        public void DecrementaProdutoDoEstoque(int id, double quantidade)
+        {
+            using (var contexto = new PostoContext())
+            {
+                var produto = contexto.Estoques.Find(id);
+                produto.EstoqueAtual -= quantidade;
+                contexto.Entry(produto).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+        }
+
     }
 }

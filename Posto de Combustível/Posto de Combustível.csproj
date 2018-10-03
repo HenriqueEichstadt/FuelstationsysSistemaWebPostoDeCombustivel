@@ -1146,6 +1146,18 @@
     <Compile Include="Migrations\20181002135033_ClienteOpcional.designer.cs">
       <DependentUpon>20181002135033_ClienteOpcional.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181002183735_doubleEstoque.cs" />
+    <Compile Include="Migrations\20181002183735_doubleEstoque.designer.cs">
+      <DependentUpon>20181002183735_doubleEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181002194603_DoubleUnidades.cs" />
+    <Compile Include="Migrations\20181002194603_DoubleUnidades.designer.cs">
+      <DependentUpon>20181002194603_DoubleUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181002195553_DoubleUnidadesVendaEstoque.cs" />
+    <Compile Include="Migrations\20181002195553_DoubleUnidadesVendaEstoque.designer.cs">
+      <DependentUpon>20181002195553_DoubleUnidadesVendaEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Endereco.cs" />

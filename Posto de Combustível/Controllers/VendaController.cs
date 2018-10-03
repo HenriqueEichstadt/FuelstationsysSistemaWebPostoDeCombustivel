@@ -33,8 +33,9 @@ namespace Posto_de_Combustivel.Controllers
         {
             venda.Estoques = arrayDeVendaEstoque;
             venda.Data = DateTime.Now;
-           
-            new VendaDAO().AdicionaVenda(venda);
+            VendaDAO dao = new VendaDAO();
+            dao.AdicionaVenda(venda);
+            dao.DecrementaDoEstoque(arrayDeVendaEstoque);
             return Json(new{ adicionou = true });
         }
 

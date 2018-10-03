@@ -91,9 +91,9 @@ namespace Posto_de_Combustivel.Migrations
                     b.Property<string>("Descricao")
                         .HasMaxLength(200);
 
-                    b.Property<int>("EstoqueAtual");
+                    b.Property<double>("EstoqueAtual");
 
-                    b.Property<int?>("LimiteEstoque");
+                    b.Property<double?>("LimiteEstoque");
 
                     b.Property<string>("Marca");
 
@@ -262,7 +262,7 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<double>("PrecoTotal");
 
-                    b.Property<int>("Unidades");
+                    b.Property<double>("Unidades");
 
                     b.HasKey("Id");
 
@@ -279,7 +279,7 @@ namespace Posto_de_Combustivel.Migrations
 
                     b.Property<double>("PrecoTotalItem");
 
-                    b.Property<int>("Unidades");
+                    b.Property<double>("Unidades");
 
                     b.HasKey("VendaId", "EstoqueId");
 

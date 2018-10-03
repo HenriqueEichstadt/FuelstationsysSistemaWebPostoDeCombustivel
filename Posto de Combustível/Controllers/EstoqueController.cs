@@ -39,6 +39,13 @@ namespace Posto_de_Combustivel.Controllers
                 data = new EstoqueDAO().ListaProdutos()
             }, JsonRequestBehavior.AllowGet);
         }
+        public JsonResult ListaProdutosParaAVenda()
+        {
+            return Json(new
+            {
+                data = new EstoqueDAO().ListaProdutosParaAVenda()
+            }, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult AdicionaProdutoEstoque(Estoque estoque)
         {
             EstoqueDAO dao = new EstoqueDAO();

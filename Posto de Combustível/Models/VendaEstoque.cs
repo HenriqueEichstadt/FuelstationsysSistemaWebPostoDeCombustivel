@@ -12,7 +12,7 @@ namespace Posto_de_Combustivel.Models
         public Venda Venda { get; set; }
         public int EstoqueId { get; set; }
         public Estoque Estoque { get; set; }
-        public int Unidades { get; set; }
+        public double Unidades { get; set; }
         public double PrecoTotalItem { get; set; }
     }
 }

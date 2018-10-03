@@ -39,6 +39,14 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public IList<Estoque> ListaProdutosParaAVenda()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Where(a => a.Ativo == true && a.EstoqueAtual >0).ToList();
+            }
+        }
+
         public void Atualiza(Estoque estoque)
         {
             using (var contexto = new PostoContext())

@@ -20,7 +20,7 @@
                         <div class="input-group">
                             <span class="input-group-addon">Forma de Pagamento</span>
                             <select id="formaDePagamento" name="formaDePagamento" class="form-control" style="text-align-last:center;" type="text">
-                                <option>Selecione uma forma de pagamento</option>
+                                <option></option>
                                 <option value="0">Dinheiro</option>
                                 <option value="1">Débito</option>
                                 <option value="2">Crédito</option>
@@ -39,7 +39,7 @@
                     </div>
                     <!-- Select para Buscar Produtos do banco-->
                     <div class="">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="input-group margin-top-15">
                                 <span class="input-group-addon">Seleciona um Produto</span>
                                 <select id="selectProdutos" onclick="" name="cliente" class="form-control" style="text-align-last:center;" type="text">
@@ -60,14 +60,14 @@
                         <div class="col-md-2" id="ocultarCampo">
                             <div class="input-group margin-top-15">
                                 <span class="input-group-addon">Quantidade</span>
-                                <input id="quantidade" name="" class="form-control" placeholder="" type="number">
+                                <input id="quantidade" name="" min="1" class="form-control" placeholder="" type="number">
                             </div>
                         </div>
 
-                        <div class="col-md-2" id="ocultarCampo">
+                        <div class="col-md-3" id="ocultarCampo">
                             <div class="input-group margin-top-15" id="ocultarValorVendido">
                                 <span class="input-group-addon">Val. Vendido</span>
-                                <input id="valorVendido" name="" class="form-control" placeholder="" type="text">
+                                <input id="valorVendido" name="" class="form-control" placeholder="" min="1" type="number">
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
 @section body_scripts{
     <script src="~/Content/javascript/Venda.js"></script>
 
-    <script type="text/javascript">                                         
-      
+    <script type="text/javascript">
+
     </script>
 }
