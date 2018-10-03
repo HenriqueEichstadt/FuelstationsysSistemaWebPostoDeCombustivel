@@ -37,7 +37,7 @@ namespace Posto_de_Combustivel.Controllers
             VendaDAO dao = new VendaDAO();
 
             // Se for uma venda por troca de pontos
-            if (venda.FormaDePagamento == 3)
+            if (venda.ClienteId != null && venda.FormaDePagamento == 3)
             {
                 int trocaPontos = Convert.ToInt32(venda.PrecoTotal * 100);
                 int cliente = Convert.ToInt32(venda.ClienteId);

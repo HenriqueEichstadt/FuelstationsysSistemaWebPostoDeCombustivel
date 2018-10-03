@@ -43,9 +43,11 @@ $(document).ready(function () {
         success: function (obj) {
             if (obj != null) {
                 var data = obj.data;
-                var selectbox = $('#selectClientes').select2();
+                var selectbox = $('#selectClientes').select2({
+                    placeholder: "Selecione um Cliente"
+                });   
                 selectbox.find('option').remove();
-                $('<option>').val("").text("Selecione um Cliente").appendTo(selectbox);
+                $('<option>').val("").appendTo(selectbox);
                 $.each(data, function (i, d) {
                     $('<option>').val(d.Id).text(d.Pessoa.Nome).appendTo(selectbox);
                     clientes.push({
@@ -228,14 +230,19 @@ $(document).ready(function () {
                 data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
                 success: function (response) {
                     var formadePagamento = $("#formaDePagamento").val();
+                    var cliente = $("#selectClientes").val();
 
-                    if (formadePagamento == 3) {
+                    if (cliente != "" && formadePagamento == 3) {
                         alert("Troca por Pontos efetuada com sucesso!");
+                    }
+                    if (cliente == "" && formadePagamento == 3) {
+                        alert("Selecione um cliente para trocar por pontos!");
+                        return;
                     }
                     else {
                         alert("Venda efetuada");
                     }
-                    var cliente = $("#selectClientes").val();
+                   
                     if (cliente != "" && formadePagamento == 0 || formadePagamento == 1) {
                         var valorPontuado = venda.PrecoTotal;
                         alert("O cliente pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
