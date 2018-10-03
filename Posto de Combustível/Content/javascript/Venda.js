@@ -118,10 +118,10 @@ $(document).ready(function () {
         $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
             buscaId = Number.parseFloat(vendaEstoque.EstoqueId);
         });
-            if (buscaId == IdAtual) {
-                alert("Este produto já está adicionado na venda!");
-                return;
-            }
+        if (buscaId == IdAtual) {
+            alert("Este produto já está adicionado na venda!");
+            return;
+        }
 
         if (dadosProduto.Categoria == "C") {
 
@@ -208,6 +208,12 @@ $(document).ready(function () {
                 data: JSON.stringify({ venda: venda, arrayDeVendaEstoque: arrayDeVendaEstoque }),
                 success: function (response) {
                     alert("Venda efetuada");
+
+                    var formadePagamento = $("#formaDePagamento").val();
+                    if (formadePagamento == 0 || formadePagamento == 1) {
+                        var valorPontuado = venda.PrecoTotal * 0.8;
+                        alert("O cliente pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
+                    }
                 }
             });
         }

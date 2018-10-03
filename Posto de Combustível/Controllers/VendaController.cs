@@ -36,7 +36,14 @@ namespace Posto_de_Combustivel.Controllers
             VendaDAO dao = new VendaDAO();
             dao.AdicionaVenda(venda);
             dao.DecrementaDoEstoque(arrayDeVendaEstoque);
-            return Json(new{ adicionou = true });
+
+            if (venda.FormaDePagamento == 0 || venda.FormaDePagamento == 1)
+            {
+                int QtdDePontos = Convert.ToInt32(venda.PrecoTotal * 0.8);
+                dao.SomaPontos(venda.ClienteId, QtdDePontos);
+            }
+
+            return Json(new { adicionou = true });
         }
 
         public JsonResult ListaVendas()

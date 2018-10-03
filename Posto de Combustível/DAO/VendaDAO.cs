@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Posto_de_Combustível.DAO;
 using Posto_de_Combustivel.Models;
+using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,15 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public Venda BuscaPorId(int id)
+        {
+            using (var contexto = new PostoContext())
+            {
+
+                return contexto.Vendas.Find(id);
+            }
+        }
+
         public void DecrementaDoEstoque(List<VendaEstoque> vendaEstoque)
         {
             using (var contexto = new PostoContext())
@@ -48,6 +58,26 @@ namespace Posto_de_Combustivel.DAO
                 contexto.SaveChanges();
             }
         }
+
+        public void SomaPontos(int ClienteId, int pontos)
+        {
+            using (var contexto = new PostoContext())
+            {
+                var cliente = contexto.Clientes.Find(ClienteId);
+                cliente.Pontos += pontos;
+                contexto.Entry(cliente).State = EntityState.Modified;
+                contexto.SaveChanges();
+            }
+        }
+
+        //public void SomaPontosFidelidade(Venda clienteVenda, int QtdDePontos)
+        //{
+        //    using (var contexto = new PostoContext())
+        //    {
+        //        int IdDoCliente = Convert.ToInt32(clienteVenda.ClienteId);
+        //        SomaPontos(IdDoCliente, QtdDePontos);
+        //    }
+        //}
 
     }
 }
