@@ -69,9 +69,15 @@ $(document).ready(function () {
             $("#ocultarCampo").show();
             $("#valor").val(dadosProduto.PrecoVenda);
         }
-        // Permite adicionar apenas o valor maximo no estoque no input
+        // Permite adicionar apenas o valor maximo do produto no estoque
         var estoqueAtual = dadosProduto.EstoqueAtual;
         $("#quantidade").prop("max", estoqueAtual);
+
+        // permite adicionar apenas o valor total em reais do combustivel do estoque
+        var preco = dadosProduto.PrecoVenda;
+        valorTotalQuePodeAdicionar = estoqueAtual * preco;
+        $("#valorVendido").prop("max", valorTotalQuePodeAdicionar);
+
     });
 
     // Adiciona o Produto na Tabela
@@ -90,15 +96,35 @@ $(document).ready(function () {
         // produto.Quantidade = $("#quantidade").val();
         //produto.valorSelecionadoDeCombustivel = $("#valorVendido").val();
 
-        var estoqueAtual = dadosProduto.EstoqueAtual;
-        var pegaValorCampo = $("#quantidade").val();
-        if (pegaValorCampo > estoqueAtual) {
-            alert("Há apenas " + estoqueAtual + " no estoque!");
-            return;
+        if (dadosProduto.Categoria == "P") {
+
+            var estoqueAtual = dadosProduto.EstoqueAtual;
+            var pegaValorCampo = $("#quantidade").val();
+            if (pegaValorCampo > estoqueAtual) {
+                alert("Há apenas " + estoqueAtual + " no estoque!");
+                return;
+            }
+        }
+        else {
+            var valorAdicionado = $("#valorVendido").val();
+            if (valorAdicionado > valorTotalQuePodeAdicionar) {
+                alert("Valor máximo de R$: " + Number.parseFloat(valorTotalQuePodeAdicionar - 1).toFixed(2) + " disponível para venda!");
+                return;
+            }
         }
 
+        var IdAtual = dadosProduto.Id;
+        var buscaId = 0;
+        $.each(arrayDeVendaEstoque, function (i, vendaEstoque) {
+            buscaId = Number.parseFloat(vendaEstoque.EstoqueId);
+        });
+            if (buscaId == IdAtual) {
+                alert("Este produto já está adicionado na venda!");
+                return;
+            }
+
         if (dadosProduto.Categoria == "C") {
-            
+
             if ($("#valorVendido").val() == "") {
                 alert("Selecione um valor para a venda do Combustível!");
                 return;
@@ -157,6 +183,11 @@ $(document).ready(function () {
     // Ações no botão finalizar
     $("#botaoFinalizar").click(function (event) {
         event.preventDefault();
+        var vendaEstoque = arrayDeVendaEstoque;
+        if (vendaEstoque == "") {
+            alert("Venda vazia!");
+            return;
+        }
         var valorFinalDaVenda = $("#valorFinalDaVenda").val();
         if ($("#formaDePagamento").val() == "") {
             alert("Selecione uma forma de pagamento!");
@@ -188,6 +219,7 @@ $(document).ready(function () {
 // Variavel global para pegar os valores do produto escolhido no select2
 var dadosProduto = "";
 
+var valorTotalQuePodeAdicionar;
 // Array para pegar produtos da tabela de venda
 var arrayDeVendaEstoque = [];
 var produto = {
