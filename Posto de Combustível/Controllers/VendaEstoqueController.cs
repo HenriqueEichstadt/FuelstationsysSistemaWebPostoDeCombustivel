@@ -15,12 +15,17 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-		public JsonResult ListaVendasEstoque()
-		{
-			return Json(new
-			{
-			//	data = new VendaEstoqueDAO().ListaVendas()
-			}, JsonRequestBehavior.AllowGet);
-		}
-	}
+        public JsonResult ListaVendasEstoque()
+        {
+            VendaEstoqueDAO dao = new VendaEstoqueDAO();
+            var lista = dao.ListaVendasEstoque();
+
+
+            JsonResult js = Json(new
+            { data = lista }, JsonRequestBehavior.AllowGet);
+
+            js.MaxJsonLength = int.MaxValue;
+            return js;
+        }
+    }
 }

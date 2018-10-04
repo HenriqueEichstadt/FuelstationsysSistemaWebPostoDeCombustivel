@@ -1,10 +1,17 @@
 ﻿// Validações de Formulário
 $(document).ready(function () {
+
+
+
+
     $("#FormCadastro").validate({
         rules: {
             "estoque.Nome": {
                 required: true,
                 maxlength: 50
+            },
+            "estoque.Marca": {
+                required: true
             },
             "estoque.Categoria": {
                 required: true
@@ -27,6 +34,9 @@ $(document).ready(function () {
                 required: "Campo obrigatório!",
                 maxlength: "Máximo 50 Caracteres!"
             },
+            "estoque.Marca": {
+                required: "Campo obrigatório!"
+            },
             "estoque.Categoria": {
                 required: "Campo obrigatório!"
             },
@@ -44,6 +54,19 @@ $(document).ready(function () {
             },
         }
     });
+
+    $("#precoVenda").mask('#.##0,00', { reverse: true });
+    $("#precoCusto").mask('#.##0,00', { reverse: true });
+
+    
+
 });
 
-//$("#precoVenda").mask("");
+function CalculaPontosAutomaticamente() {
+
+    var precoVenda = $("#precoVenda").val();
+    var pontosAutomatico = precoVenda * 100;
+    $("#trocapontos").val(pontosAutomatico);
+
+}
+

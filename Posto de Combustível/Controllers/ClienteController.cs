@@ -68,8 +68,8 @@ namespace Posto_de_Combustivel.Controllers
 			}
 			else
 			{
-				ViewBag.Pessoa = cliente;
-				return View("Index");
+                ViewBag.Cliente = cliente;
+                return View("Index");
 			}
 		}
 		public JsonResult ListaClientes()
@@ -102,8 +102,8 @@ namespace Posto_de_Combustivel.Controllers
 			}
 			else
 			{
-				ViewBag.Pessoa = cliente;
-				return View("Index");
+				ViewBag.Cliente = cliente;
+				return View("UpdateForm");
 			}
 		}
 		public JsonResult InativaCliente(int id)

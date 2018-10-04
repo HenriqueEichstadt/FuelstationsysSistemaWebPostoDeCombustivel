@@ -1,5 +1,6 @@
 ﻿// Popular combo box de TipoDeVeiculos
 $(document).ready(function () {
+
     $.ajax({
         type: "GET",
         url: "/FabricanteVeiculo/ListaTipoDeVeiculo",
@@ -200,7 +201,6 @@ $("#CpfeCnpj").mask("000.000.000-00");
 $("#telefoneUm").mask("(00)00000-0000");
 $("#telefoneDois").mask("(00)00000-0000");
 $("#Cep").mask("00000-000");
-//$("#Rg").mask("0.000.000.000");
 $("#ano").mask("0000");
 $("#placa").mask("AAA-0000");
 

@@ -39,6 +39,14 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
+        public double Totio()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Vendas.Include(c => c.Cliente).ThenInclude(p => p.Pessoa).ToList().Sum(v => v.PrecoTotal);
+            }
+        }
+
         public Venda BuscaPorId(int id)
         {
             using (var contexto = new PostoContext())

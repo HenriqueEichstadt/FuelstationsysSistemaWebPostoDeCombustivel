@@ -56,25 +56,25 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoVenda">Preço de Venda<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoVenda" name="estoque.PrecoVenda" value="@ViewBag.Estoque.PrecoVenda" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
+                        <input id="precoVenda" name="estoque.PrecoVenda" value="@ViewBag.Estoque.PrecoVenda" placeholder="R$ 00,00" onkeyup="CalculaPontosAutomaticamente();" class="form-control input-md" type="text" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoCusto">Preço de Custo<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoCusto" name="estoque.PrecoCusto" value="@ViewBag.Estoque.PrecoCusto" placeholder="R$ 00,00" class="form-control input-md" type="number" maxlength="50">
+                        <input id="precoCusto" name="estoque.PrecoCusto" value="@ViewBag.Estoque.PrecoCusto" placeholder="R$ 00,00" class="form-control input-md" type="text" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoVenda">Estoque Atual<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="precoVenda" name="estoque.EstoqueAtual" value="@ViewBag.Estoque.EstoqueAtual" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                        <input id="estoqueAtual" name="estoque.EstoqueAtual" value="@ViewBag.Estoque.EstoqueAtual" placeholder="" class="form-control input-md" type="number" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="precoCusto">Limite de Estoque<h11></h11></label>
                     <div class="col-md-3">
-                        <input id="precoCusto" name="estoque.LimiteEstoque" value="@ViewBag.Estoque.LimiteEstoque" placeholder="" class="form-control input-md" type="number" maxlength="50">
+                        <input id="limiteEstoque" name="estoque.LimiteEstoque" value="@ViewBag.Estoque.LimiteEstoque" placeholder="" class="form-control input-md" type="number" maxlength="50">
                     </div>
                 </div>
                 <div class="form-group">
@@ -92,7 +92,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="trocapontos">Troca por Pontos<h11>*</h11></label>
                     <div class="col-md-3">
-                        <input id="trocapontos" name="estoque.TrocaPontosFidelidade" value="@ViewBag.Estoque.TrocaPontosFidelidade" placeholder="" class="form-control input-md" type="number" maxlength="6">
+                        <input id="trocapontos" name="estoque.TrocaPontosFidelidade" value="@ViewBag.Estoque.TrocaPontosFidelidade" placeholder="" class="form-control input-md" type="text" maxlength="6">
                     </div>
                 </div>
 
@@ -116,7 +116,8 @@
 
 
 @section body_scripts{
+    <script src="/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js"></script>
     <script src="~/Content/Validacao/Estoque.js"></script>
     <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
-   
+
 }

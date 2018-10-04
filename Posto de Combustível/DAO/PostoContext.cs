@@ -18,7 +18,7 @@ namespace Posto_de_Combustível.DAO
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<Venda> Vendas { get; set; }
         public DbSet<FabricanteVeiculo> FabricanteVeiculos { get; set; }
-		//public DbSet<VendaEstoque> VendaEstoques { get; set; }
+		public DbSet<VendaEstoque> VendaEstoque { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
