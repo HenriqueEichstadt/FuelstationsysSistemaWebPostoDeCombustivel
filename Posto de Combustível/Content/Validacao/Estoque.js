@@ -28,19 +28,19 @@ $(document).ready(function () {
                 maxlength: "Máximo 50 Caracteres!"
             },
             "estoque.Categoria": {
-                required: "Campo obrigatório!",
+                required: "Campo obrigatório!"
             },
             "estoque.PrecoCusto": {
-                required: "Campo obrigatório!",
+                required: "Campo obrigatório!"
             },
             "estoque.PrecoVenda": {
-                required: "Campo obrigatório!",
+                required: "Campo obrigatório!"
             },
             "estoque.Descricao": {
                 maxlength: "Máximo de 200 Caracteres!"
             },
             "estoque.EstoqueAtual": {
-                required: "Campo obrigatório!",
+                required: "Campo obrigatório!"
             },
         }
     });

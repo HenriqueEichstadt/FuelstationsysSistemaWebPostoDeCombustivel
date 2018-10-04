@@ -99,7 +99,25 @@ $(document).ready(function () {
             },
             "cliente.pessoa.endereco.Complemento": {
                 maxlength: 50
-            },
+			},
+			"cliente.pessoa.veiculo.TipoDeVeiculo": {
+				required: true
+			},
+			"cliente.pessoa.veiculo.Fabricante": {
+				required: true
+			},
+			"cliente.pessoa.veiculo.Modelo": {
+				required: true,
+				maxlenght: 60
+			},
+			"cliente.pessoa.veiculo.Placa": {
+				required: true,
+				maxlenght: 8
+			},
+			"cliente.pessoa.veiculo.Ano": {
+				required: true,
+				maxlenght: 4
+			},
         },
         messages: {
             "cliente.pessoa.Nome": {
@@ -155,7 +173,25 @@ $(document).ready(function () {
             },
             "cliente.pessoa.endereco.Complemento": {
                 maxlength: "Deve ter no máximo 50 caracteres!"
-            },
+			},
+			"cliente.pessoa.veiculo.TipoDeVeiculo": {
+				required: "Campo obrigatório!",
+			},
+			"cliente.pessoa.veiculo.Fabricante": {
+				required: "Campo obrigatório!",
+			},
+			"cliente.pessoa.veiculo.Modelo": {
+				required: "Campo obrigatório!",
+				maxlength: "Deve ter no máximo 60 caracteres!"
+			},
+			"cliente.pessoa.veiculo.Placa": {
+				required: "Campo obrigatório!",
+				maxlength: "Deve ter no máximo 8 caracteres!"
+			},
+			"cliente.pessoa.veiculo.Ano": {
+				required: "Campo obrigatório!",
+				maxlength: "Deve ter no máximo 4 caracteres!"
+			},
         }
     });
 });
@@ -165,6 +201,8 @@ $("#telefoneUm").mask("(00)00000-0000");
 $("#telefoneDois").mask("(00)00000-0000");
 $("#Cep").mask("00000-000");
 //$("#Rg").mask("0.000.000.000");
+$("#ano").mask("0000");
+$("#placa").mask("AAA-0000");
 
 
 // Função para conferir se o CPF é válido ou não

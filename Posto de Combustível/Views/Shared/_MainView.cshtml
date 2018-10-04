@@ -63,7 +63,7 @@
                 <ul class="nav" id="sidebar-nav-menu">
                     <li class="menu-group">Main</li>
                     <li class="panel">
-                        <a href="#dashboards" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="active"><i class="ti-dashboard"></i> <span class="title">Menu Principal</span> <i class="icon-submenu ti-angle-left"></i></a>
+                        <a href="#dashboards" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="active"><i class="ti-home"></i> <span class="title">Menu Principal</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="dashboards" class="collapse in">
                             <ul class="submenu">
                                 <li><a class="active" href="/Home/Index">Home</a></li>
@@ -77,17 +77,15 @@
                                 <a href="#charts" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-pie-chart"></i> <span class="title">Administrador</span> <i class="icon-submenu ti-angle-left"></i></a>
                                 <div id="charts" class="collapse ">
                                     <ul class="submenu">
-                                        <li><a href="/Funcionario/Form">Cadastro de Funcionario</a></li>
-                                        <li><a href="/Fornecedor/Index">Cadastro de Fornecedor</a></li>
-                                        <li><a href="charts-flot.html"></a></li>
-                                        <li><a href="charts-sparkline.html">Sparkline Chart</a></li>
+                                        <li><a href="/Funcionario/Funcionarios">Cadastro de Funcionario</a></li>
+                                        <li><a href="/Fornecedor/Fornecedores">Cadastro de Fornecedor</a></li>
                                     </ul>
                                 </div>
                             </li>
                         }
                     }
                     <li class="panel">
-                        <a href="#uiElements" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="money-bil-alt"></i> <span class="title">Venda</span> <i class="icon-submenu ti-angle-left"></i></a>
+                        <a href="#uiElements" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="fa fa-shopping-cart"></i> <span class="title">Venda</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="uiElements" class="collapse ">
                             <ul class="submenu">
                                 <li><a href="/Venda/Venda">Venda</a></li>
@@ -100,8 +98,6 @@
                         <div id="forms" class="collapse ">
                             <ul class="submenu">
                                 <li><a href="/Cliente/Index">Cadastro de cliente</a></li>
-                                <li><a href="/Fornecedor/Index">Cadastro de fornecedor</a></li>
-                                <li><a href="/Funcionario/Form">Cadastro de funcionário</a></li>
                                 <li><a href="/Estoque/Form">Cadastro de produto</a></li>
                             </ul>
                         </div>
@@ -121,21 +117,15 @@
                         <div id="subPages" class="collapse ">
                             <ul class="submenu">
                                 <li><a href="/Cliente/Clientes">Clientes</a></li>
-                                <li><a href="/Fornecedor/Fornecedores">Fornecedores</a></li>
-                                <li><a href="/Funcionario/Funcionarios">Funcionarios</a></li>
                             </ul>
                         </div>
                     </li>
 
                     <li class="panel">
-                        <a href="#subLayouts" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-layout"></i> <span class="title">Layouts</span> <i class="icon-submenu ti-angle-left"></i></a>
+                        <a href="#subLayouts" data-toggle="collapse" data-parent="#sidebar-nav-menu" class="collapsed"><i class="ti-user"></i> <span class="title">Meu Perfil</span> <i class="icon-submenu ti-angle-left"></i></a>
                         <div id="subLayouts" class="collapse ">
                             <ul class="submenu">
-                                <li><a href="~/Content/TemplateADMIN/layout-topnav.html">Top Navigation <span class="label label-success">NEW</span></a></li>
-                                <li><a href="~/Content/TemplateADMIN/layout-minified.html">Minified</a></li>
-                                <li><a href="~/Content/TemplateADMIN/layout-fullwidth.html">Fullwidth</a></li>
-                                <li><a href="~/Content/TemplateADMIN/layout-default.html">Default</a></li>
-                                <li><a href="~/Content/TemplateADMIN/layout-grid.html">Grid</a></li>
+                                <li><a onclick="LogOut();">Sair</a></li>
                             </ul>
                         </div>
                     </li>

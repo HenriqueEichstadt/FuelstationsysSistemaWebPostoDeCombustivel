@@ -1,4 +1,5 @@
-﻿using Posto_De_Combustivel.Filtros;
+﻿using Posto_de_Combustivel.DAO;
+using Posto_De_Combustivel.Filtros;
 using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
@@ -25,5 +26,12 @@ namespace Posto_De_Combustivel.Controllers
             return View();
         }
 
-    }
+		public JsonResult ListaVendas()
+		{
+			return Json(new
+			{
+				data = new VendaDAO().ListaVendas()
+			}, JsonRequestBehavior.AllowGet);
+		}
+	}
 }

@@ -205,6 +205,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\DataTableCss\DataTables.css" />
+    <Content Include="Content\javascript\Home.js" />
     <Content Include="Content\javascript\Venda.js" />
     <Content Include="Content\TemplateADMIN\appviews-file-manager.html" />
     <Content Include="Content\TemplateADMIN\appviews-inbox.html" />
@@ -1052,6 +1053,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\VeiculoController.cs" />
     <Compile Include="Controllers\VendaController.cs" />
+    <Compile Include="Controllers\VendaEstoqueController.cs" />
     <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -1059,6 +1061,7 @@
     <Compile Include="DAO\EstoqueDAO.cs" />
     <Compile Include="DAO\VeiculoDAO.cs" />
     <Compile Include="DAO\VendaDAO.cs" />
+    <Compile Include="DAO\VendaEstoqueDAO.cs" />
     <Compile Include="Filtros\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1296,6 +1299,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
     <Folder Include="Views\Veiculo\" />
+    <Folder Include="Views\VendaEstoque\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

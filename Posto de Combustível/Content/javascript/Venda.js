@@ -244,7 +244,6 @@ $(document).ready(function () {
                     else {
                         return $.notify("Venda Efetuada com Sucesso");
                     }
-                    // window.location.href = "/Home/Index"
                 }
             });
         }
@@ -294,6 +293,26 @@ function AtualizaCamposValorEQuantidade() {
     $("#totalUnidades").val("");
 }
 
+function LimpaVenda() {
+	
+	$("#formaDePagamento").val("");
+	$("#selectClientes").remove();
+	$('#selectProdutos').val("");
+	$("#valor").val("");
+	$("#quantidade").val("");
+	$("#valorVendido").val("");
+	$("#totalAPagar").val("");
+	$("#totalUnidades").val("");
+	$("#valorFinalDaVenda").val("");
+	produtos = [];
+	clientes = [];
+	arrayDeVendaEstoque = [];
+	produto = {};
+	dadosProduto = "";
+	dadosCliente = "";
+	valorTotalQuePodeAdicionar = "";
+
+}
 
 
 

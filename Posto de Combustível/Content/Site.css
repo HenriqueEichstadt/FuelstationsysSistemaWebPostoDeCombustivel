@@ -21,5 +21,10 @@ th {
 
 }
 .floatRigth {
-    float:right
+    float:right;
+}
+
+.control-label {
+	color: #030f23 !important;
+	font-weight: normal;
 }

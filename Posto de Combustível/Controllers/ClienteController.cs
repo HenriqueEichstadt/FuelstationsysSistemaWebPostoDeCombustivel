@@ -10,95 +10,107 @@ using System.Web.Mvc;
 
 namespace Posto_de_Combustivel.Controllers
 {
-    public class ClienteController : Controller
-    {
-        // Exibe Tela para Cadastrar Cliente
-        //[AutorizacaoFilter]
-        public ActionResult Index()
-        {
-            ViewBag.Cliente = new Cliente()
-            {
-                Pessoa = new Pessoa()
-                {
-                    Endereco = new Endereco(),
-                    Veiculo = new Veiculo(),
+	public class ClienteController : Controller
+	{
+		// Exibe Tela para Cadastrar Cliente
+		//[AutorizacaoFilter]
+		public ActionResult Index()
+		{
+			ViewBag.Cliente = new Cliente()
+			{
+				Pessoa = new Pessoa()
+				{
+					Endereco = new Endereco(),
+					Veiculo = new Veiculo(),
 
-                }
-            };
-            return View();
-        }
+				}
+			};
+			return View();
+		}
 
-        public ActionResult Clientes()
-        {
-            return View();
-        }
+		public ActionResult Clientes()
+		{
+			return View();
+		}
 
-        public ActionResult UpdateForm(int id)
-        {
-            ClienteDAO dao = new ClienteDAO();
-            ViewBag.Cliente = dao.BuscaPorId(id);
-            return View();
-        }
+		public ActionResult UpdateForm(int id)
+		{
+			ClienteDAO dao = new ClienteDAO();
+			ViewBag.Cliente = dao.BuscaPorId(id);
+			return View();
+		}
 
-        public ActionResult AdicionaCliente(Cliente cliente)
-        {
-            ClienteDAO dao = new ClienteDAO();
-            cliente.Pessoa.TipoPessoa = 'F';
-            cliente.Ativo = true;
-            cliente.Pontos = 0;
-            var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);
-            var gen = cliente.Pessoa.Genero;
-            var rg = Validacoes.ValidaRg(cliente.Pessoa.Rg);
-            var cpf = Validacoes.ValidaCpf(cliente.Pessoa.CpfeCnpj);
-            var idade = Validacoes.ValidaIdade(cliente.Pessoa.Data);
-            var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
-            var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
-            var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
-            var procuracpf = dao.BuscaCPfCnpj(cliente.Pessoa.CpfeCnpj);
+		public ActionResult AdicionaCliente(Cliente cliente)
+		{
+			ClienteDAO dao = new ClienteDAO();
+			cliente.Pessoa.TipoPessoa = 'F';
+			cliente.Ativo = true;
+			cliente.Pontos = 0;
+			var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);
+			var gen = cliente.Pessoa.Genero;
+			var rg = Validacoes.ValidaRg(cliente.Pessoa.Rg);
+			var cpf = Validacoes.ValidaCpf(cliente.Pessoa.CpfeCnpj);
+			var idade = Validacoes.ValidaIdade(cliente.Pessoa.Data);
+			var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
+			var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
+			var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
+			var procuracpf = dao.BuscaCPfCnpj(cliente.Pessoa.CpfeCnpj);
+
+			if (procuracpf == null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+			{
+				if(procuracpf != null)
+				{
+					return Json(new { ExistePessoa = true }, JsonRequestBehavior.AllowGet);
+				}
+
+				dao.AdicionaCliente(cliente);
+				return RedirectToAction("Clientes", "Cliente");
+			}
+			else
+			{
+				ViewBag.Pessoa = cliente;
+				return View("Index");
+			}
+		}
+		public JsonResult ListaClientes()
+		{
+			return Json(new
+			{
+				data = new ClienteDAO().ListaClientes()
+			}, JsonRequestBehavior.AllowGet);
+		}
 
 
+		public ActionResult UpdateCliente(Cliente cliente)
+		{
+			ClienteDAO dao = new ClienteDAO();
+			var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);
+			var gen = cliente.Pessoa.Genero;
+			var rg = Validacoes.ValidaRg(cliente.Pessoa.Rg);
+			var cpf = Validacoes.ValidaCpf(cliente.Pessoa.CpfeCnpj);
+			var idade = Validacoes.ValidaIdade(cliente.Pessoa.Data);
+			var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
+			var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
+			var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
 
-            if (gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
-            {
-                dao.AdicionaCliente(cliente);
-                return RedirectToAction("Clientes", "Cliente");
-            }
-            else
-            {
-                ViewBag.Pessoa = cliente;
-                return View("Index");
-            }
-        }
-        public JsonResult ListaClientes()
-        {
-            return Json(new
-            {
-                data = new ClienteDAO().ListaClientes()
-            }, JsonRequestBehavior.AllowGet);
-        }
-
-
-        public ActionResult UpdateCliente(Cliente cliente)
-        {
-            ClienteDAO dao = new ClienteDAO();
-            if (cliente != null)
-            {
-                cliente.Ativo = true;
-                cliente.Pessoa.TipoPessoa = 'F';
-                dao.Atualiza(cliente);
-                return RedirectToAction("Clientes", "Cliente");
-            }
-            else
-            {
-                ViewBag.Pessoa = cliente;
-                return View("Index");
-            }
-        }
-        public JsonResult InativaCliente(int id)
-        {
-            ClienteDAO dao = new ClienteDAO();
-            dao.Inativa(id);
-            return Json(new { inativou = true }, JsonRequestBehavior.AllowGet);
-        }
-    }
+			if (gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+			{
+				cliente.Ativo = true;
+				cliente.Pessoa.TipoPessoa = 'F';
+				dao.Atualiza(cliente);
+				return RedirectToAction("Clientes", "Cliente");
+			}
+			else
+			{
+				ViewBag.Pessoa = cliente;
+				return View("Index");
+			}
+		}
+		public JsonResult InativaCliente(int id)
+		{
+			ClienteDAO dao = new ClienteDAO();
+			dao.Inativa(id);
+			return Json(new { inativou = true }, JsonRequestBehavior.AllowGet);
+		}
+	}
 }
