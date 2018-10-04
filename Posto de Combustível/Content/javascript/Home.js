@@ -2,27 +2,33 @@
 $(document).ready(function () {
 	$.ajax({
 		type: "GET",
-		url: "/Home/ListaVendas",
+        url: "/Home/ListaPrecoTotalVendas",
 		dataType: 'json',
-		contentType: "application/json; charset=utf-8",
-		success: function (obj) {
-			var data = obj.data;
-			data.push({
-				PrecoTotal: d.PrecoTotal,
-				Id: d.Id,
-				Unidades: d.Unidades,
-			});
-		}
-	});
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            $.each(result, function (i, field) {
+                {
+                    $("#valorTotalVendas").text(field);
+                }
+            });
+         
 
-	// foreach para contar o valor das vendas
-	var somaValores = 0;
-	$.each(data, function (i, venda) {
-		somaValores += Number.parseFloat(venda.PrecoTotal);
-		//somaUnidades += Number.parseFloat(vendaEstoque.Unidades);
-	});
-	$("#valorTotalVendas").text(somaValores);
+		},
+    });
+
+    $.ajax({
+        type: "GET",
+        url: "/Home/SomaNumeroTotaDeVendas",
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        success: function (result) {
+            $.each(result, function (i, field) {
+                {
+                    $("#numeroTotalDeVendas").text(field);
+                }
+            });
+        }
+    });
+
 
 });
-
-var detalhesDaVenda = [];

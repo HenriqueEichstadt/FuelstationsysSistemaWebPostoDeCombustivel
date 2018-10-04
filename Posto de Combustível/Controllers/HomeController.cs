@@ -26,12 +26,19 @@ namespace Posto_De_Combustivel.Controllers
             return View();
         }
 
-		public JsonResult ListaVendas()
+		public JsonResult ListaPrecoTotalVendas()
 		{
-			return Json(new
-			{
-				data = new VendaDAO().ListaVendas()
+            return Json(new
+            {
+                data = new HomeDAO().SomaPrecoTotalVendas()
 			}, JsonRequestBehavior.AllowGet);
 		}
-	}
+        public JsonResult SomaNumeroTotaDeVendas()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().SomaTotalDeVendas()
+            }, JsonRequestBehavior.AllowGet);
+        }
+    }
 }

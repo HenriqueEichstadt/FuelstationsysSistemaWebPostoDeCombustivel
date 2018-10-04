@@ -72,6 +72,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="Nome">Nascimento<h11>*</h11></label>
                     <div class="col-md-2">
+                        @{ var data = (DateTime)ViewBag.Funcionario.Pessoa.Data; }
                         <input id="Data" name="funcionario.pessoa.Data" value="@ViewBag.Funcionario.Pessoa.Data" placeholder="DD/MM/AAAA" class="form-control input-md" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()">
                     </div>
 
@@ -231,7 +232,7 @@
                     <label class="col-md-2 control-label" for="Cadastrar"></label>
                     <div class="col-md-8">
                         <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Salvar</button>
-                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" onclick="window.location.href = '/Funcionario/Funcionarios'">Cancelar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" onclick="window.location.href = '/Funcionario/Funcionarios'" type="reset">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -243,8 +244,10 @@
     <script src="~/Content/Validacao/Funcionario.js"></script>
     <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
     <script>
-        $(document).ready(function () {
 
-        });
+    $(function () {
+        $("#Data").val("@data.ToString("yyyy-MM-dd")");
+    });
     </script>
+    
 }
