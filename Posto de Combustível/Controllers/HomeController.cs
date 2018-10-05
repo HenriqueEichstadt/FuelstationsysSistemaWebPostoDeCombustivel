@@ -57,13 +57,37 @@ namespace Posto_De_Combustivel.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        //public JsonResult ExibeGanhosSemanais()
-        //{
-        //    return Json(new
-        //    {
-        //        data = new HomeDAO().BuscaGanhosSemanais()
-        //    }, JsonRequestBehavior.AllowGet);
-        //}
+        public JsonResult ExibeNívelDaBombaUM()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().BuscaEstoqueBomdaUm()
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ExibeNívelDaBombaDois()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().BuscaEstoqueBomdaDois()
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ExibeNívelDaBombaTres()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().BuscaEstoqueBomdaTres()
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ExibeNívelDaBombaQuatro()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().BuscaEstoqueBomdaQuatro()
+            }, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }

@@ -98,22 +98,28 @@
                     <!-- input para valor total de Pagamento -->
                     <div class="col-md-5 floatRigth margin-top-15">
                         <div class="input-group">
-                            <span class="input-group-addon">Total a pagar</span>
+                            <span id="totaldaVendaEmPontosOuReais" class="input-group-addon">Total a pagar</span>
                             <input id="totalAPagar" name="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
                             <input id="totalUnidades" class="form-control" type="hidden" />
                             <input id="valorFinalDaVenda" class="form-control" type="hidden" />
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-6 control-label" for="Cadastrar"></label>
-                    <div class="col-md-12" style="position: relative; left: 925px; top: 30px;">
-                        <button id="botaoFinalizar" name="Cadastrar" class="btn btn-success" type="Submit">Finalizar</button>
-                        <button id="botaoCancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    <div class="col-md-5 floatLeft margin-top-15">
+                        <div class="input-group">
+                            <span class="input-group-addon">Pontos Do Cliente</span>
+                            <input id="totalPontosDoCliente" name="" class=" form-control col-md-10" style="text-align-last:center;" placeholder="" type="text">
+                        </div>
                     </div>
-                    <fieldset id=""></fieldset>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-6 control-label" for="Cadastrar"></label>
+                        <div class="col-md-12" style="position: relative; left: 925px; top: 30px;">
+                            <button id="botaoFinalizar" name="Cadastrar" class="btn btn-success" type="Submit">Finalizar</button>
+                            <button id="botaoCancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                        </div>
+                        <fieldset id=""></fieldset>
+                    </div>
                 </div>
-            </div>
 
         </div>
     </form>

@@ -46,13 +46,40 @@ namespace Posto_de_Combustivel.DAO
             }
         }
 
-        //public double BuscaGanhosSemanais()
-        //{
-        //    using (var contexto = new PostoContext())
-        //    {
-        //        return contexto.Vendas.Where(f => f.Data.AddDays(-7)).Sum(v => v.PrecoTotal);
+        public double BuscaEstoqueBomdaUm()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Where(b => b.Id == 6005).ToList().Sum(e =>e.EstoqueAtual);
 
-        //    }
-        //}
+            }
+        }
+
+        public double BuscaEstoqueBomdaDois()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Where(b => b.Id == 6006).ToList().Sum(e => e.EstoqueAtual);
+
+            }
+        }
+
+        public double BuscaEstoqueBomdaTres()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Where(b => b.Id == 6007).ToList().Sum(e => e.EstoqueAtual);
+
+            }
+        }
+
+        public double BuscaEstoqueBomdaQuatro()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Where(b => b.Id == 6008).ToList().Sum(e => e.EstoqueAtual);
+
+            }
+        }
     }
 }

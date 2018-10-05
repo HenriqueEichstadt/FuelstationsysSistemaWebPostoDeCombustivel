@@ -57,7 +57,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="widget widget-metric_1 animate">
-                    <span class="icon-wrapper custom-bg-purple"><i class="fa fa-envelope"></i></span>
+                    <span class="icon-wrapper custom-bg-purple"><i class="fa fa-shopping-bag"></i></span>
                     <div class="right">
                         <span class="title">Produtos Cadastrados</span>
                         <span class="value" id="quantidadeDeProdutosCadastrados"><i class="change-icon change-up fa fa-sort-up text-indicator-green"></i></span>
@@ -67,35 +67,70 @@
         </div>
         <!-- END TOP METRICS -->
         <!-- Vendas -->
+        <div>
+            <div class="col-md-6">
+                <div class="widget widget-task-progress">
+                    <div class="top clearfix">
+                        <span class="title">Gasolina Comum</span>
+                        <span id="porcentagemAcimaBombaUm" class="percentage"></span>
+                    </div>
+                    <div class="progress progress-sm task-progress progress-transparent custom-color-blue3">
+                        <div id="barraDeProgressoGasCom" class="progress-bar" data-transitiongoal="85" aria-valuenow="85"></div>
+                    </div>
+                    <div class="bottom clearfix">
+                        <span id="litrosGasolinaComum" class="note"></span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="col-md-6">
-
-            <div class="widget">
-                <ul class="list-unstyled list-widget-horizontal no-border row">
-                    <li class="col-md-6">
-                        <div class="widget-metric_2">
-                            <i class="fa fa-calendar-o icon"></i>
-                            <div class="right">
-                                <span class="title">WEEKLY REVENUE</span>
-                                <span class="value">$738</span>
-                                <span class="percentage text-indicator-red"><i class="fa fa-level-down"></i> 2.67%</span>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-md-6">
-                        <div class="widget-metric_2">
-                            <i class="fa fa-shopping-basket icon"></i>
-                            <div class="right">
-                                <span class="title">WEEKLY SALES</span>
-                                <span class="value">236</span>
-                                <span class="percentage text-indicator-green"><i class="fa fa-level-up"></i> 14.86%</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+            <div class="col-md-6">
+                <div class="widget widget-task-progress">
+                    <div class="top clearfix">
+                        <span class="title">Gasolina Aditivada</span>
+                        <span id="porcentagemAcimaDaBombaDois" class="percentage"></span>
+                    </div>
+                    <div class="progress progress-sm task-progress progress-transparent custom-color-blue3">
+                        <div id="barraDeProgressoGasAdit" class="progress-bar" data-transitiongoal="85" aria-valuenow="85"></div>
+                    </div>
+                    <div class="bottom clearfix">
+                        <span class="note" id="litrosGasolinaAditivada"></span>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Fim Vendas -->
+
+        <div>
+            <div class="col-md-6">
+                <div class="widget widget-task-progress">
+                    <div class="top clearfix">
+                        <span class="title">Etanol</span>
+                        <span class="percentage" id="porcentagemAcimaBombaTres"></span>
+                    </div>
+                    <div class="progress progress-sm task-progress progress-transparent custom-color-blue3">
+                        <div id="barraProgressoEtanol" class="progress-bar" data-transitiongoal="85" aria-valuenow="85"></div>
+                    </div>
+                    <div class="bottom clearfix">
+                        <span class="note" id="litrosEtanol"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="widget widget-task-progress">
+                    <div class="top clearfix">
+                        <span class="title">Diesel</span>
+                        <span class="percentage" id="porcentagemAcimaDaBombaQuatro"></span>
+                    </div>
+                    <div class="progress progress-sm task-progress progress-transparent custom-color-blue3">
+                        <div id="barraProgressoDiesel" class="progress-bar" data-transitiongoal="85" aria-valuenow="85"></div>
+                    </div>
+                    <div class="bottom clearfix">
+                        <span id="litrosDiesel" class="note"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>

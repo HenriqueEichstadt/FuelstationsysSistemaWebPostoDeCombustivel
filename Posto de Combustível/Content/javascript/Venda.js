@@ -89,6 +89,23 @@ $(document).ready(function () {
     $("#selectClientes").change(function () {
         var clienteSelecionado = $("#selectClientes").val();
         dadosCliente = clientes[clientes.findIndex(c => c.Id == clienteSelecionado)];
+        // Exibe os pontos do cliente
+        var pontosDoCliente = dadosCliente.Pontos;
+        $("#totalPontosDoCliente").val(pontosDoCliente + "  Pontos");
+    });
+
+    // Muda input para pontos se for por troca de pontos
+    $("#formaDePagamento").change(function () {
+        var formaSelecionada = $("#formaDePagamento").val();
+        if (formaSelecionada == '3') {
+            $("#totaldaVendaEmPontosOuReais").text("Troca por Pontos");
+            //$("#totalAPagar").val(Number.parseFloat(somaValores * 100).toFixed(2).replace(".", ","));    
+        }
+        else {
+            $("#totaldaVendaEmPontosOuReais").text("Total a pagar");
+            //$("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
+
+        }
     });
 
     // Adiciona o Produto na Tabela
@@ -172,7 +189,7 @@ $(document).ready(function () {
             ).append(
                 $("<td>").text("R$" + Number.parseFloat(produto.precoSelecionado).toFixed(2).replace(".", ","))
             ).append(
-                $("<td>").text(Number.parseFloat(produto.Quantidade).toFixed(2).replace(".", ",") + " L")
+                $("<td>").text(Number.parseFloat(produto.Quantidade).toFixed(2).replace(".", ","))
             ).append(
                 $("<td>").text("R$" + Number.parseFloat(produto.precoSubtotal).toFixed(2).replace(".", ","))
             ).append(
@@ -232,6 +249,7 @@ $(document).ready(function () {
                     var cliente = $("#selectClientes").val();
 
                     if (cliente != "" && formadePagamento == 3) {
+                        LimpaVenda();
                         return $.notify("Troca por Pontos efetuada com sucesso!");
                     }
                     if (cliente == "" && formadePagamento == 3) {
@@ -239,9 +257,11 @@ $(document).ready(function () {
                     }
                     if (cliente != "" && formadePagamento == 0 || formadePagamento == 1) {
                         var valorPontuado = venda.PrecoTotal;
+                        LimpaVenda();
                         return $.notify("Venda Efetuada com Sucesso! " + "O Cliente Pontuou " + valorPontuado + " pontos para o Programa de Fidelidade!");
                     }
                     else {
+                        LimpaVenda();
                         return $.notify("Venda Efetuada com Sucesso");
                     }
                 }
@@ -282,7 +302,14 @@ function AtualizaValoresDaQuantidadeEDoPreco() {
         somaValores += Number.parseFloat(vendaEstoque.PrecoTotalItem);
         somaUnidades += Number.parseFloat(vendaEstoque.Unidades);
     });
-    $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
+
+    var pagar = $("#formaDePagamento").val();
+    if (pagar == '3') {
+        $("#totalAPagar").val(Number.parseFloat(somaValores * 100).toFixed(2).replace(".", ","));
+    }
+    else {
+        $("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
+    }
     $("#totalUnidades").val(somaUnidades);
     $("#valorFinalDaVenda").val(Number.parseFloat(somaValores));
 }
@@ -304,13 +331,15 @@ function LimpaVenda() {
 	$("#totalAPagar").val("");
 	$("#totalUnidades").val("");
 	$("#valorFinalDaVenda").val("");
-	produtos = [];
+    $("#totalPontosDoCliente").val("");
+    produtos = [];
 	clientes = [];
 	arrayDeVendaEstoque = [];
 	produto = {};
 	dadosProduto = "";
 	dadosCliente = "";
-	valorTotalQuePodeAdicionar = "";
+    valorTotalQuePodeAdicionar = "";
+
 
 }
 
