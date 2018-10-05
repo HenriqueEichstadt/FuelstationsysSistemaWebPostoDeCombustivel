@@ -206,6 +206,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\DataTableCss\DataTables.css" />
     <Content Include="Content\javascript\ClientesDataTables.js" />
+    <Content Include="Content\javascript\EstoquesDataTables.js" />
     <Content Include="Content\javascript\Home.js" />
     <Content Include="Content\javascript\TemplateAdminScripts.js" />
     <Content Include="Content\javascript\Venda.js" />
