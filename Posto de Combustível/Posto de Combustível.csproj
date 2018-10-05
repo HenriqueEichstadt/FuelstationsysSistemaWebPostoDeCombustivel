@@ -1290,6 +1290,7 @@
     <Content Include="Views\Venda\Venda.cshtml" />
     <Content Include="Views\Venda\Vendas.cshtml" />
     <Content Include="Views\VendaEstoque\VendasEstoque.cshtml" />
+    <Content Include="Views\Veiculo\Veiculos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1300,7 +1301,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
-    <Folder Include="Views\Veiculo\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

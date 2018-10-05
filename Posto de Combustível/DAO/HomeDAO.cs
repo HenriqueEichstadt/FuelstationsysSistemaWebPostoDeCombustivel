@@ -1,4 +1,5 @@
 ﻿using Posto_de_Combustível.DAO;
+using Posto_De_Combustivel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,5 +27,32 @@ namespace Posto_de_Combustivel.DAO
 
             }
         }
+
+        public int SomaTotalDeClientes()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Clientes.Count();
+
+            }
+        }
+
+        public int QuantidadeDeProdutosCadastradosNoEstoque()
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Estoques.Count();
+
+            }
+        }
+
+        //public double BuscaGanhosSemanais()
+        //{
+        //    using (var contexto = new PostoContext())
+        //    {
+        //        return contexto.Vendas.Where(f => f.Data.AddDays(-7)).Sum(v => v.PrecoTotal);
+
+        //    }
+        //}
     }
 }

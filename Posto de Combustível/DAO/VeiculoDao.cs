@@ -38,5 +38,12 @@ namespace Posto_de_Combustivel.DAO
                     .ToList();
             }
         }
+        public IList<Veiculo> ListaVeiculos(Veiculo veiculo)
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Veiculos.ToList();
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Posto_De_Combustivel.Models
     public class Veiculo
     {
         public int Id { get; set; }
-        public Pessoa pessoa { get; set; }
+        public Pessoa Pessoa { get; set; }
         public int PessoaId { get; set; }
         [Required]
         public string TipoDeVeiculo { get; set; }

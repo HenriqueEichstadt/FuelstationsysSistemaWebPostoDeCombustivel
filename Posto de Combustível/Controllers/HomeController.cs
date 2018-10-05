@@ -40,5 +40,30 @@ namespace Posto_De_Combustivel.Controllers
                 data = new HomeDAO().SomaTotalDeVendas()
             }, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult SomaNumeroDeClientes()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().SomaTotalDeClientes()
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ProdutosCadastradosNoEstoque()
+        {
+            return Json(new
+            {
+                data = new HomeDAO().QuantidadeDeProdutosCadastradosNoEstoque()
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        //public JsonResult ExibeGanhosSemanais()
+        //{
+        //    return Json(new
+        //    {
+        //        data = new HomeDAO().BuscaGanhosSemanais()
+        //    }, JsonRequestBehavior.AllowGet);
+        //}
+
     }
 }
