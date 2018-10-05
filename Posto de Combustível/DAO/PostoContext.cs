@@ -37,7 +37,7 @@ namespace Posto_de_Combustível.DAO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PostoDB;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|PostoDB.mdf;Integrated Security=True");
         }
     }
 }

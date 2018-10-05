@@ -203,6 +203,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PostoDB.ldf">
+      <DependentUpon>PostoDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\PostoDB.mdf" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\DataTableCss\DataTables.css" />
     <Content Include="Content\javascript\ClientesDataTables.js" />
@@ -1309,7 +1313,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\TemplateADMIN\php\uploads\" />
   </ItemGroup>
   <ItemGroup>
