@@ -80,8 +80,27 @@ namespace Posto_de_Combustivel.Controllers
 			}, JsonRequestBehavior.AllowGet);
 		}
 
+        public JsonResult ListaClientesVenda()
+        {
+            var dao = new VeiculoDAO();
+            var data = new List<object>();
 
-		public ActionResult UpdateCliente(Cliente cliente)
+            foreach (var cliente in new ClienteDAO().ListaClientes())
+            {
+                data.Add(new
+                {
+                    cliente.Id,
+                    cliente.Pessoa.Nome,
+                    cliente.Pontos,
+                    dao.BuscaPorPessoa(cliente.Pessoa.Id).Placa
+                });
+            }
+
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult UpdateCliente(Cliente cliente)
 		{
 			ClienteDAO dao = new ClienteDAO();
 			var nome = Validacoes.ValidaNomePessoa(cliente.Pessoa.Nome);

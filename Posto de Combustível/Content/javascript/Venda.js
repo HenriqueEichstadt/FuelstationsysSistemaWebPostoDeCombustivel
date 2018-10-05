@@ -36,27 +36,27 @@ $(document).ready(function () {
     //Select2 para Clientes
     $.ajax({
         type: "GET",
-        url: "/Cliente/ListaClientes",
+        url: "/Cliente/ListaClientesVenda",
         data: { ListaClientes: $("#selectClientes").val() },
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (obj) {
             if (obj != null) {
-                var data = obj.data;
                 var selectbox = $('#selectClientes').select2({
                     placeholder: "Selecione um Cliente"
                 });
                 selectbox.find('option').remove();
                 $('<option>').val("").appendTo(selectbox);
-                $.each(data, function (i, d) {
-                    $('<option>').val(d.Id).text(d.Pessoa.Nome).appendTo(selectbox);
+                $.each(obj, function (i, d) {
+                    $('<option>').val(d.Id).text(d.Nome + "   -   " + d.Placa).appendTo(selectbox);
                     clientes.push({
                         Id: d.Id,
                         Pontos: d.Pontos
                     });
                 });
             }
-        }
+        },
+        
     });
 
     // Ocultar campo de quantidade quando seleciona o tipo de Produto

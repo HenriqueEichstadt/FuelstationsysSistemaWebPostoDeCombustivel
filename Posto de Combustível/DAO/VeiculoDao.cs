@@ -38,11 +38,19 @@ namespace Posto_de_Combustivel.DAO
                     .ToList();
             }
         }
-        public IList<Veiculo> ListaVeiculos(Veiculo veiculo)
+        public IList<Veiculo> ListaVeiculos()
         {
             using (var contexto = new PostoContext())
             {
                 return contexto.Veiculos.ToList();
+            }
+        }
+
+        public Veiculo BuscaPorPessoa(int id)
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Veiculos.Where(v => v.PessoaId == id).FirstOrDefault();
             }
         }
     }

@@ -16,11 +16,11 @@ namespace Posto_de_Combustivel.Controllers
             return View();
         }
 
-        public JsonResult ListaVeiculos(Veiculo veiculo)
+        public JsonResult ListaVeiculos()
         {
             return Json(new
             {
-                data = new VeiculoDAO().ListaVeiculos(veiculo)
+                data = new VeiculoDAO().ListaVeiculos()
             }, JsonRequestBehavior.AllowGet);
         }
     }
