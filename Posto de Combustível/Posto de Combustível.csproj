@@ -207,6 +207,7 @@
     <Content Include="Content\DataTableCss\DataTables.css" />
     <Content Include="Content\javascript\ClientesDataTables.js" />
     <Content Include="Content\javascript\EstoquesDataTables.js" />
+    <Content Include="Content\javascript\FornecedoresDataTables.js" />
     <Content Include="Content\javascript\Home.js" />
     <Content Include="Content\javascript\TemplateAdminScripts.js" />
     <Content Include="Content\javascript\Venda.js" />
@@ -1029,6 +1030,7 @@
     <Content Include="Content\Validacao\Estoque.js" />
     <Content Include="Content\Validacao\Fornecedor.js" />
     <Content Include="Content\Validacao\Funcionario.js" />
+    <Content Include="Content\Validacao\UpdateFornecedor.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\CadastroPessoa\bootstrap.css" />
     <Content Include="Content\TelaLogin\avatar.png" />

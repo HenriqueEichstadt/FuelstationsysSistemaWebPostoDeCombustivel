@@ -82,7 +82,15 @@ namespace Posto_de_Combustivel.Controllers
             FornecedorDAO dao = new FornecedorDAO();
             fornecedor.TipoPessoa = 'J';
             fornecedor.Data = DateTime.Now;
-            if (fornecedor != null)
+            var cnpj = Validacoes.ValidaCnpj(fornecedor.CpfeCnpj);
+            var nomeF = Validacoes.ValidaNomeFantasia(fornecedor.NomeFantasia);
+            var razSoc = Validacoes.ValidaNomeRazaoSocial(fornecedor.NomeRazaoSocial);
+            var insEst = Validacoes.ValidaInscricaoEstadual(fornecedor.InscricaoEstadual);
+            var telUm = Validacoes.ValidaTelefoneUm(fornecedor.TelefoneUm);
+            var telDois = Validacoes.ValidaTelefoneDois(fornecedor.TelefoneDois);
+            var email = Validacoes.ValidaEmail(fornecedor.Email);
+            if (fornecedor != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true 
+                && fornecedor.Endereco.Cidade != null)
             {
                 dao.Atualiza(fornecedor);
                 return RedirectToAction("Fornecedores", "Fornecedor");
