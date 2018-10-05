@@ -205,7 +205,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\DataTableCss\DataTables.css" />
+    <Content Include="Content\javascript\ClientesDataTables.js" />
     <Content Include="Content\javascript\Home.js" />
+    <Content Include="Content\javascript\TemplateAdminScripts.js" />
     <Content Include="Content\javascript\Venda.js" />
     <Content Include="Content\TemplateADMIN\appviews-file-manager.html" />
     <Content Include="Content\TemplateADMIN\appviews-inbox.html" />
@@ -1162,6 +1164,10 @@
     <Compile Include="Migrations\20181002195553_DoubleUnidadesVendaEstoque.cs" />
     <Compile Include="Migrations\20181002195553_DoubleUnidadesVendaEstoque.designer.cs">
       <DependentUpon>20181002195553_DoubleUnidadesVendaEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181005184651_VeiculoOpcional.cs" />
+    <Compile Include="Migrations\20181005184651_VeiculoOpcional.designer.cs">
+      <DependentUpon>20181005184651_VeiculoOpcional.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PostoContextModelSnapshot.cs" />
     <Compile Include="Models\Cliente.cs" />

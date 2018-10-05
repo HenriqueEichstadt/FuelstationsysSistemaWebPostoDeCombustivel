@@ -55,8 +55,10 @@ namespace Posto_de_Combustivel.Controllers
 			var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
 			var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
 			var procuracpf = dao.BuscaCPfCnpj(cliente.Pessoa.CpfeCnpj);
+            var veiculo = cliente.Pessoa.Veiculo;
+            var fabricante = veiculo.Fabricante;
 
-			if (procuracpf == null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+			if ( fabricante != null && veiculo != null && procuracpf == null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
 			{
 				if(procuracpf != null)
 				{
