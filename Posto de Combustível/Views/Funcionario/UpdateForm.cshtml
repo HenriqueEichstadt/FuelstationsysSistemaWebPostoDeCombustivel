@@ -30,11 +30,11 @@
                         <h3>Dados do Funcionário:</h3>
                     </div>
                 </div>
-              
-                   
-                        <input id="nomeproduto" readonly name="funcionario.Id" value="@ViewBag.Funcionario.Id" class="form-control input-md" type="hidden">
-                   
-                
+
+
+                <input id="nomeproduto" readonly name="funcionario.Id" value="@ViewBag.Funcionario.Id" class="form-control input-md" type="hidden">
+
+
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="nomeproduto">Id de Pessoa<h11></h11></label>
                     <div class="col-md-3">
@@ -241,13 +241,13 @@
 </div>
 
 @section body_scripts{
+    <script src="~/Content/javascript/TemplateAdminScripts.js"></script>
     <script src="~/Content/Validacao/Funcionario.js"></script>
-    <script src="~/Content/TemplateADMIN/assets/scripts/TemplateAdminScripts.js"></script>
     <script>
 
     $(function () {
         $("#Data").val("@data.ToString("yyyy-MM-dd")");
     });
     </script>
-    
+
 }

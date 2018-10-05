@@ -208,6 +208,7 @@
     <Content Include="Content\javascript\ClientesDataTables.js" />
     <Content Include="Content\javascript\EstoquesDataTables.js" />
     <Content Include="Content\javascript\FornecedoresDataTables.js" />
+    <Content Include="Content\javascript\FuncionariosDataTables.js" />
     <Content Include="Content\javascript\Home.js" />
     <Content Include="Content\javascript\TemplateAdminScripts.js" />
     <Content Include="Content\javascript\Venda.js" />
