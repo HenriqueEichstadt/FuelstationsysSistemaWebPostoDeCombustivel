@@ -32,7 +32,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Clientes.Count();
+                return contexto.Clientes.Where(c => c.Ativo == true).Count();
 
             }
         }
@@ -41,7 +41,7 @@ namespace Posto_de_Combustivel.DAO
         {
             using (var contexto = new PostoContext())
             {
-                return contexto.Estoques.Count();
+                return contexto.Estoques.Where(p => p.Ativo == true).Count();
 
             }
         }

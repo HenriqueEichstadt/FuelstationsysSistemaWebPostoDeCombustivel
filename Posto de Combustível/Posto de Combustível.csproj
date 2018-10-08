@@ -216,6 +216,10 @@
     <Content Include="Content\javascript\Home.js" />
     <Content Include="Content\javascript\TemplateAdminScripts.js" />
     <Content Include="Content\javascript\Venda.js" />
+    <Content Include="Content\TelaLogin\3.png" />
+    <Content Include="Content\TelaLogin\logo.png" />
+    <Content Include="Content\TelaLogin\logoo.png" />
+    <Content Include="Content\TelaLogin\logoo2.png" />
     <Content Include="Content\TemplateADMIN\appviews-file-manager.html" />
     <Content Include="Content\TemplateADMIN\appviews-inbox.html" />
     <Content Include="Content\TemplateADMIN\appviews-project-detail.html" />
@@ -294,6 +298,7 @@
     <Content Include="Content\TemplateADMIN\assets\scripts\jquery.vmap.sampledata.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\klorofilpro-common.min.js" />
+    <Content Include="Content\TemplateADMIN\assets\scripts\moment-with-locales.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\moment.js" />
     <Content Include="Content\TemplateADMIN\assets\scripts\TemplateAdminScripts.js" />
     <Content Include="Content\TemplateADMIN\assets\vendor\DataTablesSelect\dataTables.select.min.js" />

@@ -2,7 +2,7 @@
 <div class="main-content">
     <div class="content-heading clearfix">
         <div class="heading-left">
-            <h1 class="page-title">Menu</h1>
+            <h1 class="page-title">Home</h1>
             <p class="page-subtitle">Venda</p>
         </div>
         <ul class="breadcrumb">
@@ -87,6 +87,7 @@
                                 <th>Valor</th>
                                 <th>Quantidade</th>
                                 <th>Subtotal</th>
+                                <th>Troca por pontos</th>
                                 <th>Remover</th>
                             </tr>
                         </thead>
@@ -99,15 +100,19 @@
                     <div class="col-md-5 floatRigth margin-top-15">
                         <div class="input-group">
                             <span id="totaldaVendaEmPontosOuReais" class="input-group-addon">Total a pagar</span>
-                            <input id="totalAPagar" name="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
+                            <input id="totalAPagar" readonly name="" class="form-control" style="text-align-last:center;" placeholder="" type="text">
                             <input id="totalUnidades" class="form-control" type="hidden" />
-                            <input id="valorFinalDaVenda" class="form-control" type="hidden" />
+                            <input id="valorFinalDaVenda" type="hidden" class="form-control" type="hidden" />
+                        </div>
+                        <div class="input-group">
+                            <span id="totaldaVendaEmPontosOuReais" class="input-group-addon">Total na troca por pontos</span>
+                            <input id="valorFinalPontos" style="text-align-last:center;" readonly class="form-control" type="text"></input>
                         </div>
                     </div>
-                    <div class="col-md-5 floatLeft margin-top-15">
+                    <div class="col-md-3 floatLeft margin-top-15">
                         <div class="input-group">
                             <span class="input-group-addon">Pontos Do Cliente</span>
-                            <input id="totalPontosDoCliente" name="" class=" form-control col-md-10" style="text-align-last:center;" placeholder="" type="text">
+                            <input id="totalPontosDoCliente" disabled name="" class=" form-control col-md-10" style="text-align-last:center;" placeholder="" type="text">
                         </div>
                     </div>
                     </div>

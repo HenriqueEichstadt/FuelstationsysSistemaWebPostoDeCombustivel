@@ -64,5 +64,13 @@ namespace Posto_de_Combustivel.DAO
                 return contexto.Pessoas.FirstOrDefault();
             }
         }
+
+        public Pessoa BuscaCPfCnpj(string cpfECnpj)
+        {
+            using (var contexto = new PostoContext())
+            {
+                return contexto.Pessoas.Where(c => c.CpfeCnpj == cpfECnpj).FirstOrDefault();
+            }
+        }
     }
 }

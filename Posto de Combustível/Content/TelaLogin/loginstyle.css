@@ -6,6 +6,10 @@ body {
     font-family: sans-serif;
 }
 
+#logoPosto {
+    background: url(../TelaLogin/logoo2.png) 0 no-repeat;
+}
+
 .login-box {
     width: 320px;
     height: 420px;
@@ -30,7 +34,7 @@ body {
 
 h1 {
     margin: 0;
-    padding: 0 0 20px;
+    padding: 0 0 80px;
     text-align: center;
     font-size: 22px;
 }

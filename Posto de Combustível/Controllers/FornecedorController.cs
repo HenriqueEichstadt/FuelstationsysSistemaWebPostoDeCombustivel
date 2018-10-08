@@ -50,7 +50,8 @@ namespace Posto_de_Combustivel.Controllers
             var telUm = Validacoes.ValidaTelefoneUm(pessoa.TelefoneUm);
             var telDois = Validacoes.ValidaTelefoneDois(pessoa.TelefoneDois);
             var email = Validacoes.ValidaEmail(pessoa.Email);
-            if (pessoa != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true)
+            var procuracpf = dao.BuscaCPfCnpj(pessoa.CpfeCnpj);
+            if ( procuracpf == null && pessoa != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true)
             {
                 dao.Adiciona(pessoa);
                 // return Json(new { adicionou = true, msg = "nao adicionou" });

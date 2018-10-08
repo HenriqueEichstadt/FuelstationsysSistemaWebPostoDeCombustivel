@@ -44,7 +44,7 @@ namespace Posto_de_Combustivel.App_Start
                       "~/Content/TemplateADMIN/assets/vendor/datatables/js-main/jquery.dataTables.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/JQueryMask/jquery.mask.min.js",
                       "~/Content/TemplateADMIN/assets/vendor/ValidateJquery/jquery.validate.min.js",
-                      "~/Content/TemplateADMIN/assets/scripts/moment.js",
+                      "~/Content/TemplateADMIN/assets/scripts/moment-with-locales.js",
                       "~/Content/TemplateADMIN/assets/vendor/DataTablesSelect/dataTables.select.min.js",
                       "~/Content/TemplateADMIN/assets/css/select2/select2.min.js"));
 

@@ -94,7 +94,7 @@ $(document).ready(function () {
         $("#totalPontosDoCliente").val(pontosDoCliente + "  Pontos");
     });
 
-    // Muda input para pontos se for por troca de pontos
+    // Muda input para pontos se for por troca de pontos               ARRUMAR AQUI
     $("#formaDePagamento").change(function () {
         var formaSelecionada = $("#formaDePagamento").val();
         if (formaSelecionada == '3') {
@@ -121,6 +121,7 @@ $(document).ready(function () {
         produto.PrecoVenda = $("#valor").val();
         produto.precoSelecionado = produto.PrecoVenda;
         produtoSelecionado = produto.PrecoVenda;
+
 
         if (dadosProduto.Categoria == "P") {
 
@@ -161,10 +162,12 @@ $(document).ready(function () {
             var calculoQtd = produto.valorSelecionadoDeCombustivel / produto.PrecoVenda;
             produto.Quantidade = Number.parseFloat(calculoQtd).toFixed(3);
             produto.precoSubtotal = Number.parseFloat(produto.valorSelecionadoDeCombustivel);
+            produto.totalTrocaPorPontos = produto.valorSelecionadoDeCombustivel;
         }
         else {
             produto.Quantidade = Number.parseFloat($("#quantidade").val());
             produto.precoSubtotal = produto.Quantidade * produto.PrecoVenda;
+            produto.totalTrocaPorPontos = produto.precoSubtotal;
         }
 
         // Botão para remover o produto na linha
@@ -192,6 +195,8 @@ $(document).ready(function () {
                 $("<td>").text(Number.parseFloat(produto.Quantidade).toFixed(2).replace(".", ","))
             ).append(
                 $("<td>").text("R$" + Number.parseFloat(produto.precoSubtotal).toFixed(2).replace(".", ","))
+            ).append(
+                $("<td>").text(produto.totalTrocaPorPontos * 100)
             ).append(
                 $("<td>").html(botaoRemoverProduto))
         );
@@ -285,6 +290,7 @@ var produto = {
     Quantidade: 0,
     precoSubtotal: 0,
     precoSelecionado: 0,
+    totalTrocaPorPontos: 0,
     valorSelecionadoDeCombustivel: 0
 };
 
@@ -312,6 +318,7 @@ function AtualizaValoresDaQuantidadeEDoPreco() {
     }
     $("#totalUnidades").val(somaUnidades);
     $("#valorFinalDaVenda").val(Number.parseFloat(somaValores));
+    $("#valorFinalPontos").val(somaValores * 100 + "  Pontos");
 }
 
 // function para limpar os campos de unidades e valortotal
@@ -332,6 +339,11 @@ function LimpaVenda() {
 	$("#totalUnidades").val("");
 	$("#valorFinalDaVenda").val("");
     $("#totalPontosDoCliente").val("");
+    $("#MyTable tbody tr").remove();
+    $("#valorFinalPontos").val("");
+    $("#select2-formaDePagamento-container").remove();
+    $("#select2-selectClientes-container").remove();
+    $("#select2-selectProdutos-container").remove();
     produtos = [];
 	clientes = [];
 	arrayDeVendaEstoque = [];

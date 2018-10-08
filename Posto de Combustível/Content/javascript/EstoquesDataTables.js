@@ -1,5 +1,6 @@
 ﻿
 $(document).ready(function () {
+    moment.locale("pt-br");
     var tabela = $('#MyEstoque').DataTable({
         dom: 'Blftip',
         select: { style: 'single' },
@@ -83,10 +84,11 @@ $(document).ready(function () {
             {
                 "data": "Validade", "autoWidth": true,
                 render: function (data, row) {
-                    return moment(row.Validade).format("DD/MM/YYYY");
+                    return moment(row.Validade).format('L');
+
                 }
             },
-            {
+           S {
                 "data": "TrocaPontosFidelidade", "autoWidth": true,
                 render: function (data, type, row) {
                     if (row.TrocaPontosFidelidade == null) {
