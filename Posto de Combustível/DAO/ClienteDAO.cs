@@ -16,7 +16,6 @@ namespace Posto_de_Combustivel.DAO
             {
                 context.Clientes.Add(cliente);
                 context.SaveChanges();
-                // return cliente.Id;
             }
         }
 

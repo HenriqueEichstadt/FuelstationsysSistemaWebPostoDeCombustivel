@@ -19,7 +19,7 @@ function meu_callback(conteudo) {
     else {
         //CEP não Encontrado.
         limpa_formulario_cep();
-        alert("CEP não encontrado.");
+        $.notify("CEP não encontrado.");
         document.getElementById('cep').value = ("");
     }
 }
@@ -57,7 +57,7 @@ function pesquisacep(valor) {
         else {
             //cep é inválido.
             limpa_formulario_cep();
-            alert("Formato de CEP inválido.");
+            $.notify("Formato de CEP inválido.");
         }
     } //end if.
     else {
