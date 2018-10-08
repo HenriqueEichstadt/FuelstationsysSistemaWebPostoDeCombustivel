@@ -88,7 +88,7 @@ $(document).ready(function () {
 
                 }
             },
-           S {
+            {
                 "data": "TrocaPontosFidelidade", "autoWidth": true,
                 render: function (data, type, row) {
                     if (row.TrocaPontosFidelidade == null) {

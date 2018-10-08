@@ -51,7 +51,16 @@ namespace Posto_de_Combustivel.Controllers
             var telDois = Validacoes.ValidaTelefoneDois(pessoa.TelefoneDois);
             var email = Validacoes.ValidaEmail(pessoa.Email);
             var procuracpf = dao.BuscaCPfCnpj(pessoa.CpfeCnpj);
-            if ( procuracpf == null && pessoa != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true)
+            var rua = pessoa.Endereco.Rua;
+            var num = pessoa.Endereco.Numero;
+            var bairro = pessoa.Endereco.Bairro;
+            var estado = pessoa.Endereco.Estado;
+            var cidade = pessoa.Endereco.Cidade;
+            var cep = pessoa.Endereco.Cep;
+
+            if ( procuracpf == null && pessoa != null && cnpj == true && nomeF == true && razSoc == true &&
+                insEst == true && telUm == true && telDois == true && email == true && rua != null && num != null &&
+                bairro != null && estado != null && cidade != null && cep != null)
             {
                 dao.Adiciona(pessoa);
                 // return Json(new { adicionou = true, msg = "nao adicionou" });
@@ -90,8 +99,14 @@ namespace Posto_de_Combustivel.Controllers
             var telUm = Validacoes.ValidaTelefoneUm(fornecedor.TelefoneUm);
             var telDois = Validacoes.ValidaTelefoneDois(fornecedor.TelefoneDois);
             var email = Validacoes.ValidaEmail(fornecedor.Email);
+            var rua = fornecedor.Endereco.Rua;
+            var num = fornecedor.Endereco.Numero;
+            var bairro = fornecedor.Endereco.Bairro;
+            var estado = fornecedor.Endereco.Estado;
+            var cidade = fornecedor.Endereco.Cidade;
+            var cep = fornecedor.Endereco.Cep;
             if (fornecedor != null && cnpj == true && nomeF == true && razSoc == true && insEst == true && telUm == true && telDois == true && email == true 
-                && fornecedor.Endereco.Cidade != null)
+                && fornecedor.Endereco.Cidade != null && rua != null && num != null && bairro != null && estado != null && cidade != null && cep != null)
             {
                 dao.Atualiza(fornecedor);
                 return RedirectToAction("Fornecedores", "Fornecedor");

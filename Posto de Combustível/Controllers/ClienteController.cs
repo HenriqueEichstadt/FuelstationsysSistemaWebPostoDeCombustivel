@@ -57,8 +57,16 @@ namespace Posto_de_Combustivel.Controllers
 			var procuracpf = dao.BuscaCPfCnpj(cliente.Pessoa.CpfeCnpj);
             var veiculo = cliente.Pessoa.Veiculo;
             var fabricante = veiculo.Fabricante;
+            var rua = cliente.Pessoa.Endereco.Rua;
+            var num = cliente.Pessoa.Endereco.Numero;
+            var bairro = cliente.Pessoa.Endereco.Bairro;
+            var estado = cliente.Pessoa.Endereco.Estado;
+            var cidade = cliente.Pessoa.Endereco.Cidade;
+            var cep = cliente.Pessoa.Endereco.Cep;
 
-			if ( fabricante != null && veiculo != null && procuracpf == null && gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+
+            if ( fabricante != null && veiculo != null && procuracpf == null && gen != null && nome == true && rg == true && cpf == true &&
+                idade == true && email == true && telUm == true && telDois == true && rua != null && num != null && bairro != null && estado != null && cidade != null && cep != null)
 			{
 				if(procuracpf != null)
 				{
@@ -113,8 +121,17 @@ namespace Posto_de_Combustivel.Controllers
 			var email = Validacoes.ValidaEmail(cliente.Pessoa.Email);
 			var telUm = Validacoes.ValidaTelefoneUm(cliente.Pessoa.TelefoneUm);
 			var telDois = Validacoes.ValidaTelefoneDois(cliente.Pessoa.TelefoneDois);
+            var veiculo = cliente.Pessoa.Veiculo;
+            var fabricante = veiculo.Fabricante;
+            var rua = cliente.Pessoa.Endereco.Rua;
+            var num = cliente.Pessoa.Endereco.Numero;
+            var bairro = cliente.Pessoa.Endereco.Bairro;
+            var estado = cliente.Pessoa.Endereco.Estado;
+            var cidade = cliente.Pessoa.Endereco.Cidade;
+            var cep = cliente.Pessoa.Endereco.Cep;
 
-			if (gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true && telDois == true)
+            if (gen != null && nome == true && rg == true && cpf == true && idade == true && email == true && telUm == true &&
+                telDois == true && rua != null && num != null && bairro != null && estado != null && cidade != null && cep != null)
 			{
 				cliente.Ativo = true;
 				cliente.Pessoa.TipoPessoa = 'F';

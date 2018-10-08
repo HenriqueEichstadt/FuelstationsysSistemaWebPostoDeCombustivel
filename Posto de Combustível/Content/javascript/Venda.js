@@ -94,19 +94,6 @@ $(document).ready(function () {
         $("#totalPontosDoCliente").val(pontosDoCliente + "  Pontos");
     });
 
-    // Muda input para pontos se for por troca de pontos               ARRUMAR AQUI
-    $("#formaDePagamento").change(function () {
-        var formaSelecionada = $("#formaDePagamento").val();
-        if (formaSelecionada == '3') {
-            $("#totaldaVendaEmPontosOuReais").text("Troca por Pontos");
-            //$("#totalAPagar").val(Number.parseFloat(somaValores * 100).toFixed(2).replace(".", ","));    
-        }
-        else {
-            $("#totaldaVendaEmPontosOuReais").text("Total a pagar");
-            //$("#totalAPagar").val("R$ " + Number.parseFloat(somaValores).toFixed(2).replace(".", ","));
-
-        }
-    });
 
     // Adiciona o Produto na Tabela
     $("#adicionaProdutoNaTabela").click(function (event) {
@@ -351,7 +338,6 @@ function LimpaVenda() {
 	dadosProduto = "";
 	dadosCliente = "";
     valorTotalQuePodeAdicionar = "";
-
 
 }
 
