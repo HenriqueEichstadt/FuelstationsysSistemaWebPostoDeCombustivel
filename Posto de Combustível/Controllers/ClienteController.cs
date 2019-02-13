@@ -37,6 +37,7 @@ namespace Posto_de_Combustivel.Controllers
 		{
 			ClienteDAO dao = new ClienteDAO();
 			ViewBag.Cliente = dao.BuscaPorId(id);
+
 			return View();
 		}
 

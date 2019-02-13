@@ -22,17 +22,18 @@ namespace Posto_De_Combustivel.Controllers
         [AutorizacaoFilter]
         public ActionResult MenuPrincipal()
         {
-            ViewBag.Funcionario = new Funcionario() { Pessoa = new Pessoa() { Endereco = new Endereco() } };
+            ViewBag.Funcionario = new Funcionario() {Pessoa = new Pessoa() {Endereco = new Endereco()}};
             return View();
         }
 
-		public JsonResult ListaPrecoTotalVendas()
-		{
+        public JsonResult ListaPrecoTotalVendas()
+        {
             return Json(new
             {
                 data = new HomeDAO().SomaPrecoTotalVendas()
-			}, JsonRequestBehavior.AllowGet);
-		}
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult SomaNumeroTotaDeVendas()
         {
             return Json(new
